@@ -9,9 +9,13 @@ import type { RenderOptions, RenderResult } from './types.js';
 
 // External dependencies
 import { convert } from 'html-to-text';
-import { minify } from 'html-minifier';
+import pretty from 'pretty';
 import mjml2html from 'mjml';
 import { render } from 'svelte/server';
+
+// TODO: Investigate a better way to handle this
+// Dynamically import minify for ESM compatibility
+const minify = await import('html-minifier').then((m) => m.minify);
 
 // Internal dependencies
 import {
@@ -24,10 +28,6 @@ import { RenderError } from './errors.js';
 // Constants
 const MJML_REGEX = /<mjml[\s\S]*?<\/mjml>/;
 const COMMENTS_REGEX = /<!--[\s\S]*?-->/g;
-
-// TODO: Investigate if this can be done without dynamic imports
-// Dynamic imports for ESM compatibility
-const pretty = await import('pretty').then((m) => m.default);
 
 /**
  * Renders a Svelte component as an email template
