@@ -11,7 +11,6 @@ import type { RenderOptions, RenderResult } from './types.js';
 import { convert } from 'html-to-text';
 import { minify } from 'html-minifier';
 import mjml2html from 'mjml';
-import pretty from 'pretty';
 import { render } from 'svelte/server';
 
 // Internal dependencies
@@ -25,6 +24,10 @@ import { RenderError } from './errors.js';
 // Constants
 const MJML_REGEX = /<mjml[\s\S]*?<\/mjml>/;
 const COMMENTS_REGEX = /<!--[\s\S]*?-->/g;
+
+// TODO: Investigate if this can be done without dynamic imports
+// Dynamic imports for ESM compatibility
+const pretty = await import('pretty').then((m) => m.default);
 
 /**
  * Renders a Svelte component as an email template
