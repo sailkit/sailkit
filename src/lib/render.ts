@@ -9,7 +9,8 @@ import type { RenderOptions, RenderResult } from './types.js';
 
 // External dependencies
 import { render } from 'svelte/server';
-import { mjml2html, minify } from '$lib/utils/core.js';
+import mjml2html from 'mjml';
+import { minify } from 'html-minifier';
 import { convert } from 'html-to-text';
 import pretty from 'pretty';
 

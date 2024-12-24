@@ -50,7 +50,9 @@
 	},
 	"peerDependencies": {
 		"@sveltejs/kit": "^2.0.0",
-		"svelte": "^5.0.0"
+		"svelte": "^5.0.0",
+		"mjml": "^4.0.0",
+		"html-minifier": "^4.0.0"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",
