@@ -2,13 +2,7 @@ import type { RenderOptions } from './types.js';
 
 export const DEFAULT_RENDER_OPTIONS: RenderOptions = {
 	plainText: true,
-	beautify: true,
-	minify: {
-		collapseWhitespace: true,
-		minifyCss: true,
-		removeEmptyAttributes: true,
-		removeComments: true
-	}
+	beautify: true
 };
 
 export const DEFAULT_MJML_OPTIONS = {

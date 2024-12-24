@@ -2,13 +2,6 @@
 export interface RenderMJMLOptions {
 	/** beautify the HTML output */
 	beautify?: boolean;
-	/** minify the HTML output */
-	minify?: {
-		collapseWhitespace?: boolean;
-		minifyCss?: boolean;
-		removeEmptyAttributes?: boolean;
-		removeComments?: boolean;
-	};
 }
 
 /** Options for rendering email components */

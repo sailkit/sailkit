@@ -93,20 +93,10 @@ SailKit exposes two primary functions: `renderEmail` and `previewEmail`.
 
 Configure the rendering process with these options:
 
-| **Option**  | **Type** | **Default** | **Description**                                               |
-| ----------- | -------- | ----------- | ------------------------------------------------------------- |
-| `plainText` | boolean  | `true`      | Whether to generate a plain-text version of the email.        |
-| `beautify`  | boolean  | `true`      | Whether to beautify the HTML output.                          |
-| `minify`    | object   | `-`         | Options for HTML minification. See [Minify Options](#minify). |
-
-#### Minify Options
-
-| **Option**              | **Type** | **Default** | **Description**                  |
-| ----------------------- | -------- | ----------- | -------------------------------- |
-| `collapseWhitespace`    | boolean  | `true`      | Collapse unnecessary whitespace. |
-| `minifyCSS`             | boolean  | `true`      | Minify inline and embedded CSS.  |
-| `removeEmptyAttributes` | boolean  | `true`      | Remove empty HTML attributes.    |
-| `removeComments`        | boolean  | `true`      | Remove HTML comments.            |
+| **Option**  | **Type** | **Default** | **Description**                                        |
+| ----------- | -------- | ----------- | ------------------------------------------------------ |
+| `plainText` | boolean  | `true`      | Whether to generate a plain-text version of the email. |
+| `beautify`  | boolean  | `true`      | Whether to beautify the HTML output.                   |
 
 ### Components
 

@@ -76,9 +76,7 @@
 		"vitest": "^2.1.8"
 	},
 	"dependencies": {
-		"cssnano": "^7.0.6",
 		"html-to-text": "^9.0.5",
-		"htmlnano": "^2.1.1",
 		"mjml": "^4.15.3",
 		"pretty": "^2.0.0",
 		"svelte": "^5.15.0"
