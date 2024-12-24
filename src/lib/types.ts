@@ -5,7 +5,7 @@ export interface RenderMJMLOptions {
 	/** minify the HTML output */
 	minify?: {
 		collapseWhitespace?: boolean;
-		minifyCSS?: boolean;
+		minifyCss?: boolean;
 		removeEmptyAttributes?: boolean;
 		removeComments?: boolean;
 	};

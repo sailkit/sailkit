@@ -10,8 +10,9 @@ import type { RenderOptions, RenderResult } from './types.js';
 // External dependencies
 import { render } from 'svelte/server';
 import mjml2html from 'mjml';
-import { minify } from 'html-minifier';
+// import { minify } from 'html-minifier';
 import { convert } from 'html-to-text';
+import htmlnano from 'htmlnano';
 import pretty from 'pretty';
 
 // Internal dependencies
@@ -138,7 +139,9 @@ async function postProcessHTML(html: string, options: RenderOptions): Promise<st
 	}
 
 	if (options.minify) {
-		processed = minify(processed, options.minify);
+		processed = await htmlnano
+			.process(processed, options.minify, htmlnano.presets.safe)
+			.then((result: any) => result.html);
 	}
 
 	return processed;

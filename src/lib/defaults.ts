@@ -5,7 +5,7 @@ export const DEFAULT_RENDER_OPTIONS: RenderOptions = {
 	beautify: true,
 	minify: {
 		collapseWhitespace: true,
-		minifyCSS: true,
+		minifyCss: true,
 		removeEmptyAttributes: true,
 		removeComments: true
 	}

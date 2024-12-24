@@ -50,16 +50,14 @@
 	},
 	"peerDependencies": {
 		"@sveltejs/kit": "^2.0.0",
-		"svelte": "^5.0.0",
 		"mjml": "^4.0.0",
-		"html-minifier": "^4.0.0"
+		"svelte": "^5.0.0"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.15.0",
 		"@sveltejs/package": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^5.0.3",
-		"@types/html-minifier": "^4.0.5",
 		"@types/html-to-text": "^9.0.4",
 		"@types/mjml": "^4.7.4",
 		"@types/pretty": "^2.0.3",
@@ -78,8 +76,9 @@
 		"vitest": "^2.1.8"
 	},
 	"dependencies": {
-		"html-minifier": "^4.0.0",
+		"cssnano": "^7.0.6",
 		"html-to-text": "^9.0.5",
+		"htmlnano": "^2.1.1",
 		"mjml": "^4.15.3",
 		"pretty": "^2.0.0",
 		"svelte": "^5.15.0"

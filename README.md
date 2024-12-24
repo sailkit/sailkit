@@ -26,7 +26,7 @@ Email is notoriously challenging. Crafting responsive, visually consistent email
 ## Getting Started
 
 ```bash
-npm install sailkit mjml html-minifier
+npm install sailkit mjml
 ```
 
 ### Basic Example
