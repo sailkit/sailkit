@@ -5,6 +5,12 @@ Headlines: Added, Changed, Deprecated, Removed, Fixed, Security
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.5] - 2024-12-24
+
+### Changes
+
+- Infrastructure: added `mjml` & `html-minifier` as peer dependecies (temp)
+
 ## [0.1.4] - 2024-12-24
 
 ### Fixed
