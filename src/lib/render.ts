@@ -8,14 +8,10 @@ import type { Component, ComponentProps } from 'svelte';
 import type { RenderOptions, RenderResult } from './types.js';
 
 // External dependencies
+import { render } from 'svelte/server';
+import { mjml2html, minify } from '$lib/utils/core.js';
 import { convert } from 'html-to-text';
 import pretty from 'pretty';
-import mjml2html from 'mjml';
-import { render } from 'svelte/server';
-
-// TODO: Investigate a better way to handle this
-// Dynamically import minify for ESM compatibility
-const minify = await import('html-minifier').then((m) => m.minify);
 
 // Internal dependencies
 import {
