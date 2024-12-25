@@ -7,7 +7,17 @@ export interface RenderMJMLOptions {
 /** Options for rendering email components */
 export interface RenderOptions extends RenderMJMLOptions, PlainTextOptions {
 	/** Convert to plain text */
-	plainText?: boolean | PlainTextOptions;
+	plainText?: boolean;
+	/** Minify HTML output */
+	minify?: boolean;
+}
+
+/** Option for Minfiying HTML output */
+export interface MinifyOptions {
+	collapseWhitespace?: boolean;
+	removeComments?: boolean;
+	minifyCSS?: boolean;
+	removeEmptyAttributes?: boolean;
 }
 
 /** Options for generating plain text from HTML */

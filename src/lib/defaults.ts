@@ -2,13 +2,21 @@ import type { RenderOptions } from './types.js';
 
 export const DEFAULT_RENDER_OPTIONS: RenderOptions = {
 	plainText: true,
-	beautify: true
+	beautify: true,
+	minify: true
 };
 
 export const DEFAULT_MJML_OPTIONS = {
 	validationLevel: 'strict' as const,
 	minify: false,
 	beautify: false
+};
+
+export const DEFAULT_MINIFY_OPTIONS = {
+	collapseWhitespace: true,
+	removeComments: true,
+	minifyCSS: true,
+	removeEmptyAttributes: true
 };
 
 export const DEFAULT_PLAIN_TEXT_OPTIONS = {

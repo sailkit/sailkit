@@ -10,11 +10,13 @@ import type { RenderOptions, RenderResult } from './types.js';
 // External dependencies
 import { render } from 'svelte/server';
 import mjml2html from 'mjml';
+import { minify } from 'html-minifier-terser';
 import { convert } from 'html-to-text';
 import pretty from 'pretty';
 
 // Internal dependencies
 import {
+	DEFAULT_MINIFY_OPTIONS,
 	DEFAULT_MJML_OPTIONS,
 	DEFAULT_PLAIN_TEXT_OPTIONS,
 	DEFAULT_RENDER_OPTIONS
@@ -134,6 +136,10 @@ async function postProcessHTML(html: string, options: RenderOptions): Promise<st
 
 	if (options.beautify) {
 		processed = pretty(processed);
+	}
+
+	if (options.minify) {
+		processed = await minify(processed, DEFAULT_MINIFY_OPTIONS);
 	}
 
 	return processed;

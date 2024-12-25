@@ -97,6 +97,7 @@ Configure the rendering process with these options:
 | ----------- | -------- | ----------- | ------------------------------------------------------ |
 | `plainText` | boolean  | `true`      | Whether to generate a plain-text version of the email. |
 | `beautify`  | boolean  | `true`      | Whether to beautify the HTML output.                   |
+| `minify`    | boolean  | `true`      | Whether to minify the HTML output.                     |
 
 ### Components
 

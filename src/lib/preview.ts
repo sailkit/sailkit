@@ -77,7 +77,8 @@ export async function renderComponentForPreview<Props extends ComponentProps<Com
 	try {
 		return await renderComponentAsEmailTemplate(component, props, {
 			plainText: options?.plainText ?? DEFAULT_RENDER_OPTIONS.plainText,
-			beautify: options?.beautify ?? DEFAULT_RENDER_OPTIONS.beautify
+			beautify: options?.beautify ?? DEFAULT_RENDER_OPTIONS.beautify,
+			minify: options.minify ?? DEFAULT_RENDER_OPTIONS.minify
 		});
 	} catch (error) {
 		throw new RenderError('Preview render failed', error instanceof Error ? error : undefined);
