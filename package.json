@@ -66,6 +66,7 @@
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.46.1",
 		"globals": "^15.14.0",
+		"mjml": "^4.15.3",
 		"prettier": "^3.4.2",
 		"prettier-plugin-svelte": "^3.2.6",
 		"publint": "^0.2.0",
@@ -77,9 +78,7 @@
 	},
 	"dependencies": {
 		"html-to-text": "^9.0.5",
-		"mjml": "^4.15.3",
-		"pretty": "^2.0.0",
-		"svelte": "^5.15.0"
+		"pretty": "^2.0.0"
 	},
 	"license": "MIT"
 }
