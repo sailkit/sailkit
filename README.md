@@ -12,7 +12,7 @@ It provides a set of Svelte 5 primitives and utilities to help you create optimi
 
 ## Why SailKit?
 
-Email is notoriously challenging. Crafting responsive, visually consistent emails across various email clients and devices is not a trivial task. SailKit simplifies this process by:
+Email is notoriously challenging. crafting responsive, visually consistent emails across various email clients and devices is not a trivial task. SailKit simplifies this process by:
 
 - Offering a clean and intuitive API for composing, rendering, and previewing email templates.
 - Providing Svelte 5 primitives that feel natural and ergonomic to use.
@@ -72,11 +72,11 @@ SailKit exposes two primary functions: `renderEmail` and `previewEmail`.
 
 `renderEmail` converts a Svelte 5 component into email-optimized HTML. It also generates a plain-text version and metadata by default.
 
-| **Option**  | **Type**           | **Default** | **Description**                      |
-| ----------- | ------------------ | ----------- | ------------------------------------ |
-| `component` | `Svelte Component` | `-`         | The Svelte component to render.      |
-| `props`     | `Props`            | `-`         | The component's input properties.    |
-| `options`   | `RenderOptions`    | `-`         | Configuration options for rendering. |
+| **Option**  | **Type**           | **Default** | **Description**                        |
+| ----------- | ------------------ | ----------- | -------------------------------------- |
+| `component` | `Svelte Component` | `-`         | The Svelte component to render.        |
+| `props`     | `Props`            | `-`         | The component's input properties.      |
+| `options`   | `RenderOptions`    | `-`         | See [Render Options](#render-options). |
 
 #### previewEmail
 
