@@ -55,7 +55,7 @@
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",
-		"@sveltejs/kit": "^2.15.0",
+		"@sveltejs/kit": "^2.15.1",
 		"@sveltejs/package": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^5.0.3",
 		"@types/html-minifier-terser": "^7.0.2",
@@ -74,7 +74,7 @@
 		"svelte-check": "^4.1.1",
 		"typescript": "^5.0.0",
 		"typescript-eslint": "^8.18.2",
-		"vite": "^6.0.5",
+		"vite": "^6.0.6",
 		"vitest": "^2.1.8"
 	},
 	"dependencies": {
