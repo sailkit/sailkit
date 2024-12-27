@@ -26,42 +26,6 @@
 	 * </Button>
 	 * ```
 	 *
-	 * @typedef {Object} Props
-	 * @property {Snippet} [children] - The content to be rendered within the button
-	 * @property {'left'|'center'|'right'} [align="center"] - Horizontal alignment of the button
-	 * @property {string} [backgroundColor="#414141"] - Background color of the button
-	 * @property {string} [border="none"] - CSS border shorthand for all sides
-	 * @property {string} [borderBottom] - Bottom border style
-	 * @property {string} [borderLeft] - Left border style
-	 * @property {string} [borderRadius="3px"] - Border radius for all corners
-	 * @property {string} [borderRight] - Right border style
-	 * @property {string} [borderTop] - Top border style
-	 * @property {string} [class] - CSS class names to apply, defined in the Head component's styles
-	 * @property {string} [color="#ffffff"] - Text color of the button
-	 * @property {string} [containerBackgroundColor] - Background color of the button container
-	 * @property {string} [fontFamily="Ubuntu, Helvetica, Arial, sans-serif"] - Font family for button text
-	 * @property {string} [fontSize="13px"] - Font size of the button text
-	 * @property {'normal'|'italic'|'oblique'} [fontStyle] - Font style of the button text
-	 * @property {number|'normal'|'bold'} [fontWeight="normal"] - Font weight of the button text
-	 * @property {string} [height] - Fixed height of the button
-	 * @property {string} [href] - URL the button links to
-	 * @property {string} [innerPadding="10px 25px"] - Inner padding of the button
-	 * @property {string} [letterSpacing] - Letter spacing of the button text
-	 * @property {string} [lineHeight="120%"] - Line height of the button text
-	 * @property {string} [padding="10px 25px"] - Padding around the button
-	 * @property {string} [paddingBottom] - Bottom padding
-	 * @property {string} [paddingLeft] - Left padding
-	 * @property {string} [paddingRight] - Right padding
-	 * @property {string} [paddingTop] - Top padding
-	 * @property {string} [rel] - Relationship attribute for the link
-	 * @property {'_blank'|'_self'|'_parent'|'_top'} [target="_blank"] - Target attribute for the link
-	 * @property {'left'|'center'|'right'} [textAlign] - Text alignment within the button
-	 * @property {'underline'|'overline'|'none'} [textDecoration="none"] - Text decoration style
-	 * @property {'capitalize'|'uppercase'|'lowercase'} [textTransform] - Text transformation
-	 * @property {string} [title] - Title attribute for the button
-	 * @property {'top'|'middle'|'bottom'} [verticalAlign="middle"] - Vertical alignment of the button
-	 * @property {string} [width] - Fixed width of the button
-	 *
 	 * @remarks
 	 * The Button component is designed for optimal email client compatibility.
 	 * It renders as an HTML link styled as a button, which ensures clickability
@@ -76,38 +40,71 @@
 
 	interface Props {
 		children?: Snippet;
+		/** Horizontal alignment of the button (default: center) */
 		align?: 'left' | 'center' | 'right';
+		/** Background color of the button (default: #414141) */
 		backgroundColor?: Properties['backgroundColor'];
+		/** Border shorthand for all sides */
 		border?: Properties['border'];
+		/** Bottom border style */
 		borderBottom?: Properties['borderBottom'];
+		/** Left border style */
 		borderLeft?: Properties['borderLeft'];
+		/** Border radius for corners (default: 3px) */
 		borderRadius?: Properties['borderRadius'];
+		/** Right border style */
 		borderRight?: Properties['borderRight'];
+		/** Top border style */
 		borderTop?: Properties['borderTop'];
+		/** CSS class name(s) that correspond to styles defined in the Head component's styles prop. */
 		class?: string;
+		/** Text color (default: #ffffff) */
 		color?: Properties['color'];
+		/** Background color of the button container (default: #414141) */
 		containerBackgroundColor?: Properties['backgroundColor'];
+		/** Font family for button text (default: Ubuntu, Helvetica, Arial, sans-serif) */
 		fontFamily?: Properties['fontFamily'];
+		/** Font size for button text (default: 13px) */
 		fontSize?: DefaultUnits['fontSize'];
+		/** Font style for button text (default: normal) */
 		fontStyle?: 'normal' | 'italic' | 'oblique';
+		/** Font weight for button text (default: normal) */
 		fontWeight?: number | 'normal' | 'bold';
+		/** Fixed height of the button (default: 30px) */
 		height?: DefaultUnits['height'];
+		/** URL the button links to */
 		href?: string;
+		/** Inner padding for button (default: 10px 25px) */
 		innerPadding?: Properties['padding'];
+		/** Letter spacing for button text (default: 0) */
 		letterSpacing?: DefaultUnits['letterSpacing'];
+		/** Line height for button text (default: 120%) */
 		lineHeight?: DefaultUnits['lineHeight'];
+		/** Padding around the button (default: 10px 25px) */
 		padding?: Properties['padding'];
+		/** Bottom padding */
 		paddingBottom?: DefaultUnits['paddingBottom'];
+		/** Left padding */
 		paddingLeft?: DefaultUnits['paddingLeft'];
+		/** Right padding */
 		paddingRight?: DefaultUnits['paddingRight'];
+		/** Top padding */
 		paddingTop?: DefaultUnits['paddingTop'];
+		/** Relationship attribute for the link */
 		rel?: string;
+		/** Target attribute for the link (default: _blank) */
 		target?: '_blank' | '_self' | '_parent' | '_top';
+		/** Text alignment within the button (default: center) */
 		textAlign?: 'left' | 'center' | 'right';
+		/** Text decoration style (default: none) */
 		textDecoration?: 'underline' | 'overline' | 'none';
+		/** Text transformation (default: none) */
 		textTransform?: 'capitalize' | 'uppercase' | 'lowercase';
+		/** Title attribute for the button */
 		title?: string;
+		/** Vertical alignment of the button (default: middle) */
 		verticalAlign?: 'top' | 'middle' | 'bottom';
+		/** Fixed width of the button */
 		width?: DefaultUnits['width'];
 	}
 

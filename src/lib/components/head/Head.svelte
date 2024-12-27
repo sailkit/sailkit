@@ -41,19 +41,6 @@
 	 * />
 	 * ```
 	 *
-	 * @typedef {Object} Props
-	 * @property {string} subject - The email subject line. This will appear in email clients'
-	 *                             subject field.
-	 * @property {string} [preview] - Optional preview text that appears in email clients'
-	 *                               preview/snippet area. If not provided, email clients may
-	 *                               use the first text content from the email body.
-	 * @property {{name: string, href: string}[]} [fonts] - Array of custom fonts to be included
-	 *                                                      in the email. Each font requires a name
-	 *                                                      and a URL to its source.
-	 * @property {string} [breakpoint] - The width (in pixels) at which the email switches from
-	 *                                  desktop to mobile layout.
-	 * @property {Styles[]} [styles] - Array of style definitions for the email template.
-	 *
 	 * @remarks
 	 * The Head component should be used once per email template and placed before any content
 	 * components. It's crucial for:
@@ -71,7 +58,9 @@
 	import type { DefaultUnits } from '$lib/types.js';
 
 	type Styles = {
+		/** Type of style (global, component, or class) */
 		type: 'global' | 'component' | 'class';
+		/** Component to which the style applies */
 		component?:
 			| 'body'
 			| 'button'
@@ -85,8 +74,10 @@
 			| 'social'
 			| 'table'
 			| 'text'
-			| 'wrapper';
+			| 'container';
+		/** Value of the style */
 		value: string;
+		/** Whether the style is inline (default: false) */
 		inline?: boolean;
 	}[];
 
@@ -133,7 +124,11 @@
 			{@html `<${mjmlAllTag} ${value} />`}
 		{/if}
 		{#if type === 'component'}
-			{@html `<mj-${component} ${value} />`}
+			{#if component === 'container'}
+				{@html `<mj-wrapper ${value} />`}
+			{:else}
+				{@html `<mj-${component} ${value} />`}
+			{/if}
 		{/if}
 	{/each}
 	{@html `</${mjmlAttributesTag}>`}

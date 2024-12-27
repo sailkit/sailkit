@@ -27,27 +27,6 @@
 	 * </Text>
 	 * ```
 	 *
-	 * @typedef {Object} Props
-	 * @property {Snippet} [children] - The text content to be rendered
-	 * @property {'left'|'right'|'center'|'justify'} [align="left"] - Text alignment
-	 * @property {string} [class] - CSS class names to apply, defined in the Head component's styles
-	 * @property {string} [color="#000000"] - Text color
-	 * @property {string} [containerBackgroundColor] - Background color of the text container
-	 * @property {string} [fontFamily="Ubuntu, Helvetica, Arial, sans-serif"] - Font family for the text
-	 * @property {string} [fontSize="13px"] - Font size in pixels
-	 * @property {'normal'|'italic'|'oblique'} [fontStyle] - Font style
-	 * @property {number|'normal'|'bold'} [fontWeight] - Font weight
-	 * @property {string} [height] - Fixed height in pixels
-	 * @property {string} [letterSpacing] - Letter spacing in pixels or em
-	 * @property {string} [lineHeight="1px"] - Line height in pixels
-	 * @property {string} [padding="10px 25px"] - Padding shorthand
-	 * @property {string} [paddingBottom] - Bottom padding in pixels
-	 * @property {string} [paddingLeft] - Left padding in pixels
-	 * @property {string} [paddingRight] - Right padding in pixels
-	 * @property {string} [paddingTop] - Top padding in pixels
-	 * @property {'underline'|'overline'|'line-through'|'none'} [textDecoration] - Text decoration
-	 * @property {'uppercase'|'lowercase'|'capitalize'} [textTransform] - Text transformation
-	 *
 	 * @remarks
 	 * The Text component handles proper text rendering in email clients and
 	 * supports a wide range of typographic controls. All size-related properties
@@ -61,40 +40,58 @@
 
 	interface Props {
 		children?: Snippet;
+		/** Horizontal alignment (default: left) */
 		align?: 'left' | 'right' | 'center' | 'justify';
+		/** CSS class name(s) that correspond to styles defined in the Head component's styles prop. */
 		class?: string;
+		/** Text color (default: #000000) */
 		color?: Properties['color'];
+		/** Background color of the text container */
 		containerBackgroundColor?: Properties['backgroundColor'];
+		/** Font family for the text (default: Ubuntu, Helvetica, Arial, sans-serif) */
 		fontFamily?: Properties['fontFamily'];
+		/** Font size for the text (default: 13px) */
 		fontSize?: DefaultUnits['fontSize'];
+		/** Font style for the text (default: normal) */
 		fontStyle?: 'normal' | 'italic' | 'oblique';
+		/** Font weight for the text (default: normal) */
 		fontWeight?: number | 'normal' | 'bold';
+		/** Fixed height in pixels */
 		height?: DefaultUnits['height'];
+		/** Letter spacing for the text */
 		letterSpacing?: DefaultUnits['letterSpacing'];
+		/** Line height in pixels */
 		lineHeight?: DefaultUnits['lineHeight'];
+		/** Padding around the text (default: 10px 25px) */
 		padding?: Properties['padding'];
+		/** Bottom padding */
 		paddingBottom?: DefaultUnits['paddingBottom'];
+		/** Left padding */
 		paddingLeft?: DefaultUnits['paddingLeft'];
+		/** Right padding */
 		paddingRight?: DefaultUnits['paddingRight'];
+		/** Top padding */
 		paddingTop?: DefaultUnits['paddingTop'];
+		/** Text decoration style */
 		textDecoration?: 'underline' | 'overline' | 'line-through' | 'none';
+		/** Text transformation */
 		textTransform?: 'uppercase' | 'lowercase' | 'capitalize';
 	}
 
 	const {
 		children,
-		align = 'left',
+		align,
 		class: cssClass,
-		color = '#000000',
+		color,
 		containerBackgroundColor,
 		fontFamily,
-		fontSize = '13px',
+		fontSize,
 		fontStyle,
 		fontWeight,
 		height,
 		letterSpacing,
 		lineHeight,
-		padding = '10px 25px',
+		padding,
 		paddingBottom,
 		paddingLeft,
 		paddingRight,

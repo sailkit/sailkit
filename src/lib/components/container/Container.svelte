@@ -29,30 +29,6 @@
 	 * </Container>
 	 * ```
 	 *
-	 * @typedef {Object} Props
-	 * @property {string} [backgroundColor] - Background color of the container
-	 * @property {string} [backgroundPosition="top center"] - Position of the background image
-	 * @property {string} [backgroundPositionX="none"] - Horizontal position of the background image
-	 * @property {string} [backgroundPositionY="none"] - Vertical position of the background image
-	 * @property {string} [backgroundRepeat="repeat"] - How the background image should repeat
-	 * @property {string|'cover'|'contain'} [backgroundSize] - Size of the background image
-	 * @property {string} [backgroundUrl] - URL of the background image
-	 * @property {string} [border="none"] - CSS border shorthand for all sides
-	 * @property {string} [borderBottom] - Bottom border style
-	 * @property {string} [borderLeft] - Left border style
-	 * @property {string} [borderRadius] - Border radius for all corners
-	 * @property {string} [borderRight] - Right border style
-	 * @property {string} [borderTop] - Top border style
-	 * @property {Snippet} [children] - The content to be rendered within the container
-	 * @property {string} [class] - CSS class names to apply, defined in the Head component's styles
-	 * @property {string} [fullWidth] - Whether the container should be full-width
-	 * @property {string} [padding="20px 0"] - Padding shorthand for all sides
-	 * @property {string} [paddingBottom] - Bottom padding
-	 * @property {string} [paddingLeft] - Left padding
-	 * @property {string} [paddingRight] - Right padding
-	 * @property {string} [paddingTop] - Top padding
-	 * @property {'left'|'center'|'right'} [textAlign="center"] - Text alignment within the container
-	 *
 	 * @remarks
 	 * The Container component is ideal for grouping sections together and applying
 	 * consistent styling across them. It's particularly useful for creating full-width
@@ -65,26 +41,47 @@
 
 	interface Props {
 		children?: Snippet;
+		/** Background color of the container */
 		backgroundColor?: Properties['backgroundColor'];
+		/** Position of background image (default: top center) */
 		backgroundPosition?: Properties['backgroundPosition'];
+		/** Horizontal position of background image (default: none) */
 		backgroundPositionX?: Properties['backgroundPositionX'];
+		/** Vertical position of background image (default: none) */
 		backgroundPositionY?: Properties['backgroundPositionY'];
+		/** How background image should repeat (default: repeat) */
 		backgroundRepeat?: Properties['backgroundRepeat'];
+		/** Size of background image (default: auto) */
 		backgroundSize?: DefaultUnits['backgroundSize'];
+		/** URL of background image */
 		backgroundUrl?: string;
+		/** Border shorthand for all sides (default: none) */
 		border?: Properties['border'];
+		/** Bottom border style */
 		borderBottom?: Properties['borderBottom'];
+		/** Left border style */
 		borderLeft?: Properties['borderLeft'];
+		/** Border radius for corners */
 		borderRadius?: Properties['borderRadius'];
+		/** Right border style */
 		borderRight?: Properties['borderRight'];
+		/** Top border style */
 		borderTop?: Properties['borderTop'];
+		/** CSS class name(s) that correspond to styles defined in the Head component's styles prop. */
 		class?: string;
+		/** Whether container spans full width */
 		fullWidth?: string;
+		/** Padding around the container (default: 20px 0) */
 		padding?: Properties['padding'];
+		/** Bottom padding */
 		paddingBottom?: DefaultUnits['paddingBottom'];
+		/** Left padding */
 		paddingLeft?: DefaultUnits['paddingLeft'];
+		/** Right padding */
 		paddingRight?: DefaultUnits['paddingRight'];
+		/** Top padding */
 		paddingTop?: DefaultUnits['paddingTop'];
+		/** Text alignment within container (default: center) */
 		textAlign?: 'left' | 'center' | 'right';
 	}
 

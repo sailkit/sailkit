@@ -13,16 +13,6 @@
 	 * </Column>
 	 * ```
 	 *
-	 * @typedef {Object} Props
-	 * @property {string} [class] - CSS class name(s) that correspond to styles defined in the Head component's styles prop. These styles can be defined as either inline or regular CSS classes.
-	 * @property {string} [containerBackgroundColor] - Background color of the spacer area
-	 * @property {string|number} [height="20px"] - Height of the spacer
-	 * @property {string|number} [padding="0px"] - Padding shorthand for all sides
-	 * @property {string|number} [paddingTop] - Top padding
-	 * @property {string|number} [paddingBottom] - Bottom padding
-	 * @property {string|number} [paddingLeft] - Left padding
-	 * @property {string|number} [paddingRight] - Right padding
-	 *
 	 * @remarks
 	 * The Spacer component is accessible as a nested component of Column
 	 * and provides a clean way to add vertical spacing without using
@@ -33,13 +23,21 @@
 	import type { DefaultUnits } from '$lib/types.js';
 
 	interface Props {
+		/** Background color of the spacer area */
 		containerBackgroundColor?: Properties['backgroundColor'];
+		/** CSS class name(s) that correspond to styles defined in the Head component's styles prop. */
 		class?: string;
+		/** Height of the spacer (default: 20px) */
 		height?: DefaultUnits['height'];
+		/** Padding around the spacer (default: none) */
 		padding?: Properties['padding'];
+		/** Bottom padding */
 		paddingBottom?: DefaultUnits['paddingBottom'];
+		/** Left padding */
 		paddingLeft?: DefaultUnits['paddingLeft'];
+		/** Right padding */
 		paddingRight?: DefaultUnits['paddingRight'];
+		/** Top padding */
 		paddingTop?: DefaultUnits['paddingTop'];
 	}
 

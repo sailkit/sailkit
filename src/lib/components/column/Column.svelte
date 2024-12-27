@@ -29,36 +29,10 @@
 	 * </Column>
 	 * ```
 	 *
-	 * @typedef {Object} Props
-	 * @property {Snippet} [children] - The content to be rendered within the column. Can include other SailKit components or regular HTML content.
-	 * @property {string} [backgroundColor] - Background color of the column
-	 * @property {string} [border="none"] - CSS border shorthand for all sides
-	 * @property {string} [borderBottom] - Bottom border style
-	 * @property {string} [borderLeft] - Left border style
-	 * @property {string} [borderRight] - Right border style
-	 * @property {string} [borderTop] - Top border style
-	 * @property {string} [class] - CSS class name(s) that correspond to styles defined in the Head component's styles prop. These styles can be defined as either inline or regular CSS classes.
-	 * @property {string} [innerBackgroundColor] - Background color of the column's inner content
-	 * @property {string} [innerBorder] - Inner border shorthand
-	 * @property {string} [innerBorderBottom] - Inner bottom border style
-	 * @property {string} [innerBorderLeft] - Inner left border style
-	 * @property {string} [innerBorderRight] - Inner right border style
-	 * @property {string} [innerBorderTop] - Inner top border style
-	 * @property {string} [borderRadius] - Border radius for all corners
-	 * @property {string} [innerBorderRadius] - Inner border radius
-	 * @property {string} [padding] - Padding shorthand for all sides
-	 * @property {string} [paddingBottom] - Bottom padding
-	 * @property {string} [paddingLeft] - Left padding
-	 * @property {string} [paddingRight] - Right padding
-	 * @property {string} [paddingTop] - Top padding
-	 * @property {'middle'|'top'|'bottom'} [verticalAlign="top"] - Vertical alignment within the section
-	 * @property {string} [width] - Column width (default is auto-calculated based on siblings)
-	 *
 	 * @remarks
 	 * Columns are designed to work within Section components and automatically stack
 	 * on mobile devices. The width property defaults to an equal distribution of
-	 * available space among non-raw columns in the section. Custom styles can be
-	 * applied via the cssClass prop using styles defined in the Head component.
+	 * available space among non-raw columns in the section.
 	 */
 
 	import type { Snippet } from 'svelte';
@@ -67,27 +41,49 @@
 
 	interface Props {
 		children?: Snippet;
+		/** Background color of the column */
 		backgroundColor?: Properties['backgroundColor'];
+		/** Border shorthand for all sides (default: none) */
 		border?: Properties['border'];
+		/** Bottom border style */
 		borderBottom?: Properties['borderBottom'];
+		/** Left border style */
 		borderLeft?: Properties['borderLeft'];
+		/** Border radius for corners (default: 3px) */
 		borderRadius?: Properties['borderRadius'];
+		/** Right border style */
 		borderRight?: Properties['borderRight'];
+		/** Top border style */
 		borderTop?: Properties['borderTop'];
+		/** CSS class name(s) that correspond to styles defined in the Head component's styles prop. */
 		class?: string;
+		/** Background color of inner content */
 		innerBackgroundColor?: Properties['backgroundColor'];
+		/** Inner border shorthand */
 		innerBorder?: Properties['border'];
+		/** Bottom border style */
 		innerBorderBottom?: Properties['borderBottom'];
+		/** Left border style */
 		innerBorderLeft?: Properties['borderLeft'];
+		/** Border radius for corners */
 		innerBorderRadius?: Properties['borderRadius'];
+		/** Right border style */
 		innerBorderRight?: Properties['borderRight'];
+		/** Top border style */
 		innerBorderTop?: Properties['borderTop'];
+		/** Padding around the column */
 		padding?: Properties['padding'];
+		/** Bottom padding */
 		paddingBottom?: DefaultUnits['paddingBottom'];
+		/** Left padding */
 		paddingLeft?: DefaultUnits['paddingLeft'];
+		/** Right padding */
 		paddingRight?: DefaultUnits['paddingRight'];
+		/** Top padding */
 		paddingTop?: DefaultUnits['paddingTop'];
+		/** Vertical alignment within section (default: top). note: middle works only when adjacent column is also set to middle */
 		verticalAlign?: 'middle' | 'top' | 'bottom';
+		/** Column width (default: auto-calculated based on siblings) */
 		width?: DefaultUnits['width'] | `${number}%`;
 	}
 

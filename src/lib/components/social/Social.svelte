@@ -31,31 +31,6 @@
 	 * </Social>
 	 * ```
 	 *
-	 * @typedef {Object} Props
-	 * @property {Snippet} [children] - Social.Element components to be rendered
-	 * @property {'left'|'right'|'center'} [align="center"] - Horizontal alignment of social elements
-	 * @property {string} [borderRadius="3px"] - Border radius for social elements
-	 * @property {string} [class] - CSS class names to apply, defined in the Head component's styles
-	 * @property {string} [color="#333333"] - Text color for social elements
-	 * @property {string} [containerBackgroundColor] - Background color of the container
-	 * @property {string} [fontFamily="Ubuntu, Helvetica, Arial, sans-serif"] - Font family for text
-	 * @property {string} [fontSize="13px"] - Font size for text
-	 * @property {string} [fontStyle="normal"] - Font style for text
-	 * @property {string} [fontWeight="normal"] - Font weight for text
-	 * @property {string} [iconHeight] - Fixed height for social icons
-	 * @property {string} [iconPadding="0px"] - Padding around icons
-	 * @property {string} [iconSize="20px"] - Size of social icons
-	 * @property {string} [innerPadding="4px"] - Inner padding for social elements
-	 * @property {string} [lineHeight="22px"] - Line height for text
-	 * @property {'horizontal'|'vertical'} [mode="horizontal"] - Layout direction
-	 * @property {string} [padding="10px 25px"] - Padding around the container
-	 * @property {string} [paddingBottom] - Bottom padding
-	 * @property {string} [paddingLeft] - Left padding
-	 * @property {string} [paddingRight] - Right padding
-	 * @property {string} [paddingTop] - Top padding
-	 * @property {'underline'|'overline'|'none'} [textDecoration="none"] - Text decoration style
-	 * @property {string} [textPadding="4px 4px 4px 0"] - Padding around text
-	 *
 	 * @remarks
 	 * The Social component must contain one or more Social.Element components.
 	 * It handles the overall layout and styling while individual
@@ -68,27 +43,49 @@
 
 	interface Props {
 		children?: Snippet;
+		/** Horizontal alignment of social elements (default: center) */
 		align?: 'left' | 'right' | 'center';
+		/** Border radius for social elements (default: 3px) */
 		borderRadius?: Properties['borderRadius'];
+		/** CSS class name(s) that correspond to styles defined in the Head component's styles prop. */
 		class?: string;
+		/** Text color for social elements (default: #333333) */
 		color?: Properties['color'];
+		/** Background color of the container */
 		containerBackgroundColor?: Properties['backgroundColor'];
+		/** Font family for text (default: Ubuntu, Helvetica, Arial, sans-serif) */
 		fontFamily?: Properties['fontFamily'];
+		/** Font size for text (default: 13px) */
 		fontSize?: DefaultUnits['fontSize'];
+		/** Font style for text (default: normal) */
 		fontStyle?: 'normal' | 'italic' | 'oblique';
+		/** Font weight for text (default: normal) */
 		fontWeight?: number | 'normal' | 'bold';
+		/** Fixed height for social icons (default: 20px) */
 		iconHeight?: DefaultUnits['iconHeight'];
+		/** Padding around icons (default: 0px) */
 		iconPadding?: string | number;
+		/** Size of social icons (default: 20px) */
 		iconSize?: DefaultUnits['iconSize'];
+		/** Inner padding for social elements (default: 4px) */
 		innerPadding?: Properties['padding'];
+		/** Line height for text (default: 22px) */
 		lineHeight?: DefaultUnits['lineHeight'];
+		/** Layout direction (default: horizontal) */
 		mode?: 'horizontal' | 'vertical';
+		/** Padding around the container (default: 10px 25px) */
 		padding?: Properties['padding'];
+		/** Bottom padding */
 		paddingBottom?: DefaultUnits['paddingBottom'];
+		/** Left padding */
 		paddingLeft?: DefaultUnits['paddingLeft'];
+		/** Right padding */
 		paddingRight?: DefaultUnits['paddingRight'];
+		/** Top padding */
 		paddingTop?: DefaultUnits['paddingTop'];
+		/** Text decoration style (default: none) */
 		textDecoration?: 'underline' | 'overline' | 'none';
+		/** Padding around text (default: 4px 4px 4px 0) */
 		textPadding?: Properties['padding'];
 	}
 

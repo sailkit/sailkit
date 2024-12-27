@@ -27,39 +27,6 @@
 	 * </Social.Element>
 	 * ```
 	 *
-	 * @typedef {Object} Props
-	 * @property {Snippet} [children] - Custom text content to display instead of default network label
-	 * @property {'left'|'right'|'center'} [align="center"] - Horizontal alignment
-	 * @property {string} [alt] - Alternative text for the icon
-	 * @property {string} [backgroundColor] - Background color for the element
-	 * @property {string} [borderRadius="3px"] - Border radius
-	 * @property {string} [class] - CSS class names to apply
-	 * @property {string} [color="#333333"] - Text color
-	 * @property {string} [containerBackgroundColor] - Background color of container
-	 * @property {string} [fontFamily="Ubuntu, Helvetica, Arial, sans-serif"] - Font family
-	 * @property {string} [fontSize="13px"] - Font size
-	 * @property {string} [fontStyle="normal"] - Font style
-	 * @property {string} [fontWeight="normal"] - Font weight
-	 * @property {string} [href] - URL for the social link
-	 * @property {string} [iconHeight] - Fixed height for the icon
-	 * @property {'left'|'right'} [iconPosition] - Position of icon relative to text
-	 * @property {string} [iconSize="20px"] - Size of the icon
-	 * @property {string} [lineHeight="22px"] - Line height
-	 * @property {SocialNetwork} name - Name of the social network
-	 * @property {string} [padding="4px"] - Padding around the element
-	 * @property {string} [paddingBottom] - Bottom padding
-	 * @property {string} [paddingLeft] - Left padding
-	 * @property {string} [paddingRight] - Right padding
-	 * @property {string} [paddingTop] - Top padding
-	 * @property {string} [rel] - Relationship attribute for the link
-	 * @property {string} [sizes] - Sizes attribute for responsive images
-	 * @property {string} [src] - Custom icon source URL
-	 * @property {string} [srcset] - Srcset attribute for responsive images
-	 * @property {string} [target="_blank"] - Target attribute for the link
-	 * @property {'underline'|'overline'|'none'} [textDecoration="none"] - Text decoration
-	 * @property {string} [title] - Title attribute for the link
-	 * @property {'top'|'middle'|'bottom'} [verticalAlign="middle"] - Vertical alignment
-	 *
 	 * @remarks
 	 * The SocialNetwork type supports the following networks:
 	 * facebook, twitter, x, google, pinterest, linkedin, tumblr,
@@ -92,34 +59,61 @@
 
 	interface Props {
 		children?: Snippet;
+		/** Horizontal alignment (default: center) */
 		align?: 'left' | 'right' | 'center';
+		/** Alternative text for the icon (default: "") */
 		alt?: string;
+		/** Background color of the element (default: each network's default color) */
 		backgroundColor?: Properties['backgroundColor'];
+		/** Border radius (default: 3px) */
 		borderRadius?: Properties['borderRadius'];
+		/** CSS class name(s) that correspond to styles defined in the Head component's styles prop. */
 		class?: string;
+		/** Text color (default: #333333) */
 		color?: Properties['color'];
-		containerBackgroundColor?: Properties['backgroundColor'];
+		/** Font family (default: Ubuntu, Helvetica, Arial, sans-serif) */
 		fontFamily?: Properties['fontFamily'];
+		/** Font size (default: 13px) */
 		fontSize?: DefaultUnits['fontSize'];
+		/** Font style (default: normal) */
 		fontStyle?: 'normal' | 'italic' | 'oblique';
+		/** Font weight (default: normal) */
 		fontWeight?: number | 'normal' | 'bold';
+		/** URL the element links to */
 		href?: string;
+		/** Fixed height (default: icon-size) */
 		iconHeight?: DefaultUnits['iconHeight'];
+		/** Position of icon relative to text (default: right) */
 		iconPosition?: 'left' | 'right';
+		/** Size of the icon (default: 20px) */
 		iconSize?: DefaultUnits['iconSize'];
+		/** Line height (default: 22px) */
 		lineHeight?: DefaultUnits['lineHeight'];
+		/** Name of the social network (required) */
 		name: SocialNetwork;
+		/** Padding around the element (default: 4px) */
 		padding?: Properties['padding'];
+		/** Bottom padding */
 		paddingBottom?: DefaultUnits['paddingBottom'];
+		/** Left padding */
 		paddingLeft?: DefaultUnits['paddingLeft'];
+		/** Right padding */
 		paddingRight?: DefaultUnits['paddingRight'];
+		/** Top padding */
 		paddingTop?: DefaultUnits['paddingTop'];
+		/** Relationship attribute for the link */
 		rel?: string;
+		/** Source URL of the icon */
 		src?: string;
+		/** Srcset attribute for responsive images */
 		srcset?: string;
+		/** Target attribute for the link (default: _blank) */
 		target?: string;
+		/** Text decoration style (default: none) */
 		textDecoration?: 'underline' | 'overline' | 'none';
+		/** Title attribute for the link */
 		title?: string;
+		/** Vertical alignment (default: middle) */
 		verticalAlign?: 'top' | 'middle' | 'bottom';
 	}
 
@@ -131,7 +125,6 @@
 		borderRadius,
 		class: cssClass,
 		color,
-		containerBackgroundColor,
 		fontFamily,
 		fontSize,
 		fontStyle,
@@ -167,7 +160,6 @@
 		backgroundColor && `background-color="${backgroundColor}"`,
 		borderRadius && `border-radius="${borderRadius}"`,
 		color && `color="${color}"`,
-		containerBackgroundColor && `container-background-color="${containerBackgroundColor}"`,
 		cssClass && `css-class="${cssClass}"`,
 		fontFamily && `font-family="${fontFamily}"`,
 		fontSize && `font-size="${fontSize}"`,

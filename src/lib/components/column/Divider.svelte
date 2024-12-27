@@ -7,29 +7,15 @@
 	 * @example
 	 * ```svelte
 	 * <Column>
-	 *   Content above
+	 *   <- Content above ->
 	 *   <Column.Divider
 	 *     borderColor="#e0e0e0"
 	 *     borderStyle="dashed"
 	 *     borderWidth="1px"
 	 *   />
-	 *   Content below
+	 *   <- Content below ->
 	 * </Column>
 	 * ```
-	 *
-	 * @typedef {Object} Props
-	 * @property {'left'|'right'|'center'} [align="center"] - Horizontal alignment of the divider
-	 * @property {string} [borderColor="#000000"] - Color of the divider line
-	 * @property {'dashed'|'dotted'|'solid'} [borderStyle="solid"] - Style of the divider line
-	 * @property {string} [borderWidth="4px"] - Thickness of the divider line
-	 * @property {string} [containerBackgroundColor] - Background color behind the divider
-	 * @property {string} [class] - CSS class name(s) that correspond to styles defined in the Head component's styles prop. These styles can be defined as either inline or regular CSS classes.
-	 * @property {string} [padding="10px 25px"] - Padding shorthand for all sides
-	 * @property {string} [paddingBottom] - Bottom padding
-	 * @property {string} [paddingLeft] - Left padding
-	 * @property {string} [paddingRight] - Right padding
-	 * @property {string} [paddingTop] - Top padding
-	 * @property {string} [width="100%"] - Width of the divider
 	 *
 	 * @remarks
 	 * The Divider component is accessible as a nested component of Column
@@ -41,17 +27,29 @@
 	import type { DefaultUnits } from '$lib/types.js';
 
 	interface Props {
+		/** Horizontal alignment of the divider (default: center) */
 		align?: 'left' | 'right' | 'center';
+		/** Color of the divider line (default: #000000) */
 		borderColor?: Properties['borderColor'];
+		/** Style of the divider line (default: solid) */
 		borderStyle?: 'dashed' | 'dotted' | 'solid';
+		/** Thickness of the divider line (default: 4px) */
 		borderWidth?: DefaultUnits['borderWidth'];
+		/** CSS class name(s) that correspond to styles defined in the Head component's styles prop. */
 		class?: string;
+		/** Background color behind the divider */
 		containerBackgroundColor?: Properties['backgroundColor'];
+		/** Padding around the divider (default: 10px 25px) */
 		padding?: Properties['padding'];
+		/** Bottom padding */
 		paddingBottom?: DefaultUnits['paddingBottom'];
+		/** Left padding */
 		paddingLeft?: DefaultUnits['paddingLeft'];
+		/** Right padding */
 		paddingRight?: DefaultUnits['paddingRight'];
+		/** Top padding */
 		paddingTop?: DefaultUnits['paddingTop'];
+		/** Width of the divider (default: 100%) */
 		width?: DefaultUnits['width'] | `${number}%`;
 	}
 

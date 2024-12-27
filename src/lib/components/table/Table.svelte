@@ -22,8 +22,8 @@
 	 * ```svelte
 	 * <Table
 	 *   borderRadius="4px"
-	 *   cellpadding="8"
-	 *   cellspacing="0"
+	 *   cellPadding="8px"
+	 *   cellSpacing="0px"
 	 *   color="#333333"
 	 *   fontSize="14px"
 	 * >
@@ -40,27 +40,6 @@
 	 * </Table>
 	 * ```
 	 *
-	 * @typedef {Object} Props
-	 * @property {Snippet} [children] - The table content to be rendered
-	 * @property {'left'|'right'|'center'} [align="left"] - Horizontal alignment of the table
-	 * @property {string} [border="none"] - CSS border property for the table
-	 * @property {string} [cellpadding] - Cell padding for all table cells
-	 * @property {string} [cellspacing] - Cell spacing between table cells
-	 * @property {string} [color="#000000"] - Text color within the table
-	 * @property {string} [class] - CSS class names to apply, defined in the Head component's styles
-	 * @property {string} [containerBackgroundColor] - Background color of the table container
-	 * @property {string} [fontFamily="Ubuntu, Helvetica, Arial, sans-serif"] - Font family for table text
-	 * @property {string} [fontSize="13px"] - Font size for table text
-	 * @property {string} [lineHeight="22px"] - Line height for table text
-	 * @property {string} [padding="10px 25px"] - Padding around the table
-	 * @property {string} [paddingBottom] - Bottom padding
-	 * @property {string} [paddingLeft] - Left padding
-	 * @property {string} [paddingRight] - Right padding
-	 * @property {string} [paddingTop] - Top padding
-	 * @property {'none'|'presentation'} [role] - ARIA role for the table
-	 * @property {'auto'|'fixed'|'initial'|'inherit'} [tableLayout="auto"] - CSS table-layout property
-	 * @property {string} [width="100%"] - Width of the table
-	 *
 	 * @remarks
 	 * The Table component is a wrapper for HTML table elements that ensures
 	 * consistent rendering across email clients. While it provides styling
@@ -74,23 +53,41 @@
 
 	interface Props {
 		children?: Snippet;
+		/** Horizontal alignment of the table (default: left) */
 		align?: 'left' | 'right' | 'center';
+		/** Border shorthand for all sides (default: none) */
 		border?: Properties['border'];
+		/** Cell padding for all table cells */
 		cellPadding?: Properties['padding'];
+		/** Cell spacing between table cells */
 		cellSpacing?: DefaultUnits['cellSpacing'];
+		/** Text color within the table (default: #000000) */
 		color?: Properties['color'];
+		/** CSS class name(s) that correspond to styles defined in the Head component's styles prop. */
 		class?: string;
+		/** Background color of the table container */
 		containerBackgroundColor?: Properties['backgroundColor'];
+		/** Font family for table text (default: Ubuntu, Helvetica, Arial, sans-serif) */
 		fontFamily?: Properties['fontFamily'];
+		/** Font size for table text (default: 13px) */
 		fontSize?: DefaultUnits['fontSize'];
+		/** Line height for table text (default: 22px) */
 		lineHeight?: DefaultUnits['lineHeight'];
+		/** Padding around the table (default: 10px 25px) */
 		padding?: Properties['padding'];
+		/** Bottom padding */
 		paddingBottom?: DefaultUnits['paddingBottom'];
+		/** Left padding */
 		paddingLeft?: DefaultUnits['paddingLeft'];
+		/** Right padding */
 		paddingRight?: DefaultUnits['paddingRight'];
+		/** Top padding */
 		paddingTop?: DefaultUnits['paddingTop'];
+		/** ARIA role for the table */
 		role?: 'none' | 'presentation';
+		/** CSS table-layout property (default: auto) */
 		tableLayout?: 'auto' | 'fixed' | 'initial' | 'inherit';
+		/** Width of the table (default: 100%) */
 		width?: DefaultUnits['width'] | `${number}%`;
 	}
 

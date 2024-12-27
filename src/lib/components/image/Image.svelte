@@ -27,35 +27,6 @@
 	 * />
 	 * ```
 	 *
-	 * @typedef {Object} Props
-	 * @property {'left'|'center'|'right'} [align="center"] - Horizontal alignment of the image
-	 * @property {string} [alt=""] - Alternative text for the image
-	 * @property {string} [border="none"] - CSS border shorthand for all sides
-	 * @property {string} [borderBottom="none"] - Bottom border style
-	 * @property {string} [borderLeft="none"] - Left border style
-	 * @property {string} [borderRadius] - Border radius for all corners
-	 * @property {string} [borderRight="none"] - Right border style
-	 * @property {string} [borderTop="none"] - Top border style
-	 * @property {string} [containerBackgroundColor] - Background color of the image container
-	 * @property {string} [css] - CSS class names to apply, defined in the Head component's styles
-	 * @property {string} [fluidOnMobile] - Whether the image should be full-width on mobile devices
-	 * @property {string} [height="auto"] - Image height
-	 * @property {string} [href] - URL the image links to
-	 * @property {string} [name] - Name attribute for the image
-	 * @property {string} [padding="10px 25px"] - Padding shorthand for all sides
-	 * @property {string} [paddingBottom] - Bottom padding
-	 * @property {string} [paddingLeft] - Left padding
-	 * @property {string} [paddingRight] - Right padding
-	 * @property {string} [paddingTop] - Top padding
-	 * @property {string} [rel] - Relationship attribute for the link
-	 * @property {string} [sizes] - Sizes attribute for responsive images
-	 * @property {string} [src] - Source URL of the image
-	 * @property {string} [srcset] - Srcset attribute for responsive images
-	 * @property {string} [target="_blank"] - Target attribute for the link
-	 * @property {string} [title] - Title attribute for the image
-	 * @property {string} [usemap] - Usemap attribute for image maps
-	 * @property {string} [width] - Image width
-	 *
 	 * @remarks
 	 * The Image component automatically handles responsive behavior and email client
 	 * compatibility. For best results, host images on a reliable CDN and provide
@@ -67,31 +38,57 @@
 	import type { DefaultUnits } from '$lib/types.js';
 
 	interface Props {
+		/** Horizontal alignment of the image (default: center) */
 		align?: 'left' | 'center' | 'right';
+		/** Alternative text for the image (default: "") */
 		alt?: string;
+		/** Border shorthand for all sides (default: none) */
 		border?: Properties['border'];
+		/** Bottom border style (default: none) */
 		borderBottom?: Properties['borderBottom'];
+		/** Left border style (default: none) */
 		borderLeft?: Properties['borderLeft'];
+		/** Border radius for corners */
 		borderRadius?: Properties['borderRadius'];
+		/** Right border style (default: none) */
 		borderRight?: Properties['borderRight'];
+		/** Top border style (default: none) */
 		borderTop?: Properties['borderTop'];
+		/** CSS class name(s) that correspond to styles defined in the Head component's styles prop. */
 		class?: string;
+		/** Background color of image container */
 		containerBackgroundColor?: Properties['backgroundColor'];
+		/** Whether image is full-width on mobile devices. if "true", will be full width on mobile even if width is set. */
 		fluidOnMobile?: 'true';
+		/** Image height (default: auto) */
 		height?: DefaultUnits['height'] | 'auto';
+		/** URL the image links to */
 		href?: string;
+		/** Name attribute for the image */
 		name?: string;
+		/** Padding around the image (default: 10px 25px) */
 		padding?: Properties['padding'];
+		/** Bottom padding */
 		paddingBottom?: DefaultUnits['paddingBottom'];
+		/** Left padding */
 		paddingLeft?: DefaultUnits['paddingLeft'];
+		/** Right padding */
 		paddingRight?: DefaultUnits['paddingRight'];
+		/** Top padding */
 		paddingTop?: DefaultUnits['paddingTop'];
+		/** Relationship attribute for the link */
 		rel?: string;
+		/** Source URL of the image */
 		src?: string;
+		/** Srcset attribute for responsive images */
 		srcset?: string;
+		/** Target attribute for the link (default: _blank) */
 		target?: string;
+		/** Title attribute for the image */
 		title?: string;
+		/** Usemap attribute for image maps */
 		usemap?: string;
+		/** Image width (default: parent width) */
 		width?: DefaultUnits['width'];
 	}
 

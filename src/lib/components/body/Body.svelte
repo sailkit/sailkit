@@ -24,17 +24,6 @@
 	 * />
 	 * ```
 	 *
-	 * @typedef {Object} Props
-	 * @property {Snippet} [children] - The content to be rendered within the body component.
-	 *                                 Can include other SailKit components or regular HTML content.
-	 * @property {string} [backgroundColor="#ffffff"] - The background color of the email body.
-	 *                                                 Accepts any valid CSS color value.
-	 * @property {string} [width="600px"] - The maximum width of the email content.
-	 *                                     Defaults to 600px which is a standard email width.
-	 * @property {string} [class] - CSS class name(s) that correspond to styles defined in the Head
-	 *                             component's styles prop. These styles can be defined as either
-	 *                             inline or regular CSS classes.
-	 *
 	 * @remarks
 	 * The Body component is a fundamental building block for email templates.
 	 * It's recommended to keep the width between 600px and 800px for optimal
@@ -52,8 +41,11 @@
 
 	interface Props {
 		children?: Snippet;
+		/** The background color of the email body. Accepts any valid CSS color value (default: #ffffff) */
 		backgroundColor?: Properties['backgroundColor'];
+		/** The maximum width of email content (default: 600px) */
 		width?: DefaultUnits['width'];
+		/** CSS class name(s) that correspond to styles defined in the Head component's styles prop. */
 		class?: string;
 	}
 

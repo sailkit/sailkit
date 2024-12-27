@@ -29,14 +29,6 @@
 	 * </Section>
 	 * ```
 	 *
-	 * @typedef {Object} Props
-	 * @property {Snippet} [children] - The Column components to be rendered within the group
-	 * @property {string} [backgroundColor] - Background color of the group
-	 * @property {string} [class] - CSS class names to apply, defined in the Head component's styles
-	 * @property {'ltr'|'rtl'} [direction="ltr"] - Content direction within the group
-	 * @property {'middle'|'top'|'bottom'} [verticalAlign="top"] - Vertical alignment of columns
-	 * @property {string} [width] - Width of the group, must be a percentage value
-	 *
 	 * @remarks
 	 * Important usage notes:
 	 * - Column components inside a group must use percentage-based widths
@@ -52,10 +44,15 @@
 
 	interface Props {
 		children?: Snippet;
+		/** Background color of the group */
 		backgroundColor?: string;
+		/** CSS class name(s) that correspond to styles defined in the Head component's styles prop. */
 		class?: string;
+		/** Content direction within the group (default: ltr) */
 		direction?: 'ltr' | 'rtl';
+		/** Vertical alignment of columns (default: top) */
 		verticalAlign?: 'middle' | 'top' | 'bottom';
+		/** Width of the group (default: 100%) */
 		width?: DefaultUnits['width'] | `${number}%`;
 	}
 

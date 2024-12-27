@@ -28,31 +28,6 @@
 	 * </Section>
 	 * ```
 	 *
-	 * @typedef {Object} Props
-	 * @property {Snippet} [children] - The content to be rendered within the section. Can include other SailKit components or regular HTML content.
-	 * @property {string} [backgroundColor] - Background color of the section
-	 * @property {string} [backgroundPosition="top center"] - Position of the background image
-	 * @property {string} [backgroundPositionX] - Horizontal position of the background image
-	 * @property {string} [backgroundPositionY] - Vertical position of the background image
-	 * @property {string} [backgroundRepeat="repeat"] - How the background image should repeat
-	 * @property {string} [backgroundSize="auto"] - Size of the background image
-	 * @property {string} [backgroundUrl] - URL of the background image
-	 * @property {string} [border="none"] - CSS border shorthand for all sides
-	 * @property {string} [borderBottom] - Bottom border style
-	 * @property {string} [borderLeft] - Left border style
-	 * @property {string} [borderRadius] - Border radius for all corners
-	 * @property {string} [borderRight] - Right border style
-	 * @property {string} [borderTop] - Top border style
-	 * @property {string} [class] - CSS class names to apply, defined in the Head component's styles
-	 * @property {'ltr'|'rtl'} [direction="ltr"] - Content direction within the section
-	 * @property {string} [fullWidth] - Whether the section should be full-width
-	 * @property {string} [padding="20px 0"] - Padding shorthand for all sides
-	 * @property {string} [paddingBottom] - Bottom padding
-	 * @property {string} [paddingLeft] - Left padding
-	 * @property {string} [paddingRight] - Right padding
-	 * @property {string} [paddingTop] - Top padding
-	 * @property {'left'|'center'|'right'} [textAlign] - Text alignment within the section
-	 *
 	 * @remarks
 	 * Sections are fundamental building blocks for email layouts. They can contain
 	 * either Columns or Groups, but not both in the same Section. Use Section.Group
@@ -65,27 +40,49 @@
 
 	interface Props {
 		children?: Snippet;
+		/** Background color of the section */
 		backgroundColor?: Properties['backgroundColor'];
+		/** Position of background image (default: top center) */
 		backgroundPosition?: Properties['backgroundPosition'];
+		/** Horizontal position of background image (default: none) */
 		backgroundPositionX?: Properties['backgroundPositionX'];
+		/** Vertical position of background image (default: none) */
 		backgroundPositionY?: Properties['backgroundPositionY'];
+		/** How background image should repeat (default: repeat) */
 		backgroundRepeat?: Properties['backgroundRepeat'];
+		/** Size of background image (default: auto) */
 		backgroundSize?: DefaultUnits['backgroundSize'];
+		/** URL of background image */
 		backgroundUrl?: string;
+		/** Border shorthand for all sides (default: none) */
 		border?: Properties['border'];
+		/** Bottom border style */
 		borderBottom?: Properties['borderBottom'];
+		/** Left border style */
 		borderLeft?: Properties['borderLeft'];
+		/** Border radius for corners */
 		borderRadius?: Properties['borderRadius'];
+		/** Right border style */
 		borderRight?: Properties['borderRight'];
+		/** Top border style */
 		borderTop?: Properties['borderTop'];
+		/** CSS class name(s) that correspond to styles defined in the Head component's styles prop. */
 		class?: string;
+		/** Content direction within the section (default: ltr) */
 		direction?: 'ltr' | 'rtl';
+		/** Whether section spans full width */
 		fullWidth?: string;
+		/** Padding around the section (default: 20px 0) */
 		padding?: Properties['padding'];
+		/** Bottom padding */
 		paddingBottom?: DefaultUnits['paddingBottom'];
+		/** Left padding */
 		paddingLeft?: DefaultUnits['paddingLeft'];
+		/** Right padding */
 		paddingRight?: DefaultUnits['paddingRight'];
+		/** Top padding */
 		paddingTop?: DefaultUnits['paddingTop'];
+		/** Text alignment within section (default: center) */
 		textAlign?: 'left' | 'center' | 'right';
 	}
 
