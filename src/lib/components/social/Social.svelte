@@ -80,7 +80,7 @@
 		iconHeight?: DefaultUnits['iconHeight'];
 		iconPadding?: string | number;
 		iconSize?: DefaultUnits['iconSize'];
-		innerPadding?: DefaultUnits['innerPadding'];
+		innerPadding?: Properties['padding'];
 		lineHeight?: DefaultUnits['lineHeight'];
 		mode?: 'horizontal' | 'vertical';
 		padding?: Properties['padding'];
@@ -124,15 +124,15 @@
 		align && `align="${align}"`,
 		borderRadius && `border-radius="${borderRadius}"`,
 		color && `color="${color}"`,
-		cssClass && `css-class="${cssClass}"`,
 		containerBackgroundColor && `container-background-color="${containerBackgroundColor}"`,
+		cssClass && `css-class="${cssClass}"`,
 		fontFamily && `font-family="${fontFamily}"`,
 		fontSize && `font-size="${fontSize}"`,
 		fontStyle && `font-style="${fontStyle}"`,
 		fontWeight && `font-weight="${fontWeight}"`,
 		iconHeight && `icon-height="${iconHeight}"`,
-		iconSize && `icon-size="${iconSize}"`,
 		iconPadding && `icon-padding="${iconPadding}"`,
+		iconSize && `icon-size="${iconSize}"`,
 		innerPadding && `inner-padding="${innerPadding}"`,
 		lineHeight && `line-height="${lineHeight}"`,
 		mode && `mode="${mode}"`,

@@ -139,9 +139,7 @@
 	{@html `</${mjmlAttributesTag}>`}
 	{#each styles as { type, value, inline }}
 		{#if type === 'class'}
-			{@html `<${mjmlStyleTag} ${inline ? `inline="inline"` : ''}>
-			${value}
-			</${mjmlStyleTag}>`}
+			{@html `<${mjmlStyleTag} ${inline ? `inline="inline"` : ''}>${value}</${mjmlStyleTag}>`}
 		{/if}
 	{/each}
 {/if}

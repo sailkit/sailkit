@@ -84,7 +84,7 @@ async function processEmailTemplate<Props extends ComponentProps<Component>>(
  * Renders a Svelte component to HTML
  * @private
  */
-function renderSvelteComponent<Props extends ComponentProps<Component>>(
+export function renderSvelteComponent<Props extends ComponentProps<Component>>(
 	component: Component<Props>,
 	props: Props
 ): string {
@@ -101,7 +101,7 @@ function renderSvelteComponent<Props extends ComponentProps<Component>>(
  * Extracts MJML markup from rendered HTML
  * @private
  */
-function extractMJMLMarkup(html: string): string {
+export function extractMJMLMarkup(html: string): string {
 	const match = html.match(MJML_REGEX);
 	if (!match) {
 		throw new RenderError('No MJML markup found in component output');

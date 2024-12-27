@@ -60,13 +60,11 @@ export interface DefaultUnits {
 	backgroundSize?: `${number}px` | `${number}%` | `cover` | `contain` | `auto`;
 	borderWidth?: `${number}px`;
 	breakpoint?: `${number}px`;
-	cellPadding?: `${number}px`;
 	cellSpacing?: `${number}px`;
 	fontSize?: `${number}px`;
 	height?: `${number}px`;
 	iconHeight?: `${number}px` | `${number}%`;
 	iconSize?: `${number}px` | `${number}%`;
-	innerPadding?: `${number}px`;
 	letterSpacing?: `${number}px` | `${number}em`;
 	lineHeight?: `${number}px` | 'none';
 	paddingBottom?: `${number}px`;

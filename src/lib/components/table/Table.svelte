@@ -76,7 +76,7 @@
 		children?: Snippet;
 		align?: 'left' | 'right' | 'center';
 		border?: Properties['border'];
-		cellPadding?: DefaultUnits['cellPadding'];
+		cellPadding?: Properties['padding'];
 		cellSpacing?: DefaultUnits['cellSpacing'];
 		color?: Properties['color'];
 		class?: string;
@@ -101,8 +101,8 @@
 		cellPadding,
 		cellSpacing,
 		color,
-		class: cssClass,
 		containerBackgroundColor,
+		class: cssClass,
 		fontFamily,
 		fontSize,
 		lineHeight,

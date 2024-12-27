@@ -14,8 +14,10 @@
 		<Section>
 			<Column>
 				<Text color="#F45E43">
-					<h1>Hello World</h1>
-					<p>{text}</p>
+					<div>
+						<h1>Hello World</h1>
+						<p>{text}</p>
+					</div>
 				</Text>
 			</Column>
 		</Section>

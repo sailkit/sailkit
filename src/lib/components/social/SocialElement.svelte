@@ -161,6 +161,7 @@
 	const mjmlSocialElementTag = 'mj-social-element';
 
 	const attributes = [
+		name && `name="${networkName}"`,
 		align && `align="${align}"`,
 		alt && `alt="${alt}"`,
 		backgroundColor && `background-color="${backgroundColor}"`,
@@ -177,7 +178,6 @@
 		iconPosition && `icon-position="${iconPosition}"`,
 		iconSize && `icon-size="${iconSize}"`,
 		lineHeight && `line-height="${lineHeight}"`,
-		name && `name="${networkName}"`,
 		padding && `padding="${padding}"`,
 		paddingBottom && `padding-bottom="${paddingBottom}"`,
 		paddingLeft && `padding-left="${paddingLeft}"`,
@@ -195,6 +195,10 @@
 		.join(' ');
 </script>
 
-{@html `<${mjmlSocialElementTag} ${attributes}>`}
-{@render children?.()}
-{@html `</${mjmlSocialElementTag}>`}
+{#if children}
+	{@html `<${mjmlSocialElementTag} ${attributes}>`}
+	{@render children?.()}
+	{@html `</${mjmlSocialElementTag}>`}
+{:else}
+	{@html `<${mjmlSocialElementTag} ${attributes} />`}
+{/if}

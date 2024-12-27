@@ -539,7 +539,7 @@ A component for creating HTML tables.
 Provides consistent table rendering across email clients while supporting standard table attributes and styling options.
 
 ```svelte
-<Table align="center" cellpadding="8" cellspacing="0" color="#333333" fontSize="14px">
+<Table align="center" cellpadding="10px 25px" cellspacing="20px" color="#333333" fontSize="14px">
   <table>
     <tr>
       <th>Header 1</th>
@@ -718,13 +718,10 @@ A component that allows the inclusion of raw HTML content that will be left unto
 
 ```svelte
 <Raw>
-  <!--[if mso]>
-  <table role="presentation">
-    <tr>
-      <td>Outlook-specific content</td>
-    </tr>
-  </table>
-  <![endif]-->
+  <h1>Hello World</h1>
+  <span>
+    <p>Paragraph</p>
+  </span>
 </Raw>
 ```
 
