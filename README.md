@@ -23,6 +23,14 @@ Email is notoriously challenging. crafting responsive, visually consistent email
 
 [MJML](https://mjml.io) is an industry standard for composing email templates. It provides a robust foundation that handles the complexities of email client compatibility. Rather than reinventing the wheel, SailKit leverages MJML's proven engine while providing a modern, Svelte-based developer experience.
 
+### Features
+
+- 🎯 **Type-Safe**: Full TypeScript support
+- 📱 **Responsive by Default**: Powered by MJML's engine
+- ⚡ **Great DX**: Svelte primitives for composing templates
+- 🛠️ **Simple API**: Intuitive methods for rendering and previewing
+- 📦 **Production-Ready**: Outputs highly optimized responsive HTML
+
 ## Getting Started
 
 ```bash
