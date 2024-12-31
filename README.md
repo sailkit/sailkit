@@ -219,12 +219,12 @@ Example with style types:
   styles={[
     {
       type: "global",
-      value: "font-family: Arial, sans-serif;"
+      value: `font-family="Arial, sans-serif"`
     },
     {
       type: "component",
       component: "text",
-      value: "color: #333333;"
+      value: `color="#333333"`
     },
     {
       type: "class",
