@@ -1,6 +1,6 @@
 {
 	"name": "sailkit",
-	"version": "0.1.9",
+	"version": "0.1.10",
 	"description": "SailKit is an open-source toolkit for composing responsive email templates in SvelteKit applications.",
 	"author": "Noam Shemesh <https://github.com/n00ki>",
 	"main": "./dist/index.js",
@@ -8,7 +8,7 @@
 		"type": "git",
 		"url": "git+https://github.com/n00ki/sailkit.git"
 	},
-	"homepage": "https://github.com/n00ki/sailkit",
+	"homepage": "https://sailkit.xyz",
 	"keywords": [
 		"sveltekit",
 		"svelte",
