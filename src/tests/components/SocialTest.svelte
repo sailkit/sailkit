@@ -97,7 +97,6 @@
 					borderRadius="8px"
 					class="custom-social-element"
 					color="#fff"
-					containerBackgroundColor="#333"
 					fontFamily="Ubuntu, Helvetica, Arial, sans-serif"
 					fontSize="13px"
 					fontStyle="normal"

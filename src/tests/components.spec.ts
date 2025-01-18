@@ -415,7 +415,7 @@ describe('Social Component', () => {
 			'<mj-social-element name="github" href="https://github.com/profile"> Social Element Test 2 </mj-social-element>'
 		);
 		expect(result).toContain(
-			'<mj-social-element name="instagram" align="left" alt="Instagram" background-color="#333" border-radius="8px" color="#fff" container-background-color="#333" css-class="custom-social-element" font-family="Ubuntu, Helvetica, Arial, sans-serif" font-size="13px" font-style="normal" font-weight="normal" href="https://instagram.com/profile" icon-height="20px" icon-position="right" icon-size="25px" line-height="22px" padding="0px" padding-bottom="0px" padding-left="0px" padding-right="0px" padding-top="0px" rel="nofollow" src="https://example.com/image.jpg" srcset="image-2x.jpg 2x, image-3x.jpg 3x" target="_blank" text-decoration="underline" title="Instagram" vertical-align="middle" />'
+			'<mj-social-element name="instagram" align="left" alt="Instagram" background-color="#333" border-radius="8px" color="#fff" css-class="custom-social-element" font-family="Ubuntu, Helvetica, Arial, sans-serif" font-size="13px" font-style="normal" font-weight="normal" href="https://instagram.com/profile" icon-height="20px" icon-position="right" icon-size="25px" line-height="22px" padding="0px" padding-bottom="0px" padding-left="0px" padding-right="0px" padding-top="0px" rel="nofollow" src="https://example.com/image.jpg" srcset="image-2x.jpg 2x, image-3x.jpg 3x" target="_blank" text-decoration="underline" title="Instagram" vertical-align="middle" />'
 		);
 
 		expect(result).toContain('</mj-social>');
