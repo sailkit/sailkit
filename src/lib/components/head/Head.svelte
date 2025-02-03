@@ -56,6 +56,8 @@
 	 */
 
 	import type { DefaultUnits } from '$lib/types.js';
+	import type { Snippet } from 'svelte';
+	import Raw from '../raw/Raw.svelte';
 
 	type Styles = {
 		/** Type of style (global, component, or class) */
@@ -82,6 +84,7 @@
 	}[];
 
 	interface Props {
+		children?: Snippet;
 		subject: string;
 		preview?: string;
 		fonts?: {
@@ -92,7 +95,7 @@
 		styles?: Styles;
 	}
 
-	const { subject, preview, fonts, breakpoint, styles }: Props = $props();
+	const { children, subject, preview, fonts, breakpoint, styles }: Props = $props();
 
 	const mjmlHeadTag = 'mj-head';
 	const mjmlTitleTag = 'mj-title';
@@ -105,6 +108,7 @@
 </script>
 
 {@html `<${mjmlHeadTag}>`}
+{@render children?.()}
 {@html `<${mjmlTitleTag}>${subject}</${mjmlTitleTag}>`}
 {#if preview}
 	{@html `<${mjmlPreviewTag}>${preview}</${mjmlPreviewTag}>`}

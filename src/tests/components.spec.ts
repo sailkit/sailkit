@@ -59,6 +59,11 @@ describe('Head Component', () => {
 		const result = extractMJMLMarkup(markup);
 
 		expect(result).toContain('<mj-head>');
+		expect(result).toContain('<mj-raw>');
+		expect(result).toContain('<meta name="x-apple-disable-message-reformatting">');
+		expect(result).toContain('<meta name="color-scheme" content="light dark">');
+		expect(result).toContain('<meta name="supported-color-schemes" content="light dark">');
+		expect(result).toContain('</mj-raw>');
 		expect(result).toContain('<mj-title>Test Email</mj-title>');
 		expect(result).toContain('<mj-preview>Test Preview</mj-preview>');
 		expect(result).toContain(
