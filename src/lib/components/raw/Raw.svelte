@@ -9,18 +9,14 @@
 	 * Basic usage:
 	 * ```svelte
 	 * <Raw>
-	 * 	<div>
-	 *   	<span>
-	 * 			<h1>Hello World</h1>
-	 * 			<p>Paragraph</p>
-	 * 		</span>
-	 * 	</div>
+	 * 	<meta name="color-scheme" content="light dark" />
+	 * 	<meta name="supported-color-schemes" content="light dark" />
 	 * </Raw>
 	 * ```
 	 *
 	 * @remarks
 	 * The Raw component is particularly useful when you need to:
-	 * - Include custom HTML that should not be processed
+	 * - Include custom HTML that should not be processed (e.g. meta tags)
 	 * - Insert legacy email code that needs to remain unchanged
 	 * - Implement custom table structures
 	 * Use this component sparingly and only when other SailKit components
