@@ -25,14 +25,14 @@
    *       href: "https://fonts.googleapis.com/css2?family=Roboto"
    *     }
    *   ]}
-   *   breakpoint={480}
+   *   breakpoint='480px'
    *   styles={{
    *     global: 'font-family="Roboto, sans-serif"',
    *     components: {
    *       text: 'color="#333333" line-height="1.5"',
    *       button: 'background-color="#007bff" color="#ffffff"'
    *     },
-   *     customStyles: [
+   *     custom: [
    *       // Regular CSS (not inlined)
    *       `.title {
    *         font-size: 32px;
@@ -56,6 +56,49 @@
    * />
    * ```
    *
+   * Using themes for consistent styling:
+   * ```ts
+   * // theme.ts
+   * import { createTheme } from 'sailkit';
+   *
+   * export const myTheme = createTheme({
+   *   fonts: [
+   *     {
+   *       name: 'Roboto',
+   *       href: 'https://fonts.googleapis.com/css2?family=Roboto'
+   *     }
+   *   ],
+   *   breakpoint: '480px',
+   *   styles: {
+   *     global: 'font-family="Roboto, sans-serif"',
+   *     components: {
+   *       text: 'color="#333333"',
+   *       button: 'background-color="#007bff"'
+   *     },
+   *     custom: [
+   *       '.header { font-size: 24px; }',
+   *       {
+   *         inline: true,
+   *         css: '.footer { padding: 20px; }'
+   *       }
+   *     ]
+   *   }
+   * });
+   *
+   * // MyEmail.svelte
+   * <Head
+   *   subject="Welcome Email"
+   *   preview="Check out our latest updates"
+   *   theme={myTheme}
+   *   // Optional: Override specific theme properties
+   *   styles={{
+   *     components: {
+   *       button: 'background-color="#ff0000"' // This will override the theme's button color
+   *     }
+   *   }}
+   * />
+   * ```
+   *
    * @remarks
    * The Head component should be used once per email template and placed before any content
    * components. It's crucial for:
@@ -65,13 +108,21 @@
    * - Establishing styling (global styles, component styles, and custom CSS)
    *
    * Style definitions follow a hierarchy:
-   * 1. Global styles affect all component
+   * 1. Global styles affect all components
    * 2. Component styles target specific SailKit components
    * 3. Custom styles allow for regular CSS rules injection
+   *
+   * When using themes:
+   * - Themes provide a reusable configuration for consistent styling across templates
+   * - Individual props can override theme properties when needed
+   * - Component styles are merged (individual props override theme styles)
+   * - Custom styles from both theme and props are concatenated
+   * - Use createTheme utility to define type-safe themes
    */
 
   import type { DefaultUnits } from '$lib/types.js';
   import type { Snippet } from 'svelte';
+  import type { ThemeOptions } from '$lib/theme.js';
 
   type ComponentName =
     | 'body'
@@ -106,15 +157,37 @@
     children?: Snippet;
     subject: string;
     preview?: string;
+    /** Individual style configurations - will be merged with theme if both are provided */
     fonts?: {
       name: string;
       href: string;
     }[];
     breakpoint?: DefaultUnits['breakpoint'];
     styles?: StyleProps;
+    /** Theme configuration - can be created using createTheme utility */
+    theme?: ThemeOptions;
   }
 
-  const { children, subject, preview, fonts, breakpoint, styles }: Props = $props();
+  const {
+    children,
+    subject,
+    preview,
+    fonts: propFonts,
+    breakpoint: propBreakpoint,
+    styles: propStyles,
+    theme
+  }: Props = $props();
+
+  // Merge theme and individual props
+  const fonts = propFonts || theme?.fonts;
+  const breakpoint = propBreakpoint || theme?.breakpoint;
+  const styles = theme?.styles
+    ? {
+        global: propStyles?.global || theme.styles.global,
+        components: { ...theme.styles.components, ...propStyles?.components },
+        custom: [...(theme.styles.custom || []), ...(propStyles?.custom || [])]
+      }
+    : propStyles;
 
   const mjmlHeadTag = 'mj-head';
   const mjmlTitleTag = 'mj-title';

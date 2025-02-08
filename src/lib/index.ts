@@ -4,6 +4,7 @@ export * from './types.js';
 // Export functions
 export { renderComponentAsEmailTemplate as renderEmail } from './render.js';
 export { previewComponentAsHTML as previewEmail } from './preview.js';
+export { createTheme } from './theme.js';
 
 // Export components
 export { default as Body } from './components/body/index.js';
