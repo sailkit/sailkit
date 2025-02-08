@@ -5,6 +5,20 @@ Headlines: Added, Changed, Deprecated, Removed, Fixed, Security
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] - 2025-02-08
+
+### Added
+
+- new theming API 🎨:
+  - `createTheme` utility for defining reusable themes
+  - `theme` prop for applying themes to the `Head` component
+
+### Changed
+
+- `Head` styles prop got a new structure for better readability, flexibility and type safety
+- Improved internal code structure and formatting consistency
+- General maintenance & improvements
+
 ## [0.1.12] - 2025-02-03
 
 ### Changed
