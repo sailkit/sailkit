@@ -38,22 +38,25 @@ describe('Head Component', () => {
 				}
 			],
 			breakpoint: '480px',
-			styles: [
-				{
-					type: 'global',
-					value: 'font-family="Open Sans"'
+			styles: {
+				global: 'font-family="Open Sans"',
+				components: {
+					text: 'color="#333333"'
 				},
-				{
-					type: 'component',
-					component: 'text',
-					value: 'color="#333333"'
-				},
-				{
-					type: 'class',
-					value: '.header { font-size: 24px; }',
-					inline: true
-				}
-			]
+				custom: [
+					// Regular CSS (not inlined)
+					`.title {
+							font-size: 32px;
+							font-weight: 600;
+							color: #1F2937;
+						}`,
+					{
+						inline: true,
+						css: '.header { font-size: 24px; }'
+					},
+					`@media (max-width: 480px) { .title { font-size: 24px; } .mobile-hidden { display: none; } }`
+				]
+			}
 		});
 
 		const result = extractMJMLMarkup(markup);
@@ -72,7 +75,13 @@ describe('Head Component', () => {
 		expect(result).toContain('<mj-breakpoint width="480px" />');
 		expect(result).toContain('<mj-all font-family="Open Sans" />');
 		expect(result).toContain('<mj-text color="#333333" />');
+		expect(result).toContain(
+			'<mj-style>.title { font-size: 32px; font-weight: 600; color: #1F2937; }</mj-style>'
+		);
 		expect(result).toContain('<mj-style inline="inline">.header { font-size: 24px; }</mj-style>');
+		expect(result).toContain(
+			'<mj-style>@media (max-width: 480px) { .title { font-size: 24px; } .mobile-hidden { display: none; } }</mj-style>'
+		);
 		expect(result).toContain('</mj-head>');
 	});
 });

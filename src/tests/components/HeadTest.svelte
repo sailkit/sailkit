@@ -2,6 +2,20 @@
 	import type { DefaultUnits } from '$lib/types.js';
 	import { Html, Head, Body, Raw } from '$lib/index.js';
 
+	type ComponentName =
+		| 'body'
+		| 'button'
+		| 'column'
+		| 'divider'
+		| 'hero'
+		| 'image'
+		| 'section'
+		| 'social-element'
+		| 'social'
+		| 'table'
+		| 'text'
+		| 'container';
+
 	interface Props {
 		subject: string;
 		preview?: string;
@@ -11,24 +25,16 @@
 		}[];
 		breakpoint?: DefaultUnits['breakpoint'];
 		styles?: {
-			type: 'global' | 'component' | 'class';
-			component?:
-				| 'body'
-				| 'button'
-				| 'column'
-				| 'divider'
-				| 'hero'
-				| 'image'
-				| 'image'
-				| 'section'
-				| 'social-element'
-				| 'social'
-				| 'table'
-				| 'text'
-				| 'container';
-			value: string;
-			inline?: boolean;
-		}[];
+			global?: string;
+			components?: Partial<Record<ComponentName, string>>;
+			custom?: Array<
+				| string
+				| {
+						inline: true;
+						css: string;
+				  }
+			>;
+		};
 	}
 
 	const { subject, preview, fonts, breakpoint, styles }: Props = $props();
