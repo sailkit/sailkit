@@ -21,9 +21,9 @@ import { renderComponentAsEmailTemplate } from './render.js';
 
 // Constants and types
 const PLATFORM_COMMANDS = {
-	win32: 'start',
-	darwin: 'open',
-	linux: 'xdg-open'
+  win32: 'start',
+  darwin: 'open',
+  linux: 'xdg-open'
 } as const;
 
 type SupportedPlatform = keyof typeof PLATFORM_COMMANDS;
@@ -41,24 +41,24 @@ const TEMP_DIR = os.tmpdir();
  * @throws {RenderError} If preview fails
  */
 export async function previewComponentAsHTML<Props extends ComponentProps<Component>>(
-	component: Component<Props>,
-	props: Props = {} as Props,
-	mode: PreviewMode = 'browser',
-	options?: RenderOptions
+  component: Component<Props>,
+  props: Props = {} as Props,
+  mode: PreviewMode = 'browser',
+  options?: RenderOptions
 ): Promise<void> {
-	validateEnvironment();
+  validateEnvironment();
 
-	try {
-		await cleanPreviousFiles();
-		const renderResult = await renderComponentForPreview(
-			component,
-			props,
-			options ?? DEFAULT_RENDER_OPTIONS
-		);
-		await displayPreview(renderResult, mode ?? 'browser');
-	} catch (error) {
-		throw new RenderError('Preview generation failed', error instanceof Error ? error : undefined);
-	}
+  try {
+    await cleanPreviousFiles();
+    const renderResult = await renderComponentForPreview(
+      component,
+      props,
+      options ?? DEFAULT_RENDER_OPTIONS
+    );
+    await displayPreview(renderResult, mode ?? 'browser');
+  } catch (error) {
+    throw new RenderError('Preview generation failed', error instanceof Error ? error : undefined);
+  }
 }
 
 /**
@@ -70,19 +70,19 @@ export async function previewComponentAsHTML<Props extends ComponentProps<Compon
  * @returns Rendered result
  */
 export async function renderComponentForPreview<Props extends ComponentProps<Component>>(
-	component: Component<Props>,
-	props: Props = {} as Props,
-	options: RenderOptions
+  component: Component<Props>,
+  props: Props = {} as Props,
+  options: RenderOptions
 ): Promise<RenderResult> {
-	try {
-		return await renderComponentAsEmailTemplate(component, props, {
-			plainText: options?.plainText ?? DEFAULT_RENDER_OPTIONS.plainText,
-			beautify: options?.beautify ?? DEFAULT_RENDER_OPTIONS.beautify,
-			minify: options.minify ?? DEFAULT_RENDER_OPTIONS.minify
-		});
-	} catch (error) {
-		throw new RenderError('Preview render failed', error instanceof Error ? error : undefined);
-	}
+  try {
+    return await renderComponentAsEmailTemplate(component, props, {
+      plainText: options?.plainText ?? DEFAULT_RENDER_OPTIONS.plainText,
+      beautify: options?.beautify ?? DEFAULT_RENDER_OPTIONS.beautify,
+      minify: options.minify ?? DEFAULT_RENDER_OPTIONS.minify
+    });
+  } catch (error) {
+    throw new RenderError('Preview render failed', error instanceof Error ? error : undefined);
+  }
 }
 
 /**
@@ -90,11 +90,11 @@ export async function renderComponentForPreview<Props extends ComponentProps<Com
  * @private
  */
 async function displayPreview(renderResult: RenderResult, mode: PreviewMode): Promise<void> {
-	if (mode === 'browser') {
-		await openInBrowser(renderResult.html);
-	} else {
-		displayInConsole(renderResult);
-	}
+  if (mode === 'browser') {
+    await openInBrowser(renderResult.html);
+  } else {
+    displayInConsole(renderResult);
+  }
 }
 
 /**
@@ -102,8 +102,8 @@ async function displayPreview(renderResult: RenderResult, mode: PreviewMode): Pr
  * @private
  */
 async function openInBrowser(html: string): Promise<void> {
-	const filePath = await createTempFile(html);
-	await openFileInBrowser(filePath);
+  const filePath = await createTempFile(html);
+  await openFileInBrowser(filePath);
 }
 
 /**
@@ -111,17 +111,17 @@ async function openInBrowser(html: string): Promise<void> {
  * @private
  */
 async function createTempFile(content: string): Promise<string> {
-	const filePath = path.join(TEMP_DIR, `${TEMP_FILE_PREFIX}${Date.now()}.html`);
+  const filePath = path.join(TEMP_DIR, `${TEMP_FILE_PREFIX}${Date.now()}.html`);
 
-	try {
-		await fs.promises.writeFile(filePath, content, 'utf-8');
-		return filePath;
-	} catch (error) {
-		throw new RenderError(
-			'Preview file creation failed',
-			error instanceof Error ? error : undefined
-		);
-	}
+  try {
+    await fs.promises.writeFile(filePath, content, 'utf-8');
+    return filePath;
+  } catch (error) {
+    throw new RenderError(
+      'Preview file creation failed',
+      error instanceof Error ? error : undefined
+    );
+  }
 }
 
 /**
@@ -129,22 +129,22 @@ async function createTempFile(content: string): Promise<string> {
  * @private
  */
 async function openFileInBrowser(filePath: string): Promise<void> {
-	const platform = os.platform();
-	const command = PLATFORM_COMMANDS[platform as SupportedPlatform];
+  const platform = os.platform();
+  const command = PLATFORM_COMMANDS[platform as SupportedPlatform];
 
-	if (!command) {
-		throw new RenderError(`Unsupported platform: ${platform}`);
-	}
+  if (!command) {
+    throw new RenderError(`Unsupported platform: ${platform}`);
+  }
 
-	return new Promise((resolve, reject) => {
-		exec(`${command} "${filePath}"`, (error) => {
-			if (error) {
-				reject(new RenderError('Browser launch failed', error));
-			} else {
-				resolve();
-			}
-		});
-	});
+  return new Promise((resolve, reject) => {
+    exec(`${command} "${filePath}"`, (error) => {
+      if (error) {
+        reject(new RenderError('Browser launch failed', error));
+      } else {
+        resolve();
+      }
+    });
+  });
 }
 
 /**
@@ -152,17 +152,17 @@ async function openFileInBrowser(filePath: string): Promise<void> {
  * @private
  */
 function displayInConsole(renderResult: RenderResult): void {
-	console.log('\n=== HTML Preview ===\n');
-	console.log(renderResult.html);
+  console.log('\n=== HTML Preview ===\n');
+  console.log(renderResult.html);
 
-	if (renderResult.plainText) {
-		console.log('\n=== Plain Text Preview ===\n');
-		console.log(renderResult.plainText);
-	}
+  if (renderResult.plainText) {
+    console.log('\n=== Plain Text Preview ===\n');
+    console.log(renderResult.plainText);
+  }
 
-	console.log('\n=== Render Statistics ===\n');
-	console.log(`Render Time: ${renderResult.meta.renderTime.toFixed(2)}ms`);
-	console.log(`Size: ${renderResult.meta.size} bytes`);
+  console.log('\n=== Render Statistics ===\n');
+  console.log(`Render Time: ${renderResult.meta.renderTime.toFixed(2)}ms`);
+  console.log(`Size: ${renderResult.meta.size} bytes`);
 }
 
 /**
@@ -170,18 +170,18 @@ function displayInConsole(renderResult: RenderResult): void {
  * @private
  */
 async function cleanPreviousFiles(): Promise<void> {
-	try {
-		const files = await fs.promises.readdir(TEMP_DIR);
-		const previewFiles = files.filter((file) => file.startsWith(TEMP_FILE_PREFIX));
+  try {
+    const files = await fs.promises.readdir(TEMP_DIR);
+    const previewFiles = files.filter((file) => file.startsWith(TEMP_FILE_PREFIX));
 
-		await Promise.all(
-			previewFiles.map((file) =>
-				fs.promises.rm(path.join(TEMP_DIR, file), { force: true, recursive: true })
-			)
-		);
-	} catch (error) {
-		console.warn('Preview cleanup failed:', error);
-	}
+    await Promise.all(
+      previewFiles.map((file) =>
+        fs.promises.rm(path.join(TEMP_DIR, file), { force: true, recursive: true })
+      )
+    );
+  } catch (error) {
+    console.warn('Preview cleanup failed:', error);
+  }
 }
 
 /**
@@ -189,7 +189,7 @@ async function cleanPreviousFiles(): Promise<void> {
  * @private
  */
 function validateEnvironment(): void {
-	if (!dev) {
-		throw new RenderError('Preview is only available in development mode');
-	}
+  if (!dev) {
+    throw new RenderError('Preview is only available in development mode');
+  }
 }

@@ -16,10 +16,10 @@ import pretty from 'pretty';
 
 // Internal dependencies
 import {
-	DEFAULT_MINIFY_OPTIONS,
-	DEFAULT_MJML_OPTIONS,
-	DEFAULT_PLAIN_TEXT_OPTIONS,
-	DEFAULT_RENDER_OPTIONS
+  DEFAULT_MINIFY_OPTIONS,
+  DEFAULT_MJML_OPTIONS,
+  DEFAULT_PLAIN_TEXT_OPTIONS,
+  DEFAULT_RENDER_OPTIONS
 } from './defaults.js';
 import { RenderError } from './errors.js';
 
@@ -37,29 +37,29 @@ const COMMENTS_REGEX = /<!--[\s\S]*?-->/g;
  * @throws {RenderError} If rendering fails at any stage
  */
 export async function renderComponentAsEmailTemplate<Props extends ComponentProps<Component>>(
-	component: Component<Props>,
-	props: Props = {} as Props,
-	options: RenderOptions = DEFAULT_RENDER_OPTIONS
+  component: Component<Props>,
+  props: Props = {} as Props,
+  options: RenderOptions = DEFAULT_RENDER_OPTIONS
 ): Promise<RenderResult> {
-	const startTime = performance.now();
+  const startTime = performance.now();
 
-	try {
-		const { html, plainText } = await processEmailTemplate(component, props, options);
+  try {
+    const { html, plainText } = await processEmailTemplate(component, props, options);
 
-		return {
-			html,
-			plainText,
-			meta: {
-				renderTime: performance.now() - startTime,
-				size: html.length
-			}
-		};
-	} catch (error) {
-		throw new RenderError(
-			'Email template rendering failed',
-			error instanceof Error ? error : undefined
-		);
-	}
+    return {
+      html,
+      plainText,
+      meta: {
+        renderTime: performance.now() - startTime,
+        size: html.length
+      }
+    };
+  } catch (error) {
+    throw new RenderError(
+      'Email template rendering failed',
+      error instanceof Error ? error : undefined
+    );
+  }
 }
 
 /**
@@ -67,17 +67,17 @@ export async function renderComponentAsEmailTemplate<Props extends ComponentProp
  * @private
  */
 async function processEmailTemplate<Props extends ComponentProps<Component>>(
-	component: Component<Props>,
-	props: Props,
-	options: RenderOptions
+  component: Component<Props>,
+  props: Props,
+  options: RenderOptions
 ): Promise<{ html: string; plainText: string }> {
-	const rawHtml = renderSvelteComponent(component, props);
-	const mjmlMarkup = extractMJMLMarkup(rawHtml);
-	const { html: processedHtml } = await convertMJMLToHTML(mjmlMarkup);
-	const finalHtml = await postProcessHTML(processedHtml, options);
-	const plainText = options.plainText ? renderPlainText(rawHtml) : '';
+  const rawHtml = renderSvelteComponent(component, props);
+  const mjmlMarkup = extractMJMLMarkup(rawHtml);
+  const { html: processedHtml } = await convertMJMLToHTML(mjmlMarkup);
+  const finalHtml = await postProcessHTML(processedHtml, options);
+  const plainText = options.plainText ? renderPlainText(rawHtml) : '';
 
-	return { html: finalHtml, plainText };
+  return { html: finalHtml, plainText };
 }
 
 /**
@@ -85,16 +85,16 @@ async function processEmailTemplate<Props extends ComponentProps<Component>>(
  * @private
  */
 export function renderSvelteComponent<Props extends ComponentProps<Component>>(
-	component: Component<Props>,
-	props: Props
+  component: Component<Props>,
+  props: Props
 ): string {
-	const { body } = render(component, { props });
+  const { body } = render(component, { props });
 
-	if (!body) {
-		throw new RenderError('Component rendered empty body');
-	}
+  if (!body) {
+    throw new RenderError('Component rendered empty body');
+  }
 
-	return body;
+  return body;
 }
 
 /**
@@ -102,12 +102,12 @@ export function renderSvelteComponent<Props extends ComponentProps<Component>>(
  * @private
  */
 export function extractMJMLMarkup(html: string): string {
-	const match = html.match(MJML_REGEX);
-	if (!match) {
-		throw new RenderError('No MJML markup found in component output');
-	}
+  const match = html.match(MJML_REGEX);
+  if (!match) {
+    throw new RenderError('No MJML markup found in component output');
+  }
 
-	return match[0].replace(COMMENTS_REGEX, '');
+  return match[0].replace(COMMENTS_REGEX, '');
 }
 
 /**
@@ -115,16 +115,16 @@ export function extractMJMLMarkup(html: string): string {
  * @private
  */
 export async function convertMJMLToHTML(markup: string): Promise<{ html: string }> {
-	try {
-		return mjml2html(markup, {
-			...DEFAULT_MJML_OPTIONS
-		});
-	} catch (error) {
-		throw new RenderError(
-			'MJML conversion failed',
-			error instanceof Error ? error : new Error(String(error))
-		);
-	}
+  try {
+    return mjml2html(markup, {
+      ...DEFAULT_MJML_OPTIONS
+    });
+  } catch (error) {
+    throw new RenderError(
+      'MJML conversion failed',
+      error instanceof Error ? error : new Error(String(error))
+    );
+  }
 }
 
 /**
@@ -132,17 +132,17 @@ export async function convertMJMLToHTML(markup: string): Promise<{ html: string 
  * @private
  */
 async function postProcessHTML(html: string, options: RenderOptions): Promise<string> {
-	let processed = html;
+  let processed = html;
 
-	if (options.beautify) {
-		processed = pretty(processed);
-	}
+  if (options.beautify) {
+    processed = pretty(processed);
+  }
 
-	if (options.minify) {
-		processed = await minify(processed, DEFAULT_MINIFY_OPTIONS);
-	}
+  if (options.minify) {
+    processed = await minify(processed, DEFAULT_MINIFY_OPTIONS);
+  }
 
-	return processed;
+  return processed;
 }
 
 /**
@@ -150,5 +150,5 @@ async function postProcessHTML(html: string, options: RenderOptions): Promise<st
  * @private
  */
 function renderPlainText(html: string): string {
-	return convert(html, DEFAULT_PLAIN_TEXT_OPTIONS);
+  return convert(html, DEFAULT_PLAIN_TEXT_OPTIONS);
 }
