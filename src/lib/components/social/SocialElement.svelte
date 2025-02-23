@@ -37,6 +37,8 @@
   import type { Snippet } from 'svelte';
   import type { Properties } from 'csstype';
   import type { DefaultUnits } from '$lib/types.js';
+  import { dev } from '$app/environment';
+  import { base } from '$app/paths';
 
   type SocialNetwork =
     | 'facebook'
@@ -55,7 +57,8 @@
     | 'vimeo'
     | 'medium'
     | 'soundcloud'
-    | 'dribbble';
+    | 'dribbble'
+    | string;
 
   interface Props {
     children?: Snippet;
@@ -153,6 +156,9 @@
 
   const mjmlSocialElementTag = 'mj-social-element';
 
+  // Construct absolute URL if in development and src exists
+  const iconSrc = dev && src ? `${base}${src}` : src;
+
   const attributes = [
     name && `name="${networkName}"`,
     align && `align="${align}"`,
@@ -176,7 +182,7 @@
     paddingRight && `padding-right="${paddingRight}"`,
     paddingTop && `padding-top="${paddingTop}"`,
     rel && `rel="${rel}"`,
-    src && `src="${src}"`,
+    iconSrc && `src="${iconSrc}"`,
     srcset && `srcset="${srcset}"`,
     target && `target="${target}"`,
     textDecoration && `text-decoration="${textDecoration}"`,

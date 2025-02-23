@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { extractMJMLMarkup, renderSvelteComponent } from '$lib/render.js';
+import { base } from '$app/paths';
 
 import Html from './components/HtmlTest.svelte';
 import Head from './components/HeadTest.svelte';
@@ -294,6 +295,35 @@ describe('Image Component', () => {
       '<mj-image src="https://example.com/image.jpg" align="center" alt="Alternative text" border="1px solid #333333" border-top="1px solid #333333" border-bottom="1px solid #333333" border-left="1px solid #333333" border-right="1px solid #333333" border-radius="4px" css-class="custom-image" container-background-color="#f6f6f6" fluid-on-mobile="true" height="auto" href="https://example.com" name="image-1" padding="10px 25px" padding-top="20px" padding-bottom="20px" padding-left="20px" padding-right="20px" rel="nofollow" srcset="image-2x.jpg 2x, image-3x.jpg 3x" target="_blank" title="Image Title" usemap="#image-map" width="600px" />'
     );
   });
+
+  it('should handle local image paths during development', async () => {
+    const envState = process.env.NODE_ENV;
+
+    // Mock the dev environment
+    process.env.NODE_ENV = 'development';
+
+    const localSrc = 'src/lib/assets/local-image.png';
+    const markup = renderSvelteComponent(Image, {
+      src: localSrc,
+      width: '600px'
+    });
+
+    const resultDevelopment = extractMJMLMarkup(markup);
+
+    // Check if the local path is converted to an absolute URL
+    expect(resultDevelopment).toContain(`<mj-image src="${base}${localSrc}" width="600px" />`);
+
+    // Mock the production environment
+    process.env.NODE_ENV = 'production';
+
+    const resultProduction = extractMJMLMarkup(markup);
+
+    // Check if the local path is not converted to an absolute URL in production
+    expect(resultProduction).toContain(`<mj-image src="${localSrc}" width="600px" />`);
+
+    // Restore the original environment
+    process.env.NODE_ENV = envState;
+  });
 });
 
 describe('Button Component', () => {
@@ -433,6 +463,36 @@ describe('Social Component', () => {
     );
 
     expect(result).toContain('</mj-social>');
+  });
+
+  it('should handle local icon paths during development', async () => {
+    const envState = process.env.NODE_ENV;
+
+    // Mock the dev environment
+    process.env.NODE_ENV = 'development';
+
+    const localSrc = 'src/lib/assets/local-icon.png';
+    const markup = renderSvelteComponent(Social, {});
+
+    const resultDevelopment = extractMJMLMarkup(markup);
+
+    // Check if the local path is converted to an absolute URL
+    expect(resultDevelopment).toContain(
+      `<mj-social-element name="example" alt="Local Icon" href="https://example.com" src="${base}${localSrc}"> Local Icon Test </mj-social-element>`
+    );
+
+    // Mock the production environment
+    process.env.NODE_ENV = 'production';
+
+    const resultProduction = extractMJMLMarkup(markup);
+
+    // Check if the local path is not converted to an absolute URL in production
+    expect(resultProduction).toContain(
+      `<mj-social-element name="example" alt="Local Icon" href="https://example.com" src="${localSrc}"> Local Icon Test </mj-social-element>`
+    );
+
+    // Restore the original environment
+    process.env.NODE_ENV = envState;
   });
 });
 

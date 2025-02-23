@@ -120,6 +120,14 @@
           title="Instagram"
           verticalAlign="middle"
         />
+        <Social.Element
+          name="example"
+          href="https://example.com"
+          src="src/lib/assets/local-icon.png"
+          alt="Local Icon"
+        >
+          Local Icon Test
+        </Social.Element>
       </Social>
     </Section>
   </Body>

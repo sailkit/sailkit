@@ -36,6 +36,8 @@
 
   import type { Properties } from 'csstype';
   import type { DefaultUnits } from '$lib/types.js';
+  import { dev } from '$app/environment';
+  import { base, assets } from '$app/paths';
 
   interface Props {
     /** Horizontal alignment of the image (default: center) */
@@ -123,8 +125,14 @@
 
   const mjmlImageTag = 'mj-image';
 
+  // Construct absolute URL if in development and src exists
+  const resolvedSrc = dev && src ? `${base}${src}` : src;
+
+  // Use the resolvedSrc directly
+  const imageSrc = `src="${resolvedSrc}"`;
+
   const attributes = [
-    src && `src="${src}"`,
+    imageSrc,
     align && `align="${align}"`,
     alt && `alt="${alt}"`,
     border && `border="${border}"`,
