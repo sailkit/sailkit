@@ -21,7 +21,7 @@ import {
   DEFAULT_PLAIN_TEXT_OPTIONS,
   DEFAULT_RENDER_OPTIONS
 } from './defaults.js';
-import { RenderError } from './errors.js';
+import { RenderError, ValidationError, extractValidationDetails } from './errors.js';
 
 // Constants
 const MJML_REGEX = /<mjml[\s\S]*?<\/mjml>/;
@@ -55,10 +55,32 @@ export async function renderComponentAsEmailTemplate<Props extends ComponentProp
       }
     };
   } catch (error) {
-    throw new RenderError(
-      'Email template rendering failed',
-      error instanceof Error ? error : undefined
-    );
+    // Get component name for better error context
+    const componentName = component.name;
+
+    if (error instanceof ValidationError) {
+      // add component name to the error message
+      error.message = `Error in ${componentName}.svelte: ${error.formattedMessage}`;
+      console.error(error.message);
+
+      throw error;
+    }
+
+    // For other render errors, include relevant context
+    if (error instanceof RenderError) {
+      error.message = `Error rendering ${componentName}.svelte: ${error.formattedMessage}`;
+
+      // Log the error to console
+      console.error(error.message);
+
+      throw error;
+    }
+
+    // Generic error handling
+    const errorMessage = `Error rendering ${componentName}: ${error instanceof Error ? error.message : String(error)}`;
+    console.error(errorMessage);
+
+    throw new RenderError(errorMessage, error instanceof Error ? error : undefined);
   }
 }
 
@@ -120,6 +142,22 @@ export async function convertMJMLToHTML(markup: string): Promise<{ html: string 
       ...DEFAULT_MJML_OPTIONS
     });
   } catch (error) {
+    if (error && typeof error === 'object' && 'errors' in error) {
+      const details = extractValidationDetails(error);
+
+      let specificMessage = 'Email template has validation errors';
+
+      // If we have details, include the first error in the main message for visibility
+      if (details.length > 0) {
+        const firstError = details[0];
+        const component = `<${firstError.tagName}>` || 'unknown';
+
+        specificMessage = `Invalid value in ${component}: ${firstError.message}`;
+      }
+
+      throw new ValidationError(specificMessage, details);
+    }
+
     throw new RenderError(
       'MJML conversion failed',
       error instanceof Error ? error : new Error(String(error))
