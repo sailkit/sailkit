@@ -120,7 +120,7 @@
    * - Use createTheme utility to define type-safe themes
    */
 
-  import type { DefaultUnits } from '$lib/types.js';
+  import type { DefaultUnits, StyleString } from '$lib/types.js';
   import type { Snippet } from 'svelte';
   import type { ThemeOptions } from '$lib/theme.js';
 
@@ -140,9 +140,9 @@
 
   interface StyleProps {
     /** Global styles that affect all components */
-    global?: string;
+    global?: StyleString;
     /** Component-specific styles */
-    components?: Partial<Record<ComponentName, string>>;
+    components?: Partial<Record<ComponentName, StyleString>>;
     /** Custom CSS rules */
     custom?: Array<
       | string

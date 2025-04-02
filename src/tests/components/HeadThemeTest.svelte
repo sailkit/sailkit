@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { DefaultUnits } from '$lib/types.js';
+  import type { DefaultUnits, StyleString } from '$lib/types.js';
   import type { ThemeOptions } from '$lib/theme.js';
   import { Html, Head, Body, Raw } from '$lib/index.js';
 
@@ -18,8 +18,8 @@
     | 'container';
 
   interface StyleProps {
-    global?: string;
-    components?: Partial<Record<ComponentName, string>>;
+    global?: StyleString;
+    components?: Partial<Record<ComponentName, StyleString>>;
     custom?: Array<
       | string
       | {

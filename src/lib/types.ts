@@ -73,3 +73,6 @@ export interface DefaultUnits {
   paddingTop?: `${number}px`;
   width?: `${number}px`;
 }
+
+type MjmlStyle = `${string}="${string}"` | `${string}='${string}'`;
+export type StyleString = `${MjmlStyle}${` ${MjmlStyle}` | ''}`;

@@ -1,4 +1,4 @@
-import type { DefaultUnits } from './types.js';
+import type { DefaultUnits, StyleString } from './types.js';
 
 type ComponentName =
   | 'body'
@@ -16,9 +16,9 @@ type ComponentName =
 
 interface StyleProps {
   /** Global styles that affect all components */
-  global?: string;
+  global?: StyleString;
   /** Component-specific styles */
-  components?: Partial<Record<ComponentName, string>>;
+  components?: Partial<Record<ComponentName, StyleString>>;
   /** Custom CSS rules */
   custom?: Array<
     | string
