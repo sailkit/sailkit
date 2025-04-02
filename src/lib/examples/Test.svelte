@@ -10,14 +10,11 @@
 
 <Html language="en" dir="ltr">
   <Head
-    subject="Exmample Email"
+    subject="Example Email"
     fonts={[{ name: 'Oswald', href: 'https://fonts.googleapis.com/css?family=Oswald' }]}
-    styles={[
-      {
-        type: 'global',
-        value: 'font-family="Oswald"'
-      }
-    ]}
+    styles={{
+      global: 'font-family="Oswald"'
+    }}
   />
   <Body>
     <Section>
