@@ -1,7 +1,7 @@
 <script>
   // Stores
   import { page } from '$app/state';
-  import { current } from '$lib/utils/current.svelte';
+  import { getCurrent } from '$lib/utils/current.svelte';
   import { dev } from '$app/environment';
 
   // Utils
@@ -29,26 +29,20 @@
 
 <svelte:head>
   {#if !dev}
-    <script
-      defer
-      data-domain="sailkit.xyz"
-      src="https://plausible.io/js/script.js"
-    ></script>
+    <script defer data-domain="sailkit.xyz" src="https://plausible.io/js/script.js"></script>
   {/if}
 </svelte:head>
 
-<SEO title={current().doc} url={page.url.toString()} />
+<SEO title={getCurrent().doc} url={page.url.toString()} />
 
-<ModeWatcher modeStorageKey="mode" themeStorageKey="theme" />
+<ModeWatcher />
 
 <Toaster position="bottom-center" closeButton />
 
 <Sidebar.Provider class="max-w-full">
   <AppSidebar />
   <Sidebar.Inset>
-    <header
-      class="sticky top-0 flex h-16 shrink-0 items-center gap-2 border-b bg-background px-4"
-    >
+    <header class="sticky top-0 flex h-16 shrink-0 items-center gap-2 border-b bg-background px-4">
       <Sidebar.Trigger class="-ml-1" />
       <Separator orientation="vertical" class="mr-2 h-4" />
       <Button variant="ghost" class="font-medium">
@@ -56,19 +50,19 @@
       </Button>
       <Separator orientation="vertical" class="mr-2 h-4" />
       <Breadcrumb.Root>
-        {#if current().category && current().doc}
+        {#if getCurrent().category && getCurrent().doc}
           <Breadcrumb.List>
             <Breadcrumb.Item class="hidden md:block">
-              <Breadcrumb.Link>{current().category}</Breadcrumb.Link>
+              <Breadcrumb.Link>{getCurrent().category}</Breadcrumb.Link>
             </Breadcrumb.Item>
             <Breadcrumb.Separator class="hidden md:block" />
             <Breadcrumb.Item class="hidden md:block">
-              <Breadcrumb.Link>{current().doc}</Breadcrumb.Link>
+              <Breadcrumb.Link>{getCurrent().doc}</Breadcrumb.Link>
             </Breadcrumb.Item>
           </Breadcrumb.List>
         {/if}
       </Breadcrumb.Root>
-      {#if $mode}
+      {#if mode.current}
         <div class="flex flex-1 justify-end gap-2">
           <Button
             id="github"
@@ -82,23 +76,7 @@
             </a>
           </Button>
 
-          <Tooltip.Provider>
-            <Tooltip.Root delayDuration={250}>
-              <Tooltip.Trigger>
-                <ThemeSwitcher />
-              </Tooltip.Trigger>
-              <Tooltip.Content>
-                <span class="flex items-center gap-1.5">
-                  <p>toggle theme</p>
-                  <p
-                    class="rounded-sm bg-muted px-1 py-0.5 font-semibold text-foreground"
-                  >
-                    D
-                  </p>
-                </span>
-              </Tooltip.Content>
-            </Tooltip.Root>
-          </Tooltip.Provider>
+          <ThemeSwitcher />
         </div>
       {/if}
     </header>

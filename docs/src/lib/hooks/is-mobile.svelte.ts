@@ -8,9 +8,7 @@ export class IsMobile {
   constructor() {
     $effect(() => {
       return untrack(() => {
-        const mql = window.matchMedia(
-          `(max-width: ${MOBILE_BREAKPOINT - 1}px)`
-        );
+        const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
         const onChange = () => {
           this.#current = window.innerWidth < MOBILE_BREAKPOINT;
         };
