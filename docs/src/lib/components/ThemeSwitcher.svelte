@@ -13,7 +13,10 @@
   $effect(() => {
     const keyListener = (e: KeyboardEvent) => {
       // Ignore key presses when typing in input fields
-      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
+      if (
+        e.target instanceof HTMLInputElement ||
+        e.target instanceof HTMLTextAreaElement
+      ) {
         return;
       }
 
@@ -58,7 +61,11 @@
       <Tooltip.Content side="bottom">
         <span class="flex items-center gap-1.5 text-xs">
           <p>toggle theme</p>
-          <p class="bg-muted text-foreground rounded-sm px-1 py-0.5 font-semibold">D</p>
+          <p
+            class="bg-muted text-foreground rounded-sm px-1 py-0.5 font-semibold"
+          >
+            D
+          </p>
         </span>
       </Tooltip.Content>
     </Tooltip.Root>

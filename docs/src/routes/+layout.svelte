@@ -16,7 +16,6 @@
   import AppSidebar from '$components/AppSidebar.svelte';
   import { Toaster } from '$lib/components/ui/sonner';
   import ThemeSwitcher from '$components/ThemeSwitcher.svelte';
-  import * as Tooltip from '$components/ui/tooltip';
 
   // Icons
   import { GithubLogo } from 'svelte-radix';
@@ -29,7 +28,11 @@
 
 <svelte:head>
   {#if !dev}
-    <script defer data-domain="sailkit.xyz" src="https://plausible.io/js/script.js"></script>
+    <script
+      defer
+      data-domain="sailkit.xyz"
+      src="https://plausible.io/js/script.js"
+    ></script>
   {/if}
 </svelte:head>
 
@@ -42,7 +45,9 @@
 <Sidebar.Provider class="max-w-full">
   <AppSidebar />
   <Sidebar.Inset>
-    <header class="sticky top-0 flex h-16 shrink-0 items-center gap-2 border-b bg-background px-4">
+    <header
+      class="sticky top-0 flex h-16 shrink-0 items-center gap-2 border-b bg-background px-4"
+    >
       <Sidebar.Trigger class="-ml-1" />
       <Separator orientation="vertical" class="mr-2 h-4" />
       <Button variant="ghost" class="font-medium">

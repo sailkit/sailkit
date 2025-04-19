@@ -5,7 +5,15 @@ import { createHighlighter } from 'shiki';
 
 const getHighlighter = createHighlighter({
   themes: ['poimandres', 'ayu-dark'],
-  langs: ['bash', 'javascript', 'typescript', 'svelte', 'html', 'css', 'markdown']
+  langs: [
+    'bash',
+    'javascript',
+    'typescript',
+    'svelte',
+    'html',
+    'css',
+    'markdown'
+  ]
 });
 
 /** @type {import('mdsvex').MdsvexOptions} */

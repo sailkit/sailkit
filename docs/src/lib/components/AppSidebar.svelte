@@ -95,7 +95,10 @@
   import { useSidebar } from '$lib/components/ui/sidebar/index.js';
   import { getCurrent } from '$lib/utils/current.svelte';
 
-  let { ref = $bindable(null), ...restProps }: ComponentProps<typeof Sidebar.Root> = $props();
+  let {
+    ref = $bindable(null),
+    ...restProps
+  }: ComponentProps<typeof Sidebar.Root> = $props();
 
   const sidebar = $derived({
     isMobile: useSidebar().isMobile,
@@ -107,7 +110,11 @@
 <Sidebar.Root bind:ref {...restProps}>
   <Sidebar.Content class="gap-0">
     {#each data.navMain as group (group.title)}
-      <Collapsible.Root title={group.title} open={true} class="group/collapsible">
+      <Collapsible.Root
+        title={group.title}
+        open={true}
+        class="group/collapsible"
+      >
         <Sidebar.Group>
           <Sidebar.GroupLabel
             class="group/label text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
@@ -129,7 +136,8 @@
                   <Sidebar.MenuItem>
                     <Sidebar.MenuButton
                       {isActive}
-                      onclick={() => sidebar.isMobile && sidebar.setOpenMobile(false)}
+                      onclick={() =>
+                        sidebar.isMobile && sidebar.setOpenMobile(false)}
                     >
                       {#snippet child({ props })}
                         <a href={item.url} {...props}>{item.title}</a>
