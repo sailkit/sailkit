@@ -12,6 +12,15 @@ node_modules
 .DS_Store
 Thumbs.db
 
+# Docs specific ignores
+docs/node_modules
+docs/.svelte-kit
+docs/build
+docs/.env
+docs/.env.*
+!docs/.env.example
+!docs/.env.test
+
 # Env
 .env
 .env.*

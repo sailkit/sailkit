@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Urbanist';
+  src: url('/fonts/Urbanist-VariableFont.ttf') format('truetype');
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --background: 48 100% 97%;
+    --foreground: 0 3% 6%;
+    --muted: 51 33% 92%;
+    --muted-foreground: 49 7% 70%;
+    --popover: 48 100% 97%;
+    --popover-foreground: 0 3% 6%;
+    --card: 48 100% 97%;
+    --card-foreground: 0 3% 6%;
+    --border: 50 14% 83%;
+    --input: 50 14% 83%;
+    --primary: 0 3% 6%;
+    --primary-foreground: 48 100% 97%;
+    --secondary: 50 14% 83%;
+    --secondary-foreground: 50 3% 42%;
+    --accent: 51 21% 88%;
+    --accent-foreground: 50 3% 42%;
+    --destructive: 3 62% 42%;
+    --destructive-foreground: 48 100% 97%;
+    --ring: 55 10% 79%;
+    --radius: 0.5rem;
+    --sidebar-background: 51 33% 92%;
+    --sidebar-foreground: 50 3% 42%;
+    --sidebar-primary: 51 21% 88%;
+    --sidebar-primary-foreground: 48 100% 97%;
+    --sidebar-accent: 50 14% 83%;
+    --sidebar-accent-foreground: 0 3% 6%;
+    --sidebar-border: 50 14% 83%;
+    --sidebar-ring: 55 10% 79%;
+    --brand-primary: 51 21% 88%;
+    --brand-secondary: 50 14% 83%;
+    --brand-tertiary: 3 62% 42%;
+  }
+
+  .dark {
+    --background: 0 3% 6%;
+    --foreground: 55 10% 79%;
+    --muted: 30 4% 11%;
+    --muted-foreground: 45 2% 33%;
+    --popover: 0 3% 6%;
+    --popover-foreground: 55 10% 79%;
+    --card: 0 3% 6%;
+    --card-foreground: 55 10% 79%;
+    --border: 40 3% 20%;
+    --input: 40 3% 20%;
+    --primary: 55 10% 79%;
+    --primary-foreground: 0 3% 6%;
+    --secondary: 40 3% 20%;
+    --secondary-foreground: 43 3% 52%;
+    --accent: 30 3% 15%;
+    --accent-foreground: 43 3% 52%;
+    --destructive: 5 61% 54%;
+    --destructive-foreground: 0 3% 6%;
+    --ring: 30 3% 24%;
+    --radius: 0.5rem;
+    --sidebar-background: 30 4% 11%;
+    --sidebar-foreground: 43 3% 52%;
+    --sidebar-primary: 30 3% 15%;
+    --sidebar-primary-foreground: 55 10% 79%;
+    --sidebar-accent: 40 3% 20%;
+    --sidebar-accent-foreground: 55 10% 79%;
+    --sidebar-border: 40 3% 20%;
+    --sidebar-ring: 30 3% 24%;
+    --brand-primary: 30 3% 15%;
+    --brand-secondary: 40 3% 20%;
+    --brand-tertiary: 5 61% 54%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
+    scrollbar-width: thin;
+  }
+
+  body {
+    @apply bg-background font-primary text-foreground antialiased transition-colors duration-200 ease-in-out;
+  }
+
+  ::-webkit-scrollbar {
+    @apply h-2 w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-sm bg-muted-foreground/30;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .prose {
+    @apply w-full;
+  }
+
+  .prose pre {
+    @apply my-4 max-w-[calc(100vw-2rem)] overflow-x-auto md:max-w-[calc(100vw-12rem)];
+  }
+
+  .prose table {
+    @apply my-4 max-w-[calc(100vw-2rem)] overflow-x-auto md:max-w-[calc(100vw-12rem)];
+    display: block !important;
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  .min-h-screen {
+    min-height: -webkit-fill-available;
+  }
+}
+
+html.dark .shiki,
+html.dark .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+}

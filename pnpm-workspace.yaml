@@ -1,0 +1,5 @@
+packages:
+  # sailkit package
+  - '.'
+  # docs site
+  - 'docs'

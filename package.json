@@ -23,10 +23,15 @@
     "prepublishOnly": "npm run package",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "format": "prettier --write .",
-    "lint": "prettier --check . && eslint .",
+    "format": "prettier --write . && pnpm docs:format",
+    "lint": "prettier --check . && eslint . && pnpm docs:lint",
     "test:unit": "vitest",
-    "test": "pnpm test:unit"
+    "test": "pnpm test:unit",
+    "docs:dev": "pnpm --filter ./docs dev",
+    "docs:build": "pnpm --filter ./docs build",
+    "docs:preview": "pnpm --filter ./docs preview",
+    "docs:lint": "pnpm --filter ./docs lint",
+    "docs:format": "pnpm --filter ./docs format"
   },
   "files": [
     "dist",
