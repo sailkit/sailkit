@@ -37,7 +37,7 @@
   import type { Properties } from 'csstype';
   import type { DefaultUnits } from '$lib/types.js';
   import { dev } from '$app/environment';
-  import { base, assets } from '$app/paths';
+  import { base } from '$app/paths';
 
   interface Props {
     /** Horizontal alignment of the image (default: center) */
