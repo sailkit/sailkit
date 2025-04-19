@@ -13,13 +13,7 @@ scaling, alignment, and linking while maintaining compatibility across email
 clients.
 
 ```svelte
-<Image
-  src="https://example.com/image.jpg"
-  alt="Description"
-  width="600px"
-  fluidOnMobile="true"
-  borderRadius="8px"
-/>
+<Image src="https://example.com/image.jpg" alt="Description" width="600px" fluidOnMobile="true" borderRadius="8px" />
 ```
 
 | **Prop**                 | **Type**            | **Default** | **Unit**         | **Description**                        |

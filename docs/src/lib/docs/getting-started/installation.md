@@ -15,13 +15,13 @@ Import the necessary components from SailKit and declare props:
 
 ```svelte
 <script lang="ts">
-  import { Html, Body, Section, Column, Text } from 'sailkit';
+  import { Html, Body, Section, Column, Text } from "sailkit";
 
   interface Props {
     text: string;
   }
 
-  let { text = 'Hello from SailKit! 👋' }: Props = $props();
+  let { text = "Hello from SailKit! 👋" }: Props = $props();
 </script>
 ```
 
@@ -42,13 +42,13 @@ Then, create your Svelte email template:
 Finally, render or preview your email from anywhere in your application:
 
 ```ts
-import MyEmail from './MyEmail.svelte';
-import { renderEmail, previewEmail } from 'sailkit';
+import MyEmail from "./MyEmail.svelte";
+import { renderEmail, previewEmail } from "sailkit";
 
 const { html, plainText } = await renderEmail(MyEmail, {
-  text: 'Hello World!'
+  text: "Hello World!"
 });
 
 // Or, if you want to preview the email in your browser
-await previewEmail(MyEmail, { text: 'Hello World!' });
+await previewEmail(MyEmail, { text: "Hello World!" });
 ```

@@ -2,6 +2,6 @@
   let { data } = $props();
 </script>
 
-<article class="prose max-w-3xl dark:prose-invert prose-table:my-2 xl:mx-auto">
+<article class="prose dark:prose-invert prose-table:my-2 max-w-3xl xl:mx-auto">
   <data.content />
 </article>

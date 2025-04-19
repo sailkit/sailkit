@@ -27,12 +27,12 @@ Configure the rendering process with these options:
 ### Example
 
 ```ts
-import MyEmail from './MyEmail.svelte';
-import { renderEmail } from 'sailkit';
+import MyEmail from "./MyEmail.svelte";
+import { renderEmail } from "sailkit";
 
 const { html, plainText, metadata } = await renderEmail(
   MyEmail, // Svelte component
-  { text: 'Hello World!' }, // Component props
+  { text: "Hello World!" }, // Component props
   {
     plainText: true, // Generate a plain-text version of the email.
     beautify: true, // Beautify the HTML output.

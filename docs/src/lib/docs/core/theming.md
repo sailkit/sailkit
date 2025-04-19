@@ -14,19 +14,19 @@ shared across your templates and overridden as needed.
 Use the `createTheme` utility to define a type-safe theme:
 
 ```ts
-import { createTheme } from 'sailkit';
+import { createTheme } from "sailkit";
 
 export const myTheme = createTheme({
   // Custom fonts configuration
   fonts: [
     {
-      name: 'Roboto',
-      href: 'https://fonts.googleapis.com/css2?family=Roboto'
+      name: "Roboto",
+      href: "https://fonts.googleapis.com/css2?family=Roboto"
     }
   ],
 
   // Responsive breakpoint
-  breakpoint: '480px',
+  breakpoint: "480px",
 
   // Style configurations
   styles: {
@@ -44,7 +44,7 @@ export const myTheme = createTheme({
     custom: [
       {
         inline: true,
-        css: '.brand-header { font-size: 24px; }'
+        css: ".brand-header { font-size: 24px; }"
       }
     ]
   }
@@ -62,12 +62,12 @@ Array of custom fonts to be included in the email:
 ```ts
 fonts: [
   {
-    name: 'Roboto',
-    href: 'https://fonts.googleapis.com/css2?family=Roboto'
+    name: "Roboto",
+    href: "https://fonts.googleapis.com/css2?family=Roboto"
   },
   {
-    name: 'Open Sans',
-    href: 'https://fonts.googleapis.com/css2?family=Open+Sans'
+    name: "Open Sans",
+    href: "https://fonts.googleapis.com/css2?family=Open+Sans"
   }
 ];
 ```
@@ -77,7 +77,7 @@ fonts: [
 The width at which mobile layout triggers (in pixels):
 
 ```ts
-breakpoint: '480px';
+breakpoint: "480px";
 ```
 
 ### Styles
@@ -111,12 +111,12 @@ styles: {
 styles: {
   custom: [
     // Regular CSS (not inlined)
-    '.custom-class { color: #333333; }',
+    ".custom-class { color: #333333; }",
 
     // Inlined CSS
     {
       inline: true,
-      css: '.header { padding: 20px; }'
+      css: ".header { padding: 20px; }"
     }
   ];
 }
@@ -129,14 +129,10 @@ component:
 
 ```svelte
 <script>
-  import { myTheme } from '$lib/mail/myTheme';
+  import { myTheme } from "$lib/mail/myTheme";
 </script>
 
-<Head
-  subject="Welcome Email"
-  preview="Check out our latest updates"
-  theme={myTheme}
-/>
+<Head subject="Welcome Email" preview="Check out our latest updates" theme={myTheme} />
 ```
 
 ### Overriding Theme Properties

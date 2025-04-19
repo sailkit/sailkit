@@ -83,11 +83,11 @@
   /* Fonts */
   --font-primary: 'Urbanist', sans-serif;
   --font-sans:
-    'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
   --font-mono:
-    'Source Code Pro Variable', ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, 'Liberation Mono', 'Courier New', monospace;
+    'Source Code Pro Variable', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
 
   /* Colors */
   --color-border: var(--border);
@@ -168,16 +168,11 @@
   }
 
   *:focus-visible {
-    @apply ring-ring ring-1 outline-none;
+    @apply ring-ring outline-none ring-1;
   }
 
   html {
-    scrollbar-color: color-mix(
-        in oklch,
-        var(--muted-foreground),
-        transparent 70%
-      )
-      transparent;
+    scrollbar-color: color-mix(in oklch, var(--muted-foreground), transparent 70%) transparent;
     scrollbar-width: thin;
   }
 
@@ -194,7 +189,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply rounded-sm bg-muted-foreground/30;
+    @apply bg-muted-foreground/30 rounded-sm;
   }
 
   .hide-scrollbar {

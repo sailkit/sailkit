@@ -19,8 +19,8 @@ styles.
   breakpoint={480}
   fonts={[
     {
-      name: 'Open Sans',
-      href: 'https://fonts.googleapis.com/css2?family=Open+Sans'
+      name: "Open Sans",
+      href: "https://fonts.googleapis.com/css2?family=Open+Sans"
     }
   ]}
 />
@@ -67,7 +67,7 @@ The `styles` prop accepts an object with three optional properties:
       // Inlined CSS
       {
         inline: true,
-        css: '.header { font-size: 24px; }'
+        css: ".header { font-size: 24px; }"
       },
 
       // Media queries
@@ -89,16 +89,16 @@ properties.
 
 ```ts
 // theme.ts
-import { createTheme } from 'sailkit';
+import { createTheme } from "sailkit";
 
 export const brandTheme = createTheme({
   fonts: [
     {
-      name: 'Roboto',
-      href: 'https://fonts.googleapis.com/css2?family=Roboto'
+      name: "Roboto",
+      href: "https://fonts.googleapis.com/css2?family=Roboto"
     }
   ],
-  breakpoint: '480px',
+  breakpoint: "480px",
   styles: {
     global: 'font-family="Roboto, sans-serif"',
     components: {
@@ -106,10 +106,10 @@ export const brandTheme = createTheme({
       button: 'background-color="#007bff"'
     },
     custom: [
-      '.header { font-size: 24px; }',
+      ".header { font-size: 24px; }",
       {
         inline: true,
-        css: '.footer { padding: 20px; }'
+        css: ".footer { padding: 20px; }"
       }
     ]
   }

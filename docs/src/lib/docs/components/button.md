@@ -11,13 +11,7 @@ title: Button
 A component for creating responsive and stylizable buttons.
 
 ```svelte
-<Button
-  href="https://example.com"
-  backgroundColor="#007bff"
-  borderRadius="5px"
-  fontSize="16px"
-  padding="15px 30px"
->
+<Button href="https://example.com" backgroundColor="#007bff" borderRadius="5px" fontSize="16px" padding="15px 30px">
   Join now
 </Button>
 ```

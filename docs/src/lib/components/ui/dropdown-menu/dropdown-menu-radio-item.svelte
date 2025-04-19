@@ -1,8 +1,5 @@
 <script lang="ts">
-  import {
-    DropdownMenu as DropdownMenuPrimitive,
-    type WithoutChild
-  } from 'bits-ui';
+  import { DropdownMenu as DropdownMenuPrimitive, type WithoutChild } from 'bits-ui';
   import Circle from 'lucide-svelte/icons/circle';
   import { cn } from '$lib/utils/utils.js';
 
@@ -17,7 +14,7 @@
 <DropdownMenuPrimitive.RadioItem
   bind:ref
   class={cn(
-    'data-highlighted:bg-accent data-highlighted:text-accent-foreground relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-hidden data-disabled:pointer-events-none data-disabled:opacity-50',
+    'data-highlighted:bg-accent data-highlighted:text-accent-foreground outline-hidden data-disabled:pointer-events-none data-disabled:opacity-50 relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm',
     className
   )}
   {...restProps}

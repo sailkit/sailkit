@@ -55,12 +55,7 @@ Creates a horizontal line to visually separate content within a Column.
 ```svelte
 <Column>
   <Text>Above divider</Text>
-  <Column.Divider
-    borderColor="#e0e0e0"
-    borderStyle="dashed"
-    borderWidth="1px"
-    padding="15px 0"
-  />
+  <Column.Divider borderColor="#e0e0e0" borderStyle="dashed" borderWidth="1px" padding="15px 0" />
   <Text>Below divider</Text>
 </Column>
 ```

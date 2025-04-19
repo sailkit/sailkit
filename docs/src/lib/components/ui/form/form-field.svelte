@@ -4,10 +4,7 @@
   type U = _FormPath<T>;
 </script>
 
-<script
-  lang="ts"
-  generics="T extends Record<string, unknown>, U extends _FormPath<T>"
->
+<script lang="ts" generics="T extends Record<string, unknown>, U extends _FormPath<T>">
   import * as FormPrimitive from 'formsnap';
   import { cn } from '$lib/utils/utils.js';
   import type { WithElementRef, WithoutChildren } from 'bits-ui';

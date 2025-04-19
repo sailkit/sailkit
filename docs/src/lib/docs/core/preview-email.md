@@ -27,12 +27,12 @@ Configure the rendering process with these options:
 ### Example
 
 ```ts
-import MyEmail from './MyEmail.svelte';
-import { previewEmail } from 'sailkit';
+import MyEmail from "./MyEmail.svelte";
+import { previewEmail } from "sailkit";
 
 await previewEmail(
   MyEmail, // Svelte component
-  { text: 'Hello World!' }, // Component props
-  'browser' // Render in a new browser window
+  { text: "Hello World!" }, // Component props
+  "browser" // Render in a new browser window
 );
 ```

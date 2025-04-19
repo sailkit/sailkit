@@ -14,7 +14,7 @@ for your email template.
 
 ```svelte
 <script lang="ts">
-  import { Html, Head, Body } from 'sailkit';
+  import { Html, Head, Body } from "sailkit";
 </script>
 
 <Html language="en" dir="ltr">

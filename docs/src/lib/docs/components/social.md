@@ -14,12 +14,8 @@ nested component.
 
 ```svelte
 <Social mode="vertical" align="left" iconSize="30px">
-  <Social.Element name="linkedin" href="https://linkedin.com/in/profile"
-    >Connect on LinkedIn</Social.Element
-  >
-  <Social.Element name="github" href="https://github.com/profile"
-    >Follow on GitHub</Social.Element
-  >
+  <Social.Element name="linkedin" href="https://linkedin.com/in/profile">Connect on LinkedIn</Social.Element>
+  <Social.Element name="github" href="https://github.com/profile">Follow on GitHub</Social.Element>
 </Social>
 ```
 
@@ -58,13 +54,7 @@ An individual social network link and icon element. Must be used within a Social
 component.
 
 ```svelte
-<Social.Element
-  name="github"
-  href="https://github.com/profile"
-  iconSize="25px"
-  backgroundColor="#333"
-  color="#fff"
->
+<Social.Element name="github" href="https://github.com/profile" iconSize="25px" backgroundColor="#333" color="#fff">
   Follow us
 </Social.Element>
 ```

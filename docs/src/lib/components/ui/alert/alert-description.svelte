@@ -11,10 +11,6 @@
   }: WithElementRef<HTMLAttributes<HTMLDivElement>> = $props();
 </script>
 
-<div
-  bind:this={ref}
-  class={cn('text-sm [&_p]:leading-relaxed', className)}
-  {...restProps}
->
+<div bind:this={ref} class={cn('text-sm [&_p]:leading-relaxed', className)} {...restProps}>
   {@render children?.()}
 </div>

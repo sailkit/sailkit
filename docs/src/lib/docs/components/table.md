@@ -12,13 +12,7 @@ A component for creating HTML tables. Provides consistent table rendering across
 email clients while supporting standard table attributes and styling options.
 
 ```svelte
-<Table
-  align="center"
-  cellPadding="10px 25px"
-  cellSpacing="20px"
-  color="#333333"
-  fontSize="14px"
->
+<Table align="center" cellPadding="10px 25px" cellSpacing="20px" color="#333333" fontSize="14px">
   <table>
     <tr>
       <th>Header 1</th>

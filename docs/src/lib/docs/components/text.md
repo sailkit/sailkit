@@ -13,9 +13,7 @@ comprehensive typography controls and ensures consistent text rendering across
 email clients.
 
 ```svelte
-<Text color="#333333" fontSize="16px" fontWeight="bold" align="center"
-  >Important message</Text
->
+<Text color="#333333" fontSize="16px" fontWeight="bold" align="center">Important message</Text>
 ```
 
 | **Prop**                 | **Type**                                | **Default**                          | **Unit**        | **Description**                        |
