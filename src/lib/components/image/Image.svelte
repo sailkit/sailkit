@@ -35,7 +35,7 @@
    */
 
   import type { Properties } from 'csstype';
-  import type { DefaultUnits } from '$lib/types.js';
+  import type { CustomProperties } from '$lib/types.js';
   import { dev } from '$app/environment';
   import { base } from '$app/paths';
 
@@ -63,7 +63,7 @@
     /** Whether image is full-width on mobile devices. if "true", will be full width on mobile even if width is set. */
     fluidOnMobile?: 'true';
     /** Image height (default: auto) */
-    height?: DefaultUnits['height'] | 'auto';
+    height?: CustomProperties['height'] | 'auto';
     /** URL the image links to */
     href?: string;
     /** Name attribute for the image */
@@ -71,13 +71,13 @@
     /** Padding around the image (default: 10px 25px) */
     padding?: Properties['padding'];
     /** Bottom padding */
-    paddingBottom?: DefaultUnits['paddingBottom'];
+    paddingBottom?: CustomProperties['paddingBottom'];
     /** Left padding */
-    paddingLeft?: DefaultUnits['paddingLeft'];
+    paddingLeft?: CustomProperties['paddingLeft'];
     /** Right padding */
-    paddingRight?: DefaultUnits['paddingRight'];
+    paddingRight?: CustomProperties['paddingRight'];
     /** Top padding */
-    paddingTop?: DefaultUnits['paddingTop'];
+    paddingTop?: CustomProperties['paddingTop'];
     /** Relationship attribute for the link */
     rel?: string;
     /** Source URL of the image */
@@ -91,7 +91,7 @@
     /** Usemap attribute for image maps */
     usemap?: string;
     /** Image width (default: parent width) */
-    width?: DefaultUnits['width'];
+    width?: CustomProperties['width'];
   }
 
   const {

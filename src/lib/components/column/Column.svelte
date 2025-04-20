@@ -37,7 +37,7 @@
 
   import type { Snippet } from 'svelte';
   import type { Properties } from 'csstype';
-  import type { DefaultUnits } from '$lib/types.js';
+  import type { CustomProperties } from '$lib/types.js';
 
   interface Props {
     children?: Snippet;
@@ -74,17 +74,17 @@
     /** Padding around the column */
     padding?: Properties['padding'];
     /** Bottom padding */
-    paddingBottom?: DefaultUnits['paddingBottom'];
+    paddingBottom?: CustomProperties['paddingBottom'];
     /** Left padding */
-    paddingLeft?: DefaultUnits['paddingLeft'];
+    paddingLeft?: CustomProperties['paddingLeft'];
     /** Right padding */
-    paddingRight?: DefaultUnits['paddingRight'];
+    paddingRight?: CustomProperties['paddingRight'];
     /** Top padding */
-    paddingTop?: DefaultUnits['paddingTop'];
+    paddingTop?: CustomProperties['paddingTop'];
     /** Vertical alignment within section (default: top). note: middle works only when adjacent column is also set to middle */
     verticalAlign?: 'middle' | 'top' | 'bottom';
     /** Column width (default: auto-calculated based on siblings) */
-    width?: DefaultUnits['width'] | `${number}%`;
+    width?: CustomProperties['width'] | `${number}%`;
   }
 
   const {

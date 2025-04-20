@@ -37,14 +37,14 @@
 
   import type { Snippet } from 'svelte';
   import type { Properties } from 'csstype';
-  import type { DefaultUnits } from '$lib/types.js';
+  import type { CustomProperties } from '$lib/types.js';
 
   interface Props {
     children?: Snippet;
     /** The background color of the email body. Accepts any valid CSS color value (default: #ffffff) */
     backgroundColor?: Properties['backgroundColor'];
     /** The maximum width of email content (default: 600px) */
-    width?: DefaultUnits['width'];
+    width?: CustomProperties['width'];
     /** CSS class name(s) that correspond to styles defined in the Head component's styles prop. */
     class?: string;
   }

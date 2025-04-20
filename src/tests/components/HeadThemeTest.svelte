@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { DefaultUnits } from '$lib/types.js';
+  import type { CustomProperties } from '$lib/types.js';
   import type { ThemeOptions } from '$lib/theme.js';
   import { Html, Head, Body, Raw } from '$lib/index.js';
 
@@ -8,7 +8,6 @@
     | 'button'
     | 'column'
     | 'divider'
-    | 'hero'
     | 'image'
     | 'section'
     | 'social-element'
@@ -36,7 +35,7 @@
       name: string;
       href: string;
     }[];
-    breakpoint?: DefaultUnits['breakpoint'];
+    breakpoint?: CustomProperties['breakpoint'];
     styles?: StyleProps;
     theme?: ThemeOptions;
   }

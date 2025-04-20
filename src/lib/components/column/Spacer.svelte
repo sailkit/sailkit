@@ -20,7 +20,7 @@
    */
 
   import type { Properties } from 'csstype';
-  import type { DefaultUnits } from '$lib/types.js';
+  import type { CustomProperties } from '$lib/types.js';
 
   interface Props {
     /** Background color of the spacer area */
@@ -28,17 +28,17 @@
     /** CSS class name(s) that correspond to styles defined in the Head component's styles prop. */
     class?: string;
     /** Height of the spacer (default: 20px) */
-    height?: DefaultUnits['height'];
+    height?: CustomProperties['height'];
     /** Padding around the spacer (default: none) */
     padding?: Properties['padding'];
     /** Bottom padding */
-    paddingBottom?: DefaultUnits['paddingBottom'];
+    paddingBottom?: CustomProperties['paddingBottom'];
     /** Left padding */
-    paddingLeft?: DefaultUnits['paddingLeft'];
+    paddingLeft?: CustomProperties['paddingLeft'];
     /** Right padding */
-    paddingRight?: DefaultUnits['paddingRight'];
+    paddingRight?: CustomProperties['paddingRight'];
     /** Top padding */
-    paddingTop?: DefaultUnits['paddingTop'];
+    paddingTop?: CustomProperties['paddingTop'];
   }
 
   const {

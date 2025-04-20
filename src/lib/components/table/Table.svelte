@@ -49,7 +49,7 @@
 
   import type { Snippet } from 'svelte';
   import type { Properties } from 'csstype';
-  import type { DefaultUnits } from '$lib/types.js';
+  import type { CustomProperties } from '$lib/types.js';
 
   interface Props {
     children?: Snippet;
@@ -60,7 +60,7 @@
     /** Cell padding for all table cells */
     cellPadding?: Properties['padding'];
     /** Cell spacing between table cells */
-    cellSpacing?: DefaultUnits['cellSpacing'];
+    cellSpacing?: CustomProperties['cellSpacing'];
     /** Text color within the table (default: #000000) */
     color?: Properties['color'];
     /** CSS class name(s) that correspond to styles defined in the Head component's styles prop. */
@@ -70,25 +70,25 @@
     /** Font family for table text (default: Ubuntu, Helvetica, Arial, sans-serif) */
     fontFamily?: Properties['fontFamily'];
     /** Font size for table text (default: 13px) */
-    fontSize?: DefaultUnits['fontSize'];
+    fontSize?: CustomProperties['fontSize'];
     /** Line height for table text (default: 22px) */
-    lineHeight?: DefaultUnits['lineHeight'];
+    lineHeight?: CustomProperties['lineHeight'];
     /** Padding around the table (default: 10px 25px) */
     padding?: Properties['padding'];
     /** Bottom padding */
-    paddingBottom?: DefaultUnits['paddingBottom'];
+    paddingBottom?: CustomProperties['paddingBottom'];
     /** Left padding */
-    paddingLeft?: DefaultUnits['paddingLeft'];
+    paddingLeft?: CustomProperties['paddingLeft'];
     /** Right padding */
-    paddingRight?: DefaultUnits['paddingRight'];
+    paddingRight?: CustomProperties['paddingRight'];
     /** Top padding */
-    paddingTop?: DefaultUnits['paddingTop'];
+    paddingTop?: CustomProperties['paddingTop'];
     /** ARIA role for the table */
     role?: 'none' | 'presentation';
     /** CSS table-layout property (default: auto) */
     tableLayout?: 'auto' | 'fixed' | 'initial' | 'inherit';
     /** Width of the table (default: 100%) */
-    width?: DefaultUnits['width'] | `${number}%`;
+    width?: CustomProperties['width'] | `${number}%`;
   }
 
   const {

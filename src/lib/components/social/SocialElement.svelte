@@ -36,7 +36,7 @@
 
   import type { Snippet } from 'svelte';
   import type { Properties } from 'csstype';
-  import type { DefaultUnits } from '$lib/types.js';
+  import type { CustomProperties } from '$lib/types.js';
   import { dev } from '$app/environment';
   import { base } from '$app/paths';
 
@@ -77,7 +77,7 @@
     /** Font family (default: Ubuntu, Helvetica, Arial, sans-serif) */
     fontFamily?: Properties['fontFamily'];
     /** Font size (default: 13px) */
-    fontSize?: DefaultUnits['fontSize'];
+    fontSize?: CustomProperties['fontSize'];
     /** Font style (default: normal) */
     fontStyle?: 'normal' | 'italic' | 'oblique';
     /** Font weight (default: normal) */
@@ -85,25 +85,25 @@
     /** URL the element links to */
     href?: string;
     /** Fixed height (default: icon-size) */
-    iconHeight?: DefaultUnits['iconHeight'];
+    iconHeight?: CustomProperties['iconHeight'];
     /** Position of icon relative to text (default: right) */
     iconPosition?: 'left' | 'right';
     /** Size of the icon (default: 20px) */
-    iconSize?: DefaultUnits['iconSize'];
+    iconSize?: CustomProperties['iconSize'];
     /** Line height (default: 22px) */
-    lineHeight?: DefaultUnits['lineHeight'];
+    lineHeight?: CustomProperties['lineHeight'];
     /** Name of the social network (required) */
     name: SocialNetwork;
     /** Padding around the element (default: 4px) */
     padding?: Properties['padding'];
     /** Bottom padding */
-    paddingBottom?: DefaultUnits['paddingBottom'];
+    paddingBottom?: CustomProperties['paddingBottom'];
     /** Left padding */
-    paddingLeft?: DefaultUnits['paddingLeft'];
+    paddingLeft?: CustomProperties['paddingLeft'];
     /** Right padding */
-    paddingRight?: DefaultUnits['paddingRight'];
+    paddingRight?: CustomProperties['paddingRight'];
     /** Top padding */
-    paddingTop?: DefaultUnits['paddingTop'];
+    paddingTop?: CustomProperties['paddingTop'];
     /** Relationship attribute for the link */
     rel?: string;
     /** Source URL of the icon */

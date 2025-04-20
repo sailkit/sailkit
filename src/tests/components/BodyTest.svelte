@@ -1,11 +1,11 @@
 <script lang="ts">
   import type { Properties } from 'csstype';
-  import type { DefaultUnits } from '$lib/types.js';
+  import type { CustomProperties } from '$lib/types.js';
   import { Html, Head, Body } from '$lib/index.js';
 
   interface Props {
     backgroundColor?: Properties['backgroundColor'];
-    width?: DefaultUnits['width'];
+    width?: CustomProperties['width'];
     class?: string;
   }
 

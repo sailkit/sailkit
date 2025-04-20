@@ -21,11 +21,10 @@ import {
   DEFAULT_PLAIN_TEXT_OPTIONS,
   DEFAULT_RENDER_OPTIONS
 } from './defaults.js';
-import { RenderError } from './errors.js';
-
-// Constants
-const MJML_REGEX = /<mjml[\s\S]*?<\/mjml>/;
-const COMMENTS_REGEX = /<!--[\s\S]*?-->/g;
+import { MJML_TAG_REGEX, COMMENTS_REGEX } from './defaults.js';
+import { RenderError, ValidationError } from './errors.js';
+import { handleError } from './utils/logger.js';
+import { formatMjmlError } from './utils/mjmlErrorFormatter.js';
 
 /**
  * Renders a Svelte component as an email template
@@ -55,10 +54,8 @@ export async function renderComponentAsEmailTemplate<Props extends ComponentProp
       }
     };
   } catch (error) {
-    throw new RenderError(
-      'Email template rendering failed',
-      error instanceof Error ? error : undefined
-    );
+    const componentName = component.name || component.constructor?.name;
+    handleError(error, 'Email template rendering failed', componentName ?? undefined);
   }
 }
 
@@ -102,9 +99,12 @@ export function renderSvelteComponent<Props extends ComponentProps<Component>>(
  * @private
  */
 export function extractMJMLMarkup(html: string): string {
-  const match = html.match(MJML_REGEX);
+  const match = html.match(MJML_TAG_REGEX);
   if (!match) {
-    throw new RenderError('No MJML markup found in component output');
+    const originalMessage = 'No MJML markup found in component output';
+    const { message: formattedMessage } = formatMjmlError(originalMessage);
+
+    throw new ValidationError(formattedMessage);
   }
 
   return match[0].replace(COMMENTS_REGEX, '');
@@ -120,9 +120,14 @@ export async function convertMJMLToHTML(markup: string): Promise<{ html: string 
       ...DEFAULT_MJML_OPTIONS
     });
   } catch (error) {
-    throw new RenderError(
-      'MJML conversion failed',
-      error instanceof Error ? error : new Error(String(error))
+    // MJML might return multiple validation errors
+    // We need to preserve the original error structure
+    const originalMessage = error instanceof Error ? error.message : String(error);
+
+    // Preserve the original error for displaying the full validation error details
+    throw new ValidationError(
+      'Template validation failed',
+      error instanceof Error ? error : new Error(originalMessage)
     );
   }
 }
@@ -135,11 +140,22 @@ async function postProcessHTML(html: string, options: RenderOptions): Promise<st
   let processed = html;
 
   if (options.beautify) {
-    processed = pretty(processed);
+    try {
+      processed = pretty(processed);
+    } catch (error) {
+      throw new RenderError(
+        'HTML beautification failed',
+        error instanceof Error ? error : undefined
+      );
+    }
   }
 
   if (options.minify) {
-    processed = await minify(processed, DEFAULT_MINIFY_OPTIONS);
+    try {
+      processed = await minify(processed, DEFAULT_MINIFY_OPTIONS);
+    } catch (error) {
+      throw new RenderError('HTML minification failed', error instanceof Error ? error : undefined);
+    }
   }
 
   return processed;
@@ -150,5 +166,12 @@ async function postProcessHTML(html: string, options: RenderOptions): Promise<st
  * @private
  */
 function renderPlainText(html: string): string {
-  return convert(html, DEFAULT_PLAIN_TEXT_OPTIONS);
+  try {
+    return convert(html, DEFAULT_PLAIN_TEXT_OPTIONS);
+  } catch (error) {
+    throw new RenderError(
+      'Plain text rendering failed',
+      error instanceof Error ? error : undefined
+    );
+  }
 }

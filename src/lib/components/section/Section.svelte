@@ -36,7 +36,7 @@
 
   import type { Snippet } from 'svelte';
   import type { Properties } from 'csstype';
-  import type { DefaultUnits } from '$lib/types.js';
+  import type { CustomProperties } from '$lib/types.js';
 
   interface Props {
     children?: Snippet;
@@ -51,7 +51,7 @@
     /** How background image should repeat (default: repeat) */
     backgroundRepeat?: Properties['backgroundRepeat'];
     /** Size of background image (default: auto) */
-    backgroundSize?: DefaultUnits['backgroundSize'];
+    backgroundSize?: CustomProperties['backgroundSize'];
     /** URL of background image */
     backgroundUrl?: string;
     /** Border shorthand for all sides (default: none) */
@@ -75,13 +75,13 @@
     /** Padding around the section (default: 20px 0) */
     padding?: Properties['padding'];
     /** Bottom padding */
-    paddingBottom?: DefaultUnits['paddingBottom'];
+    paddingBottom?: CustomProperties['paddingBottom'];
     /** Left padding */
-    paddingLeft?: DefaultUnits['paddingLeft'];
+    paddingLeft?: CustomProperties['paddingLeft'];
     /** Right padding */
-    paddingRight?: DefaultUnits['paddingRight'];
+    paddingRight?: CustomProperties['paddingRight'];
     /** Top padding */
-    paddingTop?: DefaultUnits['paddingTop'];
+    paddingTop?: CustomProperties['paddingTop'];
     /** Text alignment within section (default: center) */
     textAlign?: 'left' | 'center' | 'right';
   }

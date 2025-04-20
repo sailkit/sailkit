@@ -24,7 +24,7 @@
    */
 
   import type { Properties } from 'csstype';
-  import type { DefaultUnits } from '$lib/types.js';
+  import type { CustomProperties } from '$lib/types.js';
 
   interface Props {
     /** Horizontal alignment of the divider (default: center) */
@@ -34,7 +34,7 @@
     /** Style of the divider line (default: solid) */
     borderStyle?: 'dashed' | 'dotted' | 'solid';
     /** Thickness of the divider line (default: 4px) */
-    borderWidth?: DefaultUnits['borderWidth'];
+    borderWidth?: CustomProperties['borderWidth'];
     /** CSS class name(s) that correspond to styles defined in the Head component's styles prop. */
     class?: string;
     /** Background color behind the divider */
@@ -42,15 +42,15 @@
     /** Padding around the divider (default: 10px 25px) */
     padding?: Properties['padding'];
     /** Bottom padding */
-    paddingBottom?: DefaultUnits['paddingBottom'];
+    paddingBottom?: CustomProperties['paddingBottom'];
     /** Left padding */
-    paddingLeft?: DefaultUnits['paddingLeft'];
+    paddingLeft?: CustomProperties['paddingLeft'];
     /** Right padding */
-    paddingRight?: DefaultUnits['paddingRight'];
+    paddingRight?: CustomProperties['paddingRight'];
     /** Top padding */
-    paddingTop?: DefaultUnits['paddingTop'];
+    paddingTop?: CustomProperties['paddingTop'];
     /** Width of the divider (default: 100%) */
-    width?: DefaultUnits['width'] | `${number}%`;
+    width?: CustomProperties['width'] | `${number}%`;
   }
 
   const {

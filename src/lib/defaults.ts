@@ -50,3 +50,8 @@ export const DEFAULT_PLAIN_TEXT_OPTIONS = {
   // 	}
   // }
 };
+
+// Regexes
+export const MJML_TAG_REGEX = /<mjml[\s\S]*?<\/mjml>/;
+export const HEAD_STYLES_REGEX = /^(\s*[a-zA-Z0-9\-]+=(?:"[^"]*"|'[^']*')\s*)+$/;
+export const COMMENTS_REGEX = /<!--[\s\S]*?-->/g;

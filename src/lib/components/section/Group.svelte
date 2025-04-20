@@ -40,7 +40,7 @@
    */
 
   import type { Snippet } from 'svelte';
-  import type { DefaultUnits } from '$lib/types.js';
+  import type { CustomProperties } from '$lib/types.js';
 
   interface Props {
     children?: Snippet;
@@ -53,7 +53,7 @@
     /** Vertical alignment of columns (default: top) */
     verticalAlign?: 'middle' | 'top' | 'bottom';
     /** Width of the group (default: 100%) */
-    width?: DefaultUnits['width'] | `${number}%`;
+    width?: CustomProperties['width'] | `${number}%`;
   }
 
   const {

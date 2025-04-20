@@ -27,10 +27,10 @@
    *   ]}
    *   breakpoint='480px'
    *   styles={{
-   *     global: 'font-family="Roboto, sans-serif"',
+   *     global: 'font-family="Roboto, sans-serif" text-align="center"',
    *     components: {
-   *       text: 'color="#333333" line-height="1.5"',
-   *       button: 'background-color="#007bff" color="#ffffff"'
+   *       text: 'color="#333333" font-size="16px" line-height="1.5"',
+   *       button: 'background-color="#007bff" color="#ffffff" border-radius="4px"'
    *     },
    *     custom: [
    *       // Regular CSS (not inlined)
@@ -120,16 +120,18 @@
    * - Use createTheme utility to define type-safe themes
    */
 
-  import type { DefaultUnits } from '$lib/types.js';
+  import type { CustomProperties } from '$lib/types.js';
   import type { Snippet } from 'svelte';
   import type { ThemeOptions } from '$lib/theme.js';
+  import { ValidationError } from '$lib/errors.js';
+  import { HEAD_STYLES_REGEX } from '$lib/defaults.js';
+  import chalk from 'chalk';
 
   type ComponentName =
     | 'body'
     | 'button'
     | 'column'
     | 'divider'
-    | 'hero'
     | 'image'
     | 'section'
     | 'social-element'
@@ -162,7 +164,7 @@
       name: string;
       href: string;
     }[];
-    breakpoint?: DefaultUnits['breakpoint'];
+    breakpoint?: CustomProperties['breakpoint'];
     styles?: StyleProps;
     /** Theme configuration - can be created using createTheme utility */
     theme?: ThemeOptions;
@@ -188,6 +190,21 @@
         custom: [...(theme.styles.custom || []), ...(propStyles?.custom || [])]
       }
     : propStyles;
+
+  // Validate the final merged styles
+  if (styles) {
+    if (styles.global) {
+      validateStylesSyntax(styles.global, 'Head global styles');
+    }
+
+    if (styles.components) {
+      for (const [component, componentStyle] of Object.entries(styles.components)) {
+        if (componentStyle) {
+          validateStylesSyntax(componentStyle, `Head "${component}" styles`);
+        }
+      }
+    }
+  }
 
   const mjmlHeadTag = 'mj-head';
   const mjmlTitleTag = 'mj-title';
@@ -228,6 +245,14 @@
       .replace(rules.semicolon, replacements.semicolon)
       .replace(rules.mediaQuery, replacements.mediaQuery)
       .trim();
+  }
+
+  function validateStylesSyntax(attribute: string, context: string): void {
+    if (!HEAD_STYLES_REGEX.test(attribute.trim())) {
+      throw new ValidationError(
+        `Invalid property format in ${context}: "${attribute}" ${chalk.gray('(Expected format: attribute="value" ...)')}`
+      );
+    }
   }
 </script>
 

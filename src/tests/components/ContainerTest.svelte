@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Properties } from 'csstype';
-  import type { DefaultUnits } from '$lib/types.js';
+  import type { CustomProperties } from '$lib/types.js';
   import { Html, Head, Body, Section, Container } from '$lib/index.js';
 
   interface Props {
@@ -9,7 +9,7 @@
     backgroundPositionX?: Properties['backgroundPositionX'];
     backgroundPositionY?: Properties['backgroundPositionY'];
     backgroundRepeat?: Properties['backgroundRepeat'];
-    backgroundSize?: DefaultUnits['backgroundSize'];
+    backgroundSize?: CustomProperties['backgroundSize'];
     backgroundUrl?: string;
     border?: Properties['border'];
     borderBottom?: Properties['borderBottom'];
@@ -20,10 +20,10 @@
     class?: string;
     fullWidth?: string;
     padding?: Properties['padding'];
-    paddingBottom?: DefaultUnits['paddingBottom'];
-    paddingLeft?: DefaultUnits['paddingLeft'];
-    paddingRight?: DefaultUnits['paddingRight'];
-    paddingTop?: DefaultUnits['paddingTop'];
+    paddingBottom?: CustomProperties['paddingBottom'];
+    paddingLeft?: CustomProperties['paddingLeft'];
+    paddingRight?: CustomProperties['paddingRight'];
+    paddingTop?: CustomProperties['paddingTop'];
     textAlign?: 'left' | 'center' | 'right';
   }
 

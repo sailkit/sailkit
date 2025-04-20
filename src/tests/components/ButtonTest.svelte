@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Properties } from 'csstype';
-  import type { DefaultUnits } from '$lib/types.js';
+  import type { CustomProperties } from '$lib/types.js';
   import { Html, Head, Body, Section, Button } from '$lib/index.js';
 
   interface Props {
@@ -16,19 +16,19 @@
     color?: Properties['color'];
     containerBackgroundColor?: Properties['backgroundColor'];
     fontFamily?: Properties['fontFamily'];
-    fontSize?: DefaultUnits['fontSize'];
+    fontSize?: CustomProperties['fontSize'];
     fontStyle?: 'normal' | 'italic' | 'oblique';
     fontWeight?: number | 'normal' | 'bold';
-    height?: DefaultUnits['height'];
+    height?: CustomProperties['height'];
     href?: string;
     innerPadding?: Properties['padding'];
-    letterSpacing?: DefaultUnits['letterSpacing'];
-    lineHeight?: DefaultUnits['lineHeight'];
+    letterSpacing?: CustomProperties['letterSpacing'];
+    lineHeight?: CustomProperties['lineHeight'];
     padding?: Properties['padding'];
-    paddingBottom?: DefaultUnits['paddingBottom'];
-    paddingLeft?: DefaultUnits['paddingLeft'];
-    paddingRight?: DefaultUnits['paddingRight'];
-    paddingTop?: DefaultUnits['paddingTop'];
+    paddingBottom?: CustomProperties['paddingBottom'];
+    paddingLeft?: CustomProperties['paddingLeft'];
+    paddingRight?: CustomProperties['paddingRight'];
+    paddingTop?: CustomProperties['paddingTop'];
     rel?: string;
     target?: '_blank' | '_self' | '_parent' | '_top';
     textAlign?: 'left' | 'center' | 'right';
@@ -36,7 +36,7 @@
     textTransform?: 'capitalize' | 'uppercase' | 'lowercase';
     title?: string;
     verticalAlign?: 'top' | 'middle' | 'bottom';
-    width?: DefaultUnits['width'];
+    width?: CustomProperties['width'];
   }
 
   const {

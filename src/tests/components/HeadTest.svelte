@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { DefaultUnits } from '$lib/types.js';
+  import type { CustomProperties } from '$lib/types.js';
   import { Html, Head, Body, Raw } from '$lib/index.js';
 
   type ComponentName =
@@ -7,7 +7,6 @@
     | 'button'
     | 'column'
     | 'divider'
-    | 'hero'
     | 'image'
     | 'section'
     | 'social-element'
@@ -23,7 +22,7 @@
       name: string;
       href: string;
     }[];
-    breakpoint?: DefaultUnits['breakpoint'];
+    breakpoint?: CustomProperties['breakpoint'];
     styles?: {
       global?: string;
       components?: Partial<Record<ComponentName, string>>;

@@ -39,7 +39,7 @@
 
   import type { Snippet } from 'svelte';
   import type { Properties } from 'csstype';
-  import type { DefaultUnits } from '$lib/types.js';
+  import type { CustomProperties } from '$lib/types.js';
 
   interface Props {
     children?: Snippet;
@@ -56,33 +56,33 @@
     /** Font family for text (default: Ubuntu, Helvetica, Arial, sans-serif) */
     fontFamily?: Properties['fontFamily'];
     /** Font size for text (default: 13px) */
-    fontSize?: DefaultUnits['fontSize'];
+    fontSize?: CustomProperties['fontSize'];
     /** Font style for text (default: normal) */
     fontStyle?: 'normal' | 'italic' | 'oblique';
     /** Font weight for text (default: normal) */
     fontWeight?: number | 'normal' | 'bold';
     /** Fixed height for social icons (default: 20px) */
-    iconHeight?: DefaultUnits['iconHeight'];
+    iconHeight?: CustomProperties['iconHeight'];
     /** Padding around icons (default: 0px) */
     iconPadding?: string | number;
     /** Size of social icons (default: 20px) */
-    iconSize?: DefaultUnits['iconSize'];
+    iconSize?: CustomProperties['iconSize'];
     /** Inner padding for social elements (default: 4px) */
     innerPadding?: Properties['padding'];
     /** Line height for text (default: 22px) */
-    lineHeight?: DefaultUnits['lineHeight'];
+    lineHeight?: CustomProperties['lineHeight'];
     /** Layout direction (default: horizontal) */
     mode?: 'horizontal' | 'vertical';
     /** Padding around the container (default: 10px 25px) */
     padding?: Properties['padding'];
     /** Bottom padding */
-    paddingBottom?: DefaultUnits['paddingBottom'];
+    paddingBottom?: CustomProperties['paddingBottom'];
     /** Left padding */
-    paddingLeft?: DefaultUnits['paddingLeft'];
+    paddingLeft?: CustomProperties['paddingLeft'];
     /** Right padding */
-    paddingRight?: DefaultUnits['paddingRight'];
+    paddingRight?: CustomProperties['paddingRight'];
     /** Top padding */
-    paddingTop?: DefaultUnits['paddingTop'];
+    paddingTop?: CustomProperties['paddingTop'];
     /** Text decoration style (default: none) */
     textDecoration?: 'underline' | 'overline' | 'none';
     /** Padding around text (default: 4px 4px 4px 0) */

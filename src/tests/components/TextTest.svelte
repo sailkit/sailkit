@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Properties } from 'csstype';
-  import type { DefaultUnits } from '$lib/types.js';
+  import type { CustomProperties } from '$lib/types.js';
   import { Html, Head, Body, Section, Text } from '$lib/index.js';
 
   interface Props {
@@ -9,17 +9,17 @@
     color?: Properties['color'];
     containerBackgroundColor?: Properties['backgroundColor'];
     fontFamily?: Properties['fontFamily'];
-    fontSize?: DefaultUnits['fontSize'];
+    fontSize?: CustomProperties['fontSize'];
     fontStyle?: 'normal' | 'italic' | 'oblique';
     fontWeight?: number | 'normal' | 'bold';
-    height?: DefaultUnits['height'];
-    letterSpacing?: DefaultUnits['letterSpacing'];
-    lineHeight?: DefaultUnits['lineHeight'];
+    height?: CustomProperties['height'];
+    letterSpacing?: CustomProperties['letterSpacing'];
+    lineHeight?: CustomProperties['lineHeight'];
     padding?: Properties['padding'];
-    paddingBottom?: DefaultUnits['paddingBottom'];
-    paddingLeft?: DefaultUnits['paddingLeft'];
-    paddingRight?: DefaultUnits['paddingRight'];
-    paddingTop?: DefaultUnits['paddingTop'];
+    paddingBottom?: CustomProperties['paddingBottom'];
+    paddingLeft?: CustomProperties['paddingLeft'];
+    paddingRight?: CustomProperties['paddingRight'];
+    paddingTop?: CustomProperties['paddingTop'];
     textDecoration?: 'underline' | 'overline' | 'line-through' | 'none';
     textTransform?: 'uppercase' | 'lowercase' | 'capitalize';
   }

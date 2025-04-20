@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Properties } from 'csstype';
-  import type { DefaultUnits } from '$lib/types.js';
+  import type { CustomProperties } from '$lib/types.js';
 
   import { Html, Head, Body, Section, Column } from '$lib/index.js';
 
@@ -21,12 +21,12 @@
     innerBorderRight?: Properties['borderRight'];
     innerBorderTop?: Properties['borderTop'];
     padding?: Properties['padding'];
-    paddingBottom?: DefaultUnits['paddingBottom'];
-    paddingLeft?: DefaultUnits['paddingLeft'];
-    paddingRight?: DefaultUnits['paddingRight'];
-    paddingTop?: DefaultUnits['paddingTop'];
+    paddingBottom?: CustomProperties['paddingBottom'];
+    paddingLeft?: CustomProperties['paddingLeft'];
+    paddingRight?: CustomProperties['paddingRight'];
+    paddingTop?: CustomProperties['paddingTop'];
     verticalAlign?: 'middle' | 'top' | 'bottom';
-    width?: DefaultUnits['width'] | `${number}%`;
+    width?: CustomProperties['width'] | `${number}%`;
   }
 
   const {

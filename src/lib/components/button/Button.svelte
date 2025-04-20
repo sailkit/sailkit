@@ -36,7 +36,7 @@
 
   import type { Snippet } from 'svelte';
   import type { Properties } from 'csstype';
-  import type { DefaultUnits } from '$lib/types.js';
+  import type { CustomProperties } from '$lib/types.js';
 
   interface Props {
     children?: Snippet;
@@ -65,31 +65,31 @@
     /** Font family for button text (default: Ubuntu, Helvetica, Arial, sans-serif) */
     fontFamily?: Properties['fontFamily'];
     /** Font size for button text (default: 13px) */
-    fontSize?: DefaultUnits['fontSize'];
+    fontSize?: CustomProperties['fontSize'];
     /** Font style for button text (default: normal) */
     fontStyle?: 'normal' | 'italic' | 'oblique';
     /** Font weight for button text (default: normal) */
     fontWeight?: number | 'normal' | 'bold';
     /** Fixed height of the button (default: 30px) */
-    height?: DefaultUnits['height'];
+    height?: CustomProperties['height'];
     /** URL the button links to */
     href?: string;
     /** Inner padding for button (default: 10px 25px) */
     innerPadding?: Properties['padding'];
     /** Letter spacing for button text (default: 0) */
-    letterSpacing?: DefaultUnits['letterSpacing'];
+    letterSpacing?: CustomProperties['letterSpacing'];
     /** Line height for button text (default: 120%) */
-    lineHeight?: DefaultUnits['lineHeight'];
+    lineHeight?: CustomProperties['lineHeight'];
     /** Padding around the button (default: 10px 25px) */
     padding?: Properties['padding'];
     /** Bottom padding */
-    paddingBottom?: DefaultUnits['paddingBottom'];
+    paddingBottom?: CustomProperties['paddingBottom'];
     /** Left padding */
-    paddingLeft?: DefaultUnits['paddingLeft'];
+    paddingLeft?: CustomProperties['paddingLeft'];
     /** Right padding */
-    paddingRight?: DefaultUnits['paddingRight'];
+    paddingRight?: CustomProperties['paddingRight'];
     /** Top padding */
-    paddingTop?: DefaultUnits['paddingTop'];
+    paddingTop?: CustomProperties['paddingTop'];
     /** Relationship attribute for the link */
     rel?: string;
     /** Target attribute for the link (default: _blank) */
@@ -105,7 +105,7 @@
     /** Vertical alignment of the button (default: middle) */
     verticalAlign?: 'top' | 'middle' | 'bottom';
     /** Fixed width of the button */
-    width?: DefaultUnits['width'];
+    width?: CustomProperties['width'];
   }
 
   const {

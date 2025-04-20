@@ -36,7 +36,7 @@
 
   import type { Snippet } from 'svelte';
   import type { Properties } from 'csstype';
-  import type { DefaultUnits } from '$lib/types.js';
+  import type { CustomProperties } from '$lib/types.js';
 
   interface Props {
     children?: Snippet;
@@ -51,27 +51,27 @@
     /** Font family for the text (default: Ubuntu, Helvetica, Arial, sans-serif) */
     fontFamily?: Properties['fontFamily'];
     /** Font size for the text (default: 13px) */
-    fontSize?: DefaultUnits['fontSize'];
+    fontSize?: CustomProperties['fontSize'];
     /** Font style for the text (default: normal) */
     fontStyle?: 'normal' | 'italic' | 'oblique';
     /** Font weight for the text (default: normal) */
     fontWeight?: number | 'normal' | 'bold';
     /** Fixed height in pixels */
-    height?: DefaultUnits['height'];
+    height?: CustomProperties['height'];
     /** Letter spacing for the text */
-    letterSpacing?: DefaultUnits['letterSpacing'];
+    letterSpacing?: CustomProperties['letterSpacing'];
     /** Line height in pixels */
-    lineHeight?: DefaultUnits['lineHeight'];
+    lineHeight?: CustomProperties['lineHeight'];
     /** Padding around the text (default: 10px 25px) */
     padding?: Properties['padding'];
     /** Bottom padding */
-    paddingBottom?: DefaultUnits['paddingBottom'];
+    paddingBottom?: CustomProperties['paddingBottom'];
     /** Left padding */
-    paddingLeft?: DefaultUnits['paddingLeft'];
+    paddingLeft?: CustomProperties['paddingLeft'];
     /** Right padding */
-    paddingRight?: DefaultUnits['paddingRight'];
+    paddingRight?: CustomProperties['paddingRight'];
     /** Top padding */
-    paddingTop?: DefaultUnits['paddingTop'];
+    paddingTop?: CustomProperties['paddingTop'];
     /** Text decoration style */
     textDecoration?: 'underline' | 'overline' | 'line-through' | 'none';
     /** Text transformation */

@@ -56,7 +56,7 @@ export interface RenderResult {
   };
 }
 
-export interface DefaultUnits {
+export interface CustomProperties {
   backgroundSize?: `${number}px` | `${number}%` | `cover` | `contain` | `auto`;
   borderWidth?: `${number}px`;
   breakpoint?: `${number}px`;
