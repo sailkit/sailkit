@@ -33,7 +33,7 @@ const ERROR_PATTERNS = {
   NESTING:
     /Line \d+ of [^\s]+ \((mj-[a-z-]+)\) — [^\s]+ cannot be used inside ([^,]+), only inside: ([^"]+)/,
   UNKNOWN_ELEMENT:
-    /Line \d+ of [^\s]+ \(([^\)]+)\) — Element [^\s]+ doesn't exist or is not registered/,
+    /Line \d+ of [^\s]+ \(([^)]+)\) — Element [^\s]+ doesn't exist or is not registered/,
   MALFORMED: /Malformed MJML\. Check that your structure is correct and enclosed in <mjml> tags\./
 };
 
@@ -139,7 +139,7 @@ function formatSingleMjmlError(originalError: string): FormattedMjmlError {
  * @private
  */
 function formatAttributesError(match: RegExpMatchArray): FormattedMjmlError {
-  const [_, component, attributesList] = match;
+  const [, component, attributesList] = match;
   const friendlyComponent = COMPONENT_MAP[component] || component;
 
   // Extract attribute names from the list
@@ -157,7 +157,7 @@ function formatAttributesError(match: RegExpMatchArray): FormattedMjmlError {
  * @private
  */
 function formatNestingError(match: RegExpMatchArray): FormattedMjmlError {
-  const [_, component, parent, validParents] = match;
+  const [, component, parent] = match;
   const friendlyComponent = COMPONENT_MAP[component] || component;
   const friendlyParent = COMPONENT_MAP[parent] || parent;
 
@@ -172,7 +172,7 @@ function formatNestingError(match: RegExpMatchArray): FormattedMjmlError {
  * @private
  */
 function formatUnknownElementError(match: RegExpMatchArray): FormattedMjmlError {
-  const [_, element] = match;
+  const [, element] = match;
   return {
     message: `Invalid template: Element ${element} doesn't exist or is not registered`,
     originalMessage: match[0]

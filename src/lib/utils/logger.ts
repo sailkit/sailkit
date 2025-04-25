@@ -68,6 +68,7 @@ function displayFormattedErrorMessage(message: string): void {
 
   if (messageLines.length === 0) return;
 
+  // eslint-disable-next-line prefer-const
   let [firstLine, ...restOfLines] = messageLines;
 
   // Remove trailing colon from first line if there are more lines

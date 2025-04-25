@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Html, Head, Body, Section, Column, Text } from '$lib/index.js';
+  import { Html, Head, Section, Column, Text } from '$lib/index.js';
 
   export interface TestProps {
     text: string;

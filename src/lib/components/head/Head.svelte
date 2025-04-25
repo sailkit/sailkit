@@ -363,7 +363,7 @@
   {@html `<${mjmlPreviewTag}>${preview}</${mjmlPreviewTag}>`}
 {/if}
 {#if fonts}
-  {#each fonts as font}
+  {#each fonts as font, index (index)}
     {@html `<${mjmlFontTag} name="${font.name}" href="${font.href}" />`}
   {/each}
 {/if}
@@ -376,7 +376,7 @@
     {@html `<${mjmlAllTag} ${convertToAttributeString(styles.global)} />`}
   {/if}
   {#if styles.components}
-    {#each Object.entries(styles.components) as [component, value]}
+    {#each Object.entries(styles.components) as [component, value] (component)}
       {#if value && typeof value === 'object'}
         {#if component === 'container'}
           {@html `<mj-wrapper ${convertToAttributeString(value)} />`}
@@ -390,7 +390,7 @@
   {/if}
   {@html `</${mjmlAttributesTag}>`}
   {#if styles?.custom}
-    {#each styles.custom as rule}
+    {#each styles.custom as rule, index (index)}
       {#if typeof rule === 'string'}
         {@html `<${mjmlStyleTag}>${normalizeCSSRule(rule)}</${mjmlStyleTag}>`}
       {:else}

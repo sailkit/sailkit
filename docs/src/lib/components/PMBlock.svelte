@@ -16,11 +16,11 @@
 
 <Tabs.Root value={selectedManager}>
   <Tabs.List class="mb-1 grid w-full grid-cols-4">
-    {#each packageManagers as manager}
+    {#each packageManagers as manager (manager.id)}
       <Tabs.Trigger value={manager.id}>{manager.name}</Tabs.Trigger>
     {/each}
   </Tabs.List>
-  {#each packageManagers as manager}
+  {#each packageManagers as manager (manager.id)}
     <Tabs.Content
       value={manager.id}
       class="rounded-lg bg-cyan-950 p-4 font-mono text-sm text-slate-50"

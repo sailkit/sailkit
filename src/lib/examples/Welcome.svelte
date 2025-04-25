@@ -22,8 +22,7 @@
   const {
     firstName = 'John',
     companyName = 'SailKit',
-    contactEmail = 'john@sailkit.com',
-    userName = 'john'
+    contactEmail = 'john@sailkit.com'
   }: Props = $props();
 </script>
 

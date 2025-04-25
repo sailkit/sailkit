@@ -256,7 +256,7 @@ describe('Theme API', () => {
             text: {
               color: '#000000', // Override
               fontSize: '18px' as const, // Override
-              fontWeight: 'bold' as 'bold' // New property
+              fontWeight: 'bold' as const // New property
             },
             button: {
               backgroundColor: '#ff0000', // Override
