@@ -2,14 +2,16 @@
 title: Getting Started
 ---
 
+<script lang="ts">
+  import PMBlock from '$lib/components/PMBlock.svelte';
+</script>
+
 # Installation
 
 Start by installing SailKit and MJML in your SvelteKit application using your
 preferred package manager:
 
-```bash
-npm install sailkit mjml
-```
+<PMBlock />
 
 Import the necessary components from SailKit and declare props:
 
