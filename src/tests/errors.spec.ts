@@ -5,8 +5,8 @@ import {
   convertMJMLToHTML,
   renderComponentAsEmailTemplate
 } from '$lib/render.js';
-import InvalidMJML from './assets/InvalidMJML.svelte';
 import { RenderError, ValidationError, PreviewError, SailKitError } from '$lib/errors.js';
+import InvalidMJML from './assets/InvalidMJML.svelte';
 import Empty from './assets/Empty.svelte';
 
 describe('Error Classes', () => {
@@ -93,7 +93,6 @@ describe('Error Handling in Rendering Pipeline', () => {
 
       expect(() => extractMJMLMarkup(invalidHtml)).toThrow(ValidationError);
 
-      // Additional validation of error properties
       try {
         extractMJMLMarkup(invalidHtml);
       } catch (error) {
@@ -119,7 +118,6 @@ describe('Error Handling in Rendering Pipeline', () => {
 
       await expect(convertMJMLToHTML(mjml)).rejects.toThrow(ValidationError);
 
-      // Additional validation of error properties
       try {
         await convertMJMLToHTML(mjml);
       } catch (error) {

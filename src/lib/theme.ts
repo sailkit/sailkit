@@ -104,7 +104,6 @@ export interface ThemeOptions {
  * <Head subject="Welcome" theme={theme} />
  * ```
  */
-
 export function createTheme(options: ThemeOptions): ThemeOptions {
   return {
     fonts: options.fonts,

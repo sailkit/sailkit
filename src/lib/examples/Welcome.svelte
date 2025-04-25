@@ -31,13 +31,9 @@
   <Head
     subject="Welcome"
     preview="Welcome to SailKit"
-    styles={[
-      {
-        type: 'class',
-        value: '.custom-container { margin-bottom: 20px; }',
-        inline: false
-      }
-    ]}
+    styles={{
+      custom: ['.custom-container { margin-bottom: 20px; }']
+    }}
   />
   <Body backgroundColor="#ffffff">
     <Section backgroundColor="#ffffff" paddingBottom="0px" paddingTop="0px">
@@ -80,95 +76,73 @@
       </Column>
     </Section>
 
-    <Section
-      backgroundColor="#009fe3"
-      paddingBottom="20px"
-      paddingTop="20px"
-      borderRadius="10px 10px 0px 0px"
-    >
-      <Column verticalAlign="middle" width="100%">
-        <Text
-          align="left"
-          color="#ffffff"
-          fontSize="22px"
-          fontFamily="open Sans Helvetica, Arial, sans-serif"
-          paddingLeft="25px"
-          paddingRight="25px"
-        >
-          <span style="color:#FEEB35">Dear {firstName}</span><br /><br />
-          Welcome to {companyName}.
+    <Section padding="0 20px">
+      <Column>
+        <Text align="left" color="#000000" fontSize="16px" lineHeight="24px">
+          Hello {firstName},
         </Text>
-
-        <Text
-          align="left"
-          color="#ffffff"
-          fontSize="15px"
-          fontFamily="open Sans Helvetica, Arial, sans-serif"
-          paddingLeft="25px"
-          paddingRight="25px"
-        >
-          We're really excited you've decided to give us a try. In case you have any questions, feel
-          free to reach out to us at {contactEmail}. You can login to your account with your
-          username {userName}
+        <Text>
+          Welcome to {companyName}, your new platform for building amazing email templates with
+          Svelte and MJML. We're thrilled to have you join our community!
         </Text>
-
-        <Button
-          align="left"
-          fontSize="22px"
-          fontWeight="bold"
-          backgroundColor="#ffffff"
-          borderRadius="10px"
-          color="#1AA0E1"
-          fontFamily="open Sans Helvetica, Arial, sans-serif"
-        >
-          Login
-        </Button>
-
-        <Text
-          align="left"
-          color="#ffffff"
-          fontSize="15px"
-          fontFamily="open Sans Helvetica, Arial, sans-serif"
-          paddingLeft="25px"
-          paddingRight="25px"
-          class="custom-container"
-        >
-          Thanks, <br />
-          The {companyName} Team
+        <Text>
+          This is a sample email template built with {companyName}. Feel free to customize it as
+          needed.
         </Text>
       </Column>
     </Section>
 
-    <Section
-      backgroundColor="#DA702C"
-      paddingBottom="0px"
-      paddingTop="0px"
-      borderRadius="0px 0px 10px 10px"
-    >
+    <Section padding="20px">
       <Column>
-        <Social>
-          <Social.Element name="facebook" href="https://www.facebook.com/SailKit" />
-          <Social.Element name="twitter" href="https://twitter.com/SailKit" />
-          <Social.Element name="linkedin" href="https://www.linkedin.com/company/SailKit" />
-          <Social.Element name="github" href="https://github.com/SailKitjs/SailKit" />
+        <Button href="https://example.com" backgroundColor="#DA702C" color="#ffffff">
+          Get Started
+        </Button>
+      </Column>
+    </Section>
+
+    <Section padding="20px">
+      <Column>
+        <Table>
+          <tr>
+            <th>Feature</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <td>Svelte Integration</td>
+            <td>Available</td>
+          </tr>
+          <tr>
+            <td>MJML Compatibility</td>
+            <td>Available</td>
+          </tr>
+        </Table>
+      </Column>
+    </Section>
+
+    <Section padding="20px">
+      <Column>
+        <Text>Connect with us on social media:</Text>
+        <Social iconSize="20px" mode="horizontal">
+          <Social.Element name="facebook" href="https://facebook.com" />
+          <Social.Element name="twitter" href="https://twitter.com" />
+          <Social.Element name="linkedin" href="https://linkedin.com" />
         </Social>
       </Column>
     </Section>
 
-    <Section>
+    <Section padding="20px">
       <Column>
-        <Table>
-          <tr style="border-bottom:1px solid #ecedee;text-align:left;padding:15px 0;">
-            <th style="padding: 0 15px 0 0;">Email</th>
-            <th style="padding: 0 15px;">Phone</th>
-            <th style="padding: 0 0 0 15px;">Address</th>
-          </tr>
-          <tr>
-            <td style="padding: 0 15px 0 0;">{contactEmail}</td>
-            <td style="padding: 0 15px;">{`+1 555 555 555`}</td>
-            <td style="padding: 0 0 0 15px;">{companyName}, 123 Main St, Anytown, USA</td>
-          </tr>
-        </Table>
+        <Text align="center" fontSize="12px" color="#666666">
+          You received this email because you signed up for {companyName}. If you no longer wish to
+          receive these emails, please unsubscribe here.
+        </Text>
+        <Text align="center" fontSize="12px" color="#666666">
+          Contact us at <a href="mailto:{contactEmail}">{contactEmail}</a>
+        </Text>
+        <Text align="center" fontSize="12px" color="#666666">
+          @{new Date().getFullYear()}
+          {companyName}. All rights reserved.
+        </Text>
       </Column>
     </Section>
   </Body>

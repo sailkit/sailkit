@@ -17,7 +17,7 @@ import path from 'path';
 // Internal dependencies
 import { dev } from '$app/environment';
 import { DEFAULT_RENDER_OPTIONS } from './defaults.js';
-import { PreviewError, RenderError, SailKitError } from './errors.js';
+import { PreviewError, SailKitError } from './errors.js';
 import { renderComponentAsEmailTemplate } from './render.js';
 import { handleError } from './utils/logger.js';
 
@@ -27,12 +27,11 @@ const PLATFORM_COMMANDS = {
   darwin: 'open',
   linux: 'xdg-open'
 } as const;
+const TEMP_FILE_PREFIX = 'email-preview-';
+const TEMP_DIR = os.tmpdir();
 
 type SupportedPlatform = keyof typeof PLATFORM_COMMANDS;
 type PreviewMode = 'browser' | 'console';
-
-const TEMP_FILE_PREFIX = 'email-preview-';
-const TEMP_DIR = os.tmpdir();
 
 /**
  * Previews a Svelte component as HTML
@@ -50,12 +49,15 @@ export async function previewComponentAsHTML<Props extends ComponentProps<Compon
 ): Promise<void> {
   try {
     validateEnvironment();
-    await cleanPreviousFiles();
+
+    await deleteExistingTempFiles();
+
     const renderResult = await renderComponentForPreview(
       component,
       props,
       options ?? DEFAULT_RENDER_OPTIONS
     );
+
     await displayPreview(renderResult, mode ?? 'browser');
   } catch (error) {
     // Only log the error if it hasn't already been logged at a lower level
@@ -169,10 +171,10 @@ function displayInConsole(renderResult: RenderResult): void {
 }
 
 /**
- * Cleans up previous preview files
+ * Deletes existing temporary files
  * @private
  */
-async function cleanPreviousFiles(): Promise<void> {
+async function deleteExistingTempFiles(): Promise<void> {
   try {
     const files = await fs.promises.readdir(TEMP_DIR);
     const previewFiles = files.filter((file: string) => file.startsWith(TEMP_FILE_PREFIX));

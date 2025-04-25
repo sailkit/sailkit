@@ -30,7 +30,7 @@ export class SailKitError extends Error {
 export class RenderError extends SailKitError {}
 
 /**
- * Error specifically related to MJML validation or conversion.
+ * Error specifically related to validation or conversion.
  */
 export class ValidationError extends RenderError {}
 

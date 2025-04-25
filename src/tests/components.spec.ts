@@ -1,7 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { extractMJMLMarkup, renderSvelteComponent } from '$lib/render.js';
 import { base } from '$app/paths';
-import { ValidationError } from '$lib/errors.js';
 
 import Html from './components/HtmlTest.svelte';
 import Head from './components/HeadTest.svelte';

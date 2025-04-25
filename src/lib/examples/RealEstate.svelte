@@ -9,13 +9,14 @@
       { name: 'Alice', href: 'https://fonts.googleapis.com/css?family=Alice' },
       { name: 'Roboto', href: 'https://fonts.googleapis.com/css?family=Roboto:400,700' }
     ]}
-    styles={[
-      {
-        type: 'class',
-        value: '.custom-class { text-decoration: underline }',
-        inline: true
-      }
-    ]}
+    styles={{
+      custom: [
+        {
+          inline: true,
+          css: '.custom-class { text-decoration: underline }'
+        }
+      ]
+    }}
   />
   <Body backgroundColor="#EAE8E5">
     <Section padding="20px 0 0 0">

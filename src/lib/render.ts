@@ -15,16 +15,19 @@ import { convert } from 'html-to-text';
 import pretty from 'pretty';
 
 // Internal dependencies
+import { RenderError, ValidationError } from './errors.js';
+import { handleError } from './utils/logger.js';
+import { formatMjmlError } from './utils/mjmlErrorFormatter.js';
+
+// Constants
 import {
   DEFAULT_MINIFY_OPTIONS,
   DEFAULT_MJML_OPTIONS,
   DEFAULT_PLAIN_TEXT_OPTIONS,
   DEFAULT_RENDER_OPTIONS
 } from './defaults.js';
-import { MJML_TAG_REGEX, COMMENTS_REGEX } from './defaults.js';
-import { RenderError, ValidationError } from './errors.js';
-import { handleError } from './utils/logger.js';
-import { formatMjmlError } from './utils/mjmlErrorFormatter.js';
+const MJML_TAG_REGEX = /<mj-[^>]*>/g;
+const COMMENTS_REGEX = /<!--[\s\S]*?-->/g;
 
 /**
  * Renders a Svelte component as an email template
@@ -120,11 +123,8 @@ export async function convertMJMLToHTML(markup: string): Promise<{ html: string 
       ...DEFAULT_MJML_OPTIONS
     });
   } catch (error) {
-    // MJML might return multiple validation errors
-    // We need to preserve the original error structure
     const originalMessage = error instanceof Error ? error.message : String(error);
 
-    // Preserve the original error for displaying the full validation error details
     throw new ValidationError(
       'Template validation failed',
       error instanceof Error ? error : new Error(originalMessage)

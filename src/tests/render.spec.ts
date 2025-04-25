@@ -2,8 +2,8 @@ import { describe, it, expect } from 'vitest';
 import { renderComponentAsEmailTemplate } from '$lib/render.js';
 import pretty from 'pretty';
 import { minify } from 'html-minifier-terser';
-import Base from './assets/Base.svelte';
 import { DEFAULT_MINIFY_OPTIONS } from '$lib/defaults.js';
+import Base from './assets/Base.svelte';
 
 describe('renderComponentAsEmailTemplate', () => {
   const baseProps = { text: 'Test Prop' };

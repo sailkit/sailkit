@@ -12,12 +12,11 @@
   <Head
     subject="Exmample Email"
     fonts={[{ name: 'Oswald', href: 'https://fonts.googleapis.com/css?family=Oswald' }]}
-    styles={[
-      {
-        type: 'global',
-        value: 'font-family="Oswald"'
+    styles={{
+      global: {
+        fontFamily: 'Oswald, sans-serif'
       }
-    ]}
+    }}
   />
   <Body>
     <Section>

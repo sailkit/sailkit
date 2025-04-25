@@ -1,6 +1,6 @@
 /**
  * @module mjmlErrorFormatter
- * @description Utilities for formatting MJML validation errors in a more user-friendly way
+ * @description Utilities for formatting MJML validation errors to be more useful in the SailKit context
  */
 
 export interface FormattedMjmlError {

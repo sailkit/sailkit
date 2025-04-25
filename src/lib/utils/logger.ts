@@ -1,4 +1,7 @@
+// External dependencies
 import chalk from 'chalk';
+
+// Internal dependencies
 import { SailKitError, ValidationError } from '../errors.js';
 import { formatMjmlError } from './mjmlErrorFormatter.js';
 
@@ -74,7 +77,6 @@ function displayFormattedErrorMessage(message: string): void {
 
   console.error(chalk.magenta(`${chalk.bold('Caused by:')} ${firstLine}`));
 
-  // Print remaining lines with indentation
   restOfLines.forEach((line) => {
     console.error(chalk.magenta(`   ${line}`));
   });
