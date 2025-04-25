@@ -26,7 +26,7 @@ import {
   DEFAULT_PLAIN_TEXT_OPTIONS,
   DEFAULT_RENDER_OPTIONS
 } from './defaults.js';
-const MJML_TAG_REGEX = /<mj-[^>]*>/g;
+const MJML_TAG_REGEX = /<mjml[\s\S]*?<\/mjml>/;
 const COMMENTS_REGEX = /<!--[\s\S]*?-->/g;
 
 /**
