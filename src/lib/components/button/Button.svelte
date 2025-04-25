@@ -38,7 +38,7 @@
   import type { Properties } from 'csstype';
   import type { CustomProperties } from '$lib/types.js';
 
-  interface Props {
+  export interface ButtonProps {
     children?: Snippet;
     /** Horizontal alignment of the button (default: center) */
     align?: 'left' | 'center' | 'right';
@@ -143,7 +143,7 @@
     title,
     verticalAlign,
     width
-  }: Props = $props();
+  }: ButtonProps = $props();
 
   const mjmlButtonTag = 'mj-button';
 

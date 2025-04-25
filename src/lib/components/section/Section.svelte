@@ -38,7 +38,7 @@
   import type { Properties } from 'csstype';
   import type { CustomProperties } from '$lib/types.js';
 
-  interface Props {
+  export interface SectionProps {
     children?: Snippet;
     /** Background color of the section */
     backgroundColor?: Properties['backgroundColor'];
@@ -110,7 +110,7 @@
     paddingRight,
     paddingTop,
     textAlign
-  }: Props = $props();
+  }: SectionProps = $props();
 
   const mjmlSectionTag = 'mj-section';
 

@@ -60,7 +60,7 @@
     | 'dribbble'
     | string;
 
-  interface Props {
+  export interface SocialElementProps {
     children?: Snippet;
     /** Horizontal alignment (default: center) */
     align?: 'left' | 'right' | 'center';
@@ -150,7 +150,7 @@
     textDecoration,
     title,
     verticalAlign
-  }: Props = $props();
+  }: SocialElementProps = $props();
 
   const networkName = href === 'my-unchanged-url' ? `${name}-noshare` : name;
 

@@ -39,7 +39,7 @@
   import { dev } from '$app/environment';
   import { base } from '$app/paths';
 
-  interface Props {
+  export interface ImageProps {
     /** Horizontal alignment of the image (default: center) */
     align?: 'left' | 'center' | 'right';
     /** Alternative text for the image (default: "") */
@@ -121,7 +121,7 @@
     title,
     usemap,
     width
-  }: Props = $props();
+  }: ImageProps = $props();
 
   const mjmlImageTag = 'mj-image';
 

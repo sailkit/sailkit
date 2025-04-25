@@ -1,23 +1,49 @@
 import type { CustomProperties } from './types.js';
+import type { BodyProps } from './components/body/Body.svelte';
+import type { ButtonProps } from './components/button/Button.svelte';
+import type { ColumnProps } from './components/column/Column.svelte';
+import type { ContainerProps } from './components/container/Container.svelte';
+import type { DividerProps } from './components/column/Divider.svelte';
+import type { GroupProps } from './components/section/Group.svelte';
+import type { ImageProps } from './components/image/Image.svelte';
+import type { SectionProps } from './components/section/Section.svelte';
+import type { SocialProps } from './components/social/Social.svelte';
+import type { SocialElementProps } from './components/social/SocialElement.svelte';
+import type { TableProps } from './components/table/Table.svelte';
+import type { TextProps } from './components/text/Text.svelte';
 
-type ComponentName =
-  | 'body'
-  | 'button'
-  | 'column'
-  | 'divider'
-  | 'image'
-  | 'section'
-  | 'social-element'
-  | 'social'
-  | 'table'
-  | 'text'
-  | 'container';
+type ComponentProps =
+  | BodyProps
+  | ButtonProps
+  | ColumnProps
+  | ContainerProps
+  | DividerProps
+  | GroupProps
+  | ImageProps
+  | SectionProps
+  | SocialProps
+  | SocialElementProps
+  | TableProps
+  | TextProps;
 
 interface StyleProps {
   /** Global styles that affect all components */
-  global?: string;
+  global?: Partial<ComponentProps>;
   /** Component-specific styles */
-  components?: Partial<Record<ComponentName, string>>;
+  components?: {
+    body?: Partial<BodyProps>;
+    button?: Partial<ButtonProps>;
+    column?: Partial<ColumnProps>;
+    container?: Partial<ContainerProps>;
+    divider?: Partial<DividerProps>;
+    group?: Partial<GroupProps>;
+    image?: Partial<ImageProps>;
+    section?: Partial<SectionProps>;
+    social?: Partial<SocialProps>;
+    socialElement?: Partial<SocialElementProps>;
+    table?: Partial<TableProps>;
+    text?: Partial<TextProps>;
+  };
   /** Custom CSS rules */
   custom?: Array<
     | string
@@ -42,7 +68,6 @@ export interface ThemeOptions {
 
 /**
  * Creates a reusable theme configuration for SailKit email templates.
- * Basic validation is performed within the Head component itself after merging props.
  * @param options Theme configuration options
  * @returns A theme object that can be passed to the Head component
  *
@@ -54,24 +79,36 @@ export interface ThemeOptions {
  *   ],
  *   breakpoint: '480px',
  *   styles: {
- *     global: 'font-family="Roboto, sans-serif" text-align="center"',
+ *     global: {
+ *       fontFamily: "Roboto, sans-serif",
+ *       textAlign: "center"
+ *     },
  *     components: {
- *       text: 'color="#333333" font-size="16px"',
- *       button: 'background-color="#007bff" border-radius="4px"'
+ *       text: {
+ *         color: "#333333",
+ *         fontSize: "16px"
+ *       },
+ *       button: {
+ *         backgroundColor: "#007bff",
+ *         borderRadius: "4px"
+ *       }
  *     },
  *     custom: [
  *       '.custom-class { color: red; }',
- *       { inline: true, css: 'padding: 10px;' }
+ *       { inline: true, css: '.footer { padding: 20px; }' }
  *     ]
  *   }
  * });
+ *
+ * // Use in your email template
+ * <Head subject="Welcome" theme={theme} />
  * ```
  */
+
 export function createTheme(options: ThemeOptions): ThemeOptions {
-  // No validation needed here; it happens in Head.svelte after merging
   return {
     fonts: options.fonts,
     breakpoint: options.breakpoint,
-    styles: options.styles // Return the styles object as is
+    styles: options.styles
   };
 }

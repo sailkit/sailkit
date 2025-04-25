@@ -41,7 +41,7 @@
   import type { Properties } from 'csstype';
   import type { CustomProperties } from '$lib/types.js';
 
-  interface Props {
+  export interface SocialProps {
     children?: Snippet;
     /** Horizontal alignment of social elements (default: center) */
     align?: 'left' | 'right' | 'center';
@@ -113,7 +113,7 @@
     paddingTop,
     textDecoration,
     textPadding
-  }: Props = $props();
+  }: SocialProps = $props();
 
   const mjmlSocialTag = 'mj-social';
 

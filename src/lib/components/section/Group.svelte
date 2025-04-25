@@ -42,7 +42,7 @@
   import type { Snippet } from 'svelte';
   import type { CustomProperties } from '$lib/types.js';
 
-  interface Props {
+  export interface GroupProps {
     children?: Snippet;
     /** Background color of the group */
     backgroundColor?: string;
@@ -63,7 +63,7 @@
     direction,
     verticalAlign,
     width // Default is calculated: (100 / number of non-raw elements in section)%
-  }: Props = $props();
+  }: GroupProps = $props();
 
   const mjmlGroupTag = 'mj-group';
 

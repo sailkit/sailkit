@@ -31,20 +31,36 @@ export const myTheme = createTheme({
   // Style configurations
   styles: {
     // Global styles applied to all components
-    global: 'font-family="Roboto, sans-serif" color="#333333"',
+    global: {
+      fontFamily: "Roboto, sans-serif",
+      color: "#333333",
+      backgroundColor: "#ffffff"
+    },
 
     // Component-specific styles
     components: {
-      text: 'line-height="1.5"',
-      button: 'background-color="#007bff" color="#ffffff"',
-      section: 'padding="20px"'
+      text: {
+        lineHeight: "1.5",
+        fontSize: "16px"
+      },
+      button: {
+        backgroundColor: "#007bff",
+        color: "#ffffff",
+        borderRadius: "4px"
+      },
+      section: {
+        padding: "20px"
+      }
     },
 
     // Custom CSS rules
     custom: [
+      // Regular CSS rule
+      ".brand-header { font-size: 24px; }",
+      // Inlined CSS rule
       {
         inline: true,
-        css: ".brand-header { font-size: 24px; }"
+        css: ".brand-footer { padding: 20px; }"
       }
     ]
   }
@@ -88,7 +104,11 @@ The styles configuration consists of three parts:
 
 ```ts
 styles: {
-  global: 'font-family="Arial, sans-serif" color="#333333"';
+  global: {
+    fontFamily: "Arial, sans-serif",
+    color: "#333333",
+    backgroundColor: "#ffffff"
+  }
 }
 ```
 
@@ -97,10 +117,22 @@ styles: {
 ```ts
 styles: {
   components: {
-    text: 'color="#333333" line-height="1.5"',
-    button: 'background-color="#007bff"',
-    section: 'padding="20px"',
-    container: 'background-color="#f5f5f5"'
+    text: {
+      color: "#333333",
+      lineHeight: "1.5",
+      fontSize: "16px"
+    },
+    button: {
+      backgroundColor: "#007bff",
+      color: "#ffffff",
+      borderRadius: "4px"
+    },
+    section: {
+      padding: "20px"
+    },
+    container: {
+      backgroundColor: "#f5f5f5"
+    }
   }
 }
 ```
@@ -153,10 +185,17 @@ You can override specific theme properties by providing individual props to the
   ]}
   // Override and extend theme styles
   styles={{
-    global: 'font-family="Lato, sans-serif"', // Override global font
+    global: {
+      fontFamily: "Lato, sans-serif", // Override global font
+      lineHeight: "1.5" // Add new global property
+    },
     components: {
-      button: 'background-color="#ff0000"', // Override button color
-      container: 'padding="40px"' // Add new component style
+      button: {
+        backgroundColor: "#ff0000" // Override button color
+      },
+      container: {
+        padding: "40px" // Add new component style
+      }
     },
     custom: [
       // Add additional custom CSS rules
@@ -170,10 +209,8 @@ You can override specific theme properties by providing individual props to the
 
 When using a theme with individual props, SailKit follows these merging rules:
 
-1. **Fonts**: Individual fonts override theme fonts
+1. **Fonts**: Individual fonts completely override theme fonts (not merged)
 2. **Breakpoint**: Individual breakpoint overrides theme breakpoint
-3. **Global Styles**: Individual global styles override theme global styles
-4. **Component Styles**: Individual component styles are merged with theme
-   styles, with individual styles taking precedence
-5. **Custom Styles**: Custom styles from both theme and individual props are
-   concatenated in order (theme styles first, then individual styles)
+3. **Global Styles**: Individual global styles are merged with theme global styles, with individual properties taking precedence for matching keys
+4. **Component Styles**: Component styles are merged property by property, with individual component properties overriding matching theme properties
+5. **Custom Styles**: Custom styles from both theme and individual props are concatenated

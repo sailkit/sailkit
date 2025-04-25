@@ -25,11 +25,11 @@
 
   import type { Snippet } from 'svelte';
 
-  interface Props {
+  export interface RawProps {
     children?: Snippet;
   }
 
-  const { children }: Props = $props();
+  const { children }: RawProps = $props();
 
   const mjmlRawTag = 'mj-raw';
 </script>

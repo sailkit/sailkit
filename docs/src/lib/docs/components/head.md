@@ -40,7 +40,7 @@ styles.
 The `styles` prop accepts an object with three optional properties:
 
 - <strong>global</strong>: Applied to all components in the email
-- <strong>component</strong>: Applied to specific SailKit components (like
+- <strong>components</strong>: Applied to specific SailKit components (like
   'text', 'button', etc.)
 - <strong>custom</strong>: Array of custom CSS rules, with support for regular
   and inline styles (can be referenced by components via their class prop)
@@ -51,10 +51,22 @@ The `styles` prop accepts an object with three optional properties:
 <Head
   subject="Welcome"
   styles={{
-    global: 'font-family="Arial, sans-serif"',
+    global: {
+      fontFamily: "Arial, sans-serif",
+      backgroundColor: "#ffffff",
+      textAlign: "center"
+    },
     components: {
-      text: 'color="#333333" line-height="1.5"',
-      button: 'background-color="#007bff" color="#ffffff"'
+      text: {
+        color: "#333333",
+        lineHeight: "1.5",
+        fontSize: "16px"
+      },
+      button: {
+        backgroundColor: "#007bff",
+        color: "#ffffff",
+        borderRadius: "4px"
+      }
     },
     custom: [
       // Regular CSS (not inlined)
@@ -100,10 +112,19 @@ export const brandTheme = createTheme({
   ],
   breakpoint: "480px",
   styles: {
-    global: 'font-family="Roboto, sans-serif"',
+    global: {
+      fontFamily: "Roboto, sans-serif",
+      backgroundColor: "#f8f9fa"
+    },
     components: {
-      text: 'color="#333333"',
-      button: 'background-color="#007bff"'
+      text: {
+        color: "#333333",
+        fontSize: "16px"
+      },
+      button: {
+        backgroundColor: "#007bff",
+        color: "#ffffff"
+      }
     },
     custom: [
       ".header { font-size: 24px; }",
@@ -127,7 +148,12 @@ properties:
   // Optional: Override specific theme properties
   styles={{
     components: {
-      button: 'background-color="#ff0000"' // This will override the theme's button color
+      button: {
+        backgroundColor: "#ff0000" // This will override the theme's button color
+      },
+      text: {
+        fontSize: "18px" // This will override the theme's text font size
+      }
     }
   }}
 />
@@ -136,7 +162,7 @@ properties:
 When using themes:
 
 - Individual props can override theme properties when needed
-- Component styles are merged (individual props override theme styles)
+- Component styles are merged with theme styles, where individual props override matching theme properties
 - Custom styles from both theme and props are concatenated
 - The `createTheme` utility ensures type safety for your theme configuration
 

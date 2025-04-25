@@ -39,7 +39,7 @@
   import type { Properties } from 'csstype';
   import type { CustomProperties } from '$lib/types.js';
 
-  interface Props {
+  export interface ColumnProps {
     children?: Snippet;
     /** Background color of the column */
     backgroundColor?: Properties['backgroundColor'];
@@ -111,7 +111,7 @@
     paddingTop,
     verticalAlign,
     width
-  }: Props = $props();
+  }: ColumnProps = $props();
 
   const mjmlColumnTag = 'mj-column';
 

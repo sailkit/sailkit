@@ -39,7 +39,7 @@
   import type { Properties } from 'csstype';
   import type { CustomProperties } from '$lib/types.js';
 
-  interface Props {
+  export interface BodyProps {
     children?: Snippet;
     /** The background color of the email body. Accepts any valid CSS color value (default: #ffffff) */
     backgroundColor?: Properties['backgroundColor'];
@@ -49,7 +49,7 @@
     class?: string;
   }
 
-  const { children, backgroundColor, width, class: cssClass }: Props = $props();
+  const { children, backgroundColor, width, class: cssClass }: BodyProps = $props();
 
   const mjmlBodyTag = 'mj-body';
 

@@ -38,7 +38,7 @@
   import type { Properties } from 'csstype';
   import type { CustomProperties } from '$lib/types.js';
 
-  interface Props {
+  export interface TextProps {
     children?: Snippet;
     /** Horizontal alignment (default: left) */
     align?: 'left' | 'right' | 'center' | 'justify';
@@ -98,7 +98,7 @@
     paddingTop,
     textDecoration,
     textTransform
-  }: Props = $props();
+  }: TextProps = $props();
 
   const mjmlTextTag = 'mj-text';
 

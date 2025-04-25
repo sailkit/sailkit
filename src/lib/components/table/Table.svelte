@@ -51,7 +51,7 @@
   import type { Properties } from 'csstype';
   import type { CustomProperties } from '$lib/types.js';
 
-  interface Props {
+  export interface TableProps {
     children?: Snippet;
     /** Horizontal alignment of the table (default: left) */
     align?: 'left' | 'right' | 'center';
@@ -111,7 +111,7 @@
     role,
     tableLayout,
     width
-  }: Props = $props();
+  }: TableProps = $props();
 
   const mjmlTableTag = 'mj-table';
 

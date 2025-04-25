@@ -42,9 +42,13 @@ describe('Core Components', () => {
         ],
         breakpoint: '480px' as const,
         styles: {
-          global: 'font-family="Open Sans"',
+          global: {
+            fontFamily: 'Open Sans'
+          },
           components: {
-            text: 'color="#333333"'
+            text: {
+              color: '#333333'
+            }
           },
           custom: [
             // Regular CSS (not inlined)
@@ -88,44 +92,6 @@ describe('Core Components', () => {
       expectedElements.forEach((element) => {
         expect(result).toContain(element);
       });
-    });
-
-    it('validates properties syntax for global styles', () => {
-      const validProps = {
-        subject: 'Valid Global',
-        styles: { global: 'font-family="Arial" color="#ff0000"' }
-      };
-      const invalidProps = {
-        subject: 'Invalid Global',
-        styles: { global: 'font-family=Arial color="#ff0000"' } // Missing quotes
-      };
-
-      expect(() => renderSvelteComponent(Head, validProps)).not.toThrow();
-
-      expect(() => renderSvelteComponent(Head, invalidProps)).toThrowError(
-        new ValidationError(
-          'Invalid property format in Head global styles: "font-family=Arial color=\"#ff0000\"" (Expected format: attribute="value" ...)'
-        )
-      );
-    });
-
-    it('validates properties syntax for component styles', () => {
-      const validProps = {
-        subject: 'Valid Component',
-        styles: { components: { text: 'font-size="12px"' } }
-      };
-      const invalidProps = {
-        subject: 'Invalid Component',
-        styles: { components: { button: 'background-color: #000;' } }
-      };
-
-      expect(() => renderSvelteComponent(Head, validProps)).not.toThrow();
-
-      expect(() => renderSvelteComponent(Head, invalidProps)).toThrowError(
-        new ValidationError(
-          'Invalid property format in Head "button" styles: "background-color: #000;" (Expected format: attribute="value" ...)'
-        )
-      );
     });
   });
 

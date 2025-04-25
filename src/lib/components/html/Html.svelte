@@ -36,7 +36,7 @@
 
   import type { Snippet } from 'svelte';
 
-  interface Props {
+  export interface HtmlProps {
     children?: Snippet;
     /** Text direction for the email (default: ltr) */
     dir?: 'auto' | 'ltr' | 'rtl';
@@ -48,7 +48,7 @@
 
   const mjmlTag = 'mjml';
 
-  const { children, dir = 'ltr', language = 'en', owa = false }: Props = $props();
+  const { children, dir = 'ltr', language = 'en', owa = false }: HtmlProps = $props();
 </script>
 
 {@html `<${mjmlTag} lang="${language}" dir="${dir}" owa="${owa && 'desktop'}">`}

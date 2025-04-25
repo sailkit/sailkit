@@ -26,7 +26,7 @@
   import type { Properties } from 'csstype';
   import type { CustomProperties } from '$lib/types.js';
 
-  interface Props {
+  export interface DividerProps {
     /** Horizontal alignment of the divider (default: center) */
     align?: 'left' | 'right' | 'center';
     /** Color of the divider line (default: #000000) */
@@ -66,7 +66,7 @@
     paddingRight,
     paddingTop,
     width
-  }: Props = $props();
+  }: DividerProps = $props();
 
   const mjmlDividerTag = 'mj-divider';
 

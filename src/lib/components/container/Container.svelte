@@ -39,7 +39,7 @@
   import type { Properties } from 'csstype';
   import type { CustomProperties } from '$lib/types.js';
 
-  interface Props {
+  export interface ContainerProps {
     children?: Snippet;
     /** Background color of the container */
     backgroundColor?: Properties['backgroundColor'];
@@ -108,7 +108,7 @@
     paddingRight,
     paddingTop,
     textAlign
-  }: Props = $props();
+  }: ContainerProps = $props();
 
   const mjmlWrapperTag = 'mj-wrapper';
 
