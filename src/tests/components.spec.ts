@@ -72,9 +72,9 @@ describe('Core Components', () => {
       const expectedElements = [
         '<mj-head>',
         '<mj-raw>',
-        '<meta name="x-apple-disable-message-reformatting">',
-        '<meta name="color-scheme" content="light dark">',
-        '<meta name="supported-color-schemes" content="light dark">',
+        '<meta name="x-apple-disable-message-reformatting"/>',
+        '<meta name="color-scheme" content="light dark"/>',
+        '<meta name="supported-color-schemes" content="light dark"/>',
         '</mj-raw>',
         '<mj-title>Test Email</mj-title>',
         '<mj-preview>Test Preview</mj-preview>',
