@@ -1,6 +1,7 @@
 import { sveltekit } from '@sveltejs/kit/vite';
+import { defineConfig } from 'vite';
 
-const config = {
+export default defineConfig({
   plugins: [sveltekit()],
   test: {
     include: ['src/**/*.{test,spec}.{js,ts}']
@@ -8,6 +9,4 @@ const config = {
   optimizeDeps: {
     include: ['html-minifier-terser']
   }
-};
-
-export default config;
+});
