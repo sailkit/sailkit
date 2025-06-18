@@ -6,7 +6,7 @@
   "main": "./dist/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/n00ki/sailkit.git"
+    "url": "git+https://github.com/sailkit/sailkit.git"
   },
   "homepage": "https://sailkit.xyz",
   "keywords": [
@@ -17,21 +17,15 @@
   ],
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build && pnpm package",
+    "build": "vite build && pnpm run package",
     "preview": "vite preview",
     "package": "svelte-kit sync && svelte-package && publint",
-    "prepublishOnly": "pnpm package",
+    "prepublishOnly": "pnpm run package",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "format": "prettier --write . && pnpm docs:format",
-    "lint": "prettier --check . && eslint . && pnpm docs:lint",
-    "test:unit": "vitest",
-    "test": "pnpm test:unit",
-    "docs:dev": "pnpm --filter ./docs dev",
-    "docs:build": "pnpm --filter ./docs build",
-    "docs:preview": "pnpm --filter ./docs preview",
-    "docs:lint": "pnpm --filter ./docs lint",
-    "docs:format": "pnpm --filter ./docs format"
+    "format": "prettier --write .",
+    "lint": "prettier --check . && eslint .",
+    "test": "vitest"
   },
   "files": [
     "dist",
@@ -78,7 +72,6 @@
     "mjml": "^4.15.3",
     "prettier": "^3.5.3",
     "prettier-plugin-svelte": "^3.4.0",
-    "prettier-plugin-tailwindcss": "^0.6.12",
     "publint": "^0.3.12",
     "svelte-check": "^4.2.1",
     "typescript": "^5.8.3",

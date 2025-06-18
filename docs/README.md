@@ -1,1 +1,0 @@
-# ⛵ SailKit docs
