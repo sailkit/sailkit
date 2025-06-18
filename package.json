@@ -25,7 +25,8 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "format": "prettier --write .",
     "lint": "prettier --check . && eslint .",
-    "test": "vitest"
+    "test": "vitest",
+    "prepare": "husky"
   },
   "files": [
     "dist",
@@ -69,6 +70,8 @@
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-svelte": "^3.9.2",
     "globals": "^16.2.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
     "mjml": "^4.15.3",
     "prettier": "^3.5.3",
     "prettier-plugin-svelte": "^3.4.0",
@@ -84,6 +87,9 @@
     "html-minifier-terser": "^7.2.0",
     "html-to-text": "^9.0.5",
     "pretty": "^2.0.0"
+  },
+  "lint-staged": {
+    "*": "pnpm lint"
   },
   "license": "MIT"
 }
