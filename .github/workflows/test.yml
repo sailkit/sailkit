@@ -32,4 +32,4 @@ jobs:
 
       # Run tests
       - name: Run tests
-        run: pnpm test:unit
+        run: pnpm test
