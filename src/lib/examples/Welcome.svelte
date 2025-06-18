@@ -16,7 +16,6 @@
     firstName: string;
     companyName: string;
     contactEmail: string;
-    userName: string;
   }
 
   const {
