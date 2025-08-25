@@ -89,7 +89,10 @@
     "pretty": "^2.0.0"
   },
   "lint-staged": {
-    "*": "pnpm lint"
+    "*": [
+      "prettier --check",
+      "eslint"
+    ]
   },
   "license": "MIT"
 }
