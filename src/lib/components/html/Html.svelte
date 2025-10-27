@@ -49,8 +49,12 @@
   const mjmlTag = 'mjml';
 
   const { children, dir = 'ltr', language = 'en', owa = false }: HtmlProps = $props();
+
+  const attributes = [`lang="${language}"`, `dir="${dir}"`, owa ? 'owa="desktop"' : undefined]
+    .filter(Boolean)
+    .join(' ');
 </script>
 
-{@html `<${mjmlTag} lang="${language}" dir="${dir}" owa="${owa && 'desktop'}">`}
+{@html `<${mjmlTag} ${attributes}>`}
 {@render children?.()}
 {@html `</${mjmlTag}>`}
