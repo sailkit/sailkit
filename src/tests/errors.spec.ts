@@ -109,6 +109,15 @@ describe('Error Handling in Rendering Pipeline', () => {
       const result = extractMJMLMarkup(validMjml);
       expect(result).toBe(validMjml);
     });
+
+    it('strips HTML comments from MJML markup', () => {
+      const withComments =
+        '<mjml><!-- comment --><mj-body><mj-text>Test</mj-text></mj-body></mjml>';
+      const result = extractMJMLMarkup(withComments);
+
+      expect(result).not.toContain('<!--');
+      expect(result).toBe('<mjml><mj-body><mj-text>Test</mj-text></mj-body></mjml>');
+    });
   });
 
   describe('convertMJMLToHTML', () => {
