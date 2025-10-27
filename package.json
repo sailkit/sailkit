@@ -26,7 +26,7 @@
     "format": "prettier --write .",
     "lint": "prettier --check . && eslint .",
     "test": "vitest",
-    "prepare": "husky"
+    "prepare": "pnpm dlx simple-git-hooks"
   },
   "files": [
     "dist",
@@ -70,7 +70,6 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-svelte": "^3.11.0",
     "globals": "^16.3.0",
-    "husky": "^9.1.7",
     "lint-staged": "^16.1.5",
     "mjml": "^4.15.3",
     "prettier": "^3.6.2",
@@ -87,6 +86,9 @@
     "html-minifier-terser": "^7.2.0",
     "html-to-text": "^9.0.5",
     "pretty": "^2.0.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm dlx lint-staged"
   },
   "lint-staged": {
     "*": [
