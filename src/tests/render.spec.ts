@@ -80,5 +80,8 @@ describe('renderComponentAsEmailTemplate', () => {
       expect(result1.plainText).not.toContain(tag);
       expect(result2.plainText).not.toContain(tag);
     });
+
+    expect(result1.plainText).not.toContain('<mj-');
+    expect(result2.plainText).not.toContain('<mj-');
   });
 });

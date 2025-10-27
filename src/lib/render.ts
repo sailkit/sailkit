@@ -75,7 +75,7 @@ async function processEmailTemplate<Props extends ComponentProps<Component>>(
   const mjmlMarkup = extractMJMLMarkup(rawHtml);
   const { html: processedHtml } = await convertMJMLToHTML(mjmlMarkup);
   const finalHtml = await postProcessHTML(processedHtml, options);
-  const plainText = options.plainText ? renderPlainText(rawHtml) : '';
+  const plainText = options.plainText ? renderPlainText(finalHtml) : '';
 
   return { html: finalHtml, plainText };
 }

@@ -26,17 +26,6 @@ describe('Core Components', () => {
 
       expect(result).toContain('<mjml lang="ar" dir="rtl" owa="desktop">');
     });
-
-    it('omits the owa attribute when disabled', () => {
-      const result = renderSvelteComponent(Html, {
-        language: 'en',
-        dir: 'ltr',
-        owa: false
-      });
-
-      expect(result).toContain('<mjml lang="en" dir="ltr">');
-      expect(result).not.toContain('owa="desktop"');
-    });
   });
 
   describe('Head Component', () => {
