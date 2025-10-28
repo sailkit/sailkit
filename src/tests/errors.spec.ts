@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach, type MockInstance } from 'vitest';
 import {
   renderSvelteComponent,
   extractMJMLMarkup,
@@ -74,7 +74,7 @@ describe('Error Classes', () => {
 
 describe('Error Handling in Rendering Pipeline', () => {
   // Suppress console errors during tests
-  let consoleErrorSpy: ReturnType<typeof vi.spyOn>;
+  let consoleErrorSpy: MockInstance;
 
   beforeEach(() => {
     consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
