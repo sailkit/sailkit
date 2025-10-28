@@ -17,9 +17,9 @@
   ],
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build && pnpm run prepack",
+    "build": "vite build && bun run prepack",
     "preview": "vite preview",
-    "prepare": "svelte-kit sync || echo '' && pnpm dlx simple-git-hooks",
+    "prepare": "svelte-kit sync || echo '' && bun x simple-git-hooks",
     "prepack": "svelte-kit sync && svelte-package && publint",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -87,12 +87,12 @@
     "pretty": "^2.0.0"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm dlx lint-staged"
+    "pre-commit": "bun x lint-staged"
   },
   "lint-staged": {
-    "*": [
-      "prettier --check",
-      "eslint"
+    "*.{js,ts,svelte,json,md}": [
+      "prettier --write",
+      "eslint --fix"
     ]
   },
   "license": "MIT"
