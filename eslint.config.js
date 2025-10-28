@@ -41,7 +41,13 @@ export default ts.config(
   {
     rules: {
       'svelte/no-at-html-tags': 'off',
-      '@typescript-eslint/no-explicit-any': 'off'
+      '@typescript-eslint/no-explicit-any': 'off',
+      'svelte/no-navigation-without-resolve': [
+        'error',
+        {
+          ignoreLinks: true
+        }
+      ]
     }
   }
 );
