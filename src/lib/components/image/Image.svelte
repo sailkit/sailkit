@@ -37,7 +37,7 @@
   import type { Properties } from 'csstype';
   import type { CustomProperties } from '$lib/types.js';
   import { dev } from '$app/environment';
-  import { base } from '$app/paths';
+  import { resolve } from '$app/paths';
 
   export interface ImageProps {
     /** Horizontal alignment of the image (default: center) */
@@ -125,10 +125,10 @@
 
   const mjmlImageTag = 'mj-image';
 
-  // Construct absolute URL if in development and src exists
-  const resolvedSrc = dev && src ? `${base}${src}` : src;
+  // Only resolve local paths in development, not external URLs
+  const isExternalUrl = src?.startsWith('http://') || src?.startsWith('https://');
+  const resolvedSrc = dev && src && !isExternalUrl ? resolve(src as any) : src;
 
-  // Use the resolvedSrc directly
   const imageSrc = `src="${resolvedSrc}"`;
 
   const attributes = [

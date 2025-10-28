@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { extractMJMLMarkup, renderSvelteComponent } from '$lib/render.js';
-import { base } from '$app/paths';
+import { resolve } from '$app/paths';
 
 import Html from './components/HtmlTest.svelte';
 import Head from './components/HeadTest.svelte';
@@ -364,7 +364,7 @@ describe('Core Components', () => {
 
     it('handles local image paths during development', () => {
       const envState = process.env.NODE_ENV;
-      const localSrc = 'src/lib/assets/local-image.png';
+      const localSrc = resolve('/src/lib/assets/local-image.png' as any);
 
       // Mock the dev environment
       process.env.NODE_ENV = 'development';
@@ -375,7 +375,7 @@ describe('Core Components', () => {
       const resultDevelopment = extractMJMLMarkup(markup1);
 
       // Local path should be converted to absolute URL in development
-      expect(resultDevelopment).toContain(`<mj-image src="${base}${localSrc}" width="600px" />`);
+      expect(resultDevelopment).toContain(`<mj-image src="${localSrc}" width="600px" />`);
 
       // Mock the production environment
       process.env.NODE_ENV = 'production';
@@ -565,7 +565,7 @@ describe('Core Components', () => {
 
     it('handles local icon paths during development', () => {
       const envState = process.env.NODE_ENV;
-      const localSrc = 'src/lib/assets/local-icon.png';
+      const localSrc = '/src/lib/assets/local-icon.png';
 
       // Mock the dev environment
       process.env.NODE_ENV = 'development';
@@ -574,7 +574,7 @@ describe('Core Components', () => {
 
       // Local path should be converted to absolute URL in development
       expect(resultDevelopment).toContain(
-        `<mj-social-element name="example" alt="Local Icon" href="https://example.com" src="${base}${localSrc}"> Local Icon Test </mj-social-element>`
+        `<mj-social-element name="example" alt="Local Icon" href="https://example.com" src="${localSrc}"> Local Icon Test </mj-social-element>`
       );
 
       // Mock the production environment

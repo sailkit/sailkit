@@ -38,7 +38,7 @@
   import type { Properties } from 'csstype';
   import type { CustomProperties } from '$lib/types.js';
   import { dev } from '$app/environment';
-  import { base } from '$app/paths';
+  import { resolve } from '$app/paths';
 
   type SocialNetwork =
     | 'facebook'
@@ -156,8 +156,9 @@
 
   const mjmlSocialElementTag = 'mj-social-element';
 
-  // Construct absolute URL if in development and src exists
-  const iconSrc = dev && src ? `${base}${src}` : src;
+  // Only resolve local paths in development, not external URLs
+  const isExternalUrl = src?.startsWith('http://') || src?.startsWith('https://');
+  const iconSrc = dev && src && !isExternalUrl ? resolve(src as any) : src;
 
   const attributes = [
     name && `name="${networkName}"`,
