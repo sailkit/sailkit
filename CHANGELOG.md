@@ -5,6 +5,25 @@ Headlines: Added, Changed, Deprecated, Removed, Fixed, Security
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.4] - 2025-10-28
+
+### Changed
+
+- Improved plain text pipeline to operate on final HTML
+- Migrated from pnpm to bun as package manager
+- Migrated from husky to simple-git-hooks for pre-commit hooks
+- Improved Vite configuration
+- Improved pre-commit hook setup
+- Updated GitHub Actions workflow
+- Added missing tests
+- General maintenance & improvements
+
+### Fixed
+
+- Fixed local image/icon paths issue during development
+- Fixed deprecated `base` usage, now using `resolve` instead
+- Fixed OWA attribute handling to only pass valid values
+
 ## [0.3.3] - 2025-06-18
 
 ### Changed
