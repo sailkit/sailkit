@@ -157,7 +157,11 @@
   const mjmlSocialElementTag = 'mj-social-element';
 
   // Only resolve local paths in development, not external URLs
-  const isExternalUrl = src?.startsWith('http://') || src?.startsWith('https://');
+  const isExternalUrl =
+    src?.startsWith('http://') ||
+    src?.startsWith('https://') ||
+    src?.startsWith('cid:') ||
+    src?.startsWith('data:');
   const iconSrc = dev && src && !isExternalUrl ? resolve(src as any) : src;
 
   const attributes = [

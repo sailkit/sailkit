@@ -126,7 +126,11 @@
   const mjmlImageTag = 'mj-image';
 
   // Only resolve local paths in development, not external URLs
-  const isExternalUrl = src?.startsWith('http://') || src?.startsWith('https://');
+  const isExternalUrl =
+    src?.startsWith('http://') ||
+    src?.startsWith('https://') ||
+    src?.startsWith('cid:') ||
+    src?.startsWith('data:');
   const resolvedSrc = dev && src && !isExternalUrl ? resolve(src as any) : src;
 
   const imageSrc = `src="${resolvedSrc}"`;
