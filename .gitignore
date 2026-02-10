@@ -30,3 +30,9 @@ docs/.env.*
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# AI
+/.agents
+AGENTS.md
+CLAUDE.md
+opencode.json
